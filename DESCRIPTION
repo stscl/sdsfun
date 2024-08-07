@@ -1,13 +1,16 @@
 Package: sdsfun
-Title: What the Package Does (One Line, Title Case)
+Title: A collection of useful spatial data science functions for R
 Version: 0.0.0.9000
 Authors@R: 
     person("Wenbo", "Lv", , "lyu.geosocial@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0002-6003-3800"))
-Description: What the package does (one paragraph).
+Description: Collect functions that summarize common operations of R packages 
+             (such as sf and terra packages) related to spatial data science.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
-    sf
+    magrittr,
+    sf,
+    spData

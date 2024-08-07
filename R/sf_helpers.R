@@ -8,8 +8,8 @@
 #' @export
 #'
 #' @examples
-#' data("income")
-#' st_geometry_name(income)
+#' nz = spData::nz
+#' sf_geometry_name(nz)
 #'
 sf_geometry_name = \(sfj){
   gname = attr(sfj, "sf_column")
@@ -20,16 +20,14 @@ sf_geometry_name = \(sfj){
 #' @description
 #' Get the geometry type of an sf object
 #'
+#' @param sfj An `sf` object.
 #'
-#'
-#' @param sfj
-#'
-#' @return A character
+#' @return A lowercase character vector
 #' @export
 #'
 #' @examples
-#' data("income")
-#' check_geometry_type(income)
+#' nz = spData::nz
+#' sf_geometry_type(nz)
 #'
 sf_geometry_type = \(sfj){
   sfj_type = sfj %>%
