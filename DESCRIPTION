@@ -12,5 +12,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
     magrittr,
-    sf,
+    sf
+Suggests: 
     spData
