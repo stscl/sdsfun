@@ -1,3 +1,5 @@
+#' contiguity spatial weights
+#' @noRd
 .spwt_contiguity = \(sfj,
                      order = 1L,
                      style = 'W',

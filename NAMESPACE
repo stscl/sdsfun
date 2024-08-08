@@ -3,4 +3,5 @@
 export("%>%")
 export(sf_geometry_name)
 export(sf_geometry_type)
+export(sf_voronoi_diagram)
 importFrom(magrittr,"%>%")
