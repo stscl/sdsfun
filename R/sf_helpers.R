@@ -53,18 +53,23 @@ sf_geometry_type = \(sfj){
 #' @examples
 #' library(sf)
 #' pts = read_sf(system.file('extdata/pts.geojson',package = 'sdsfun'))
-#' sf_voronoi_diagram(pts)
+#' pts_v = sf_voronoi_diagram(pts)
 #'
 sf_voronoi_diagram = \(sfj){
   if (!(sf_geometry_type(sfj) %in% c('point','multipoint'))){
     stop("Only (multi-)point vector objects are supported to generate voronoi diagram")
   }
 
-  sfj_voronoi = sfj %>%
-    sf::st_geometry() %>%
-    sf::st_union() %>%
-    sf::st_voronoi() %>%
-    sf::st_collection_extract()
+  suppressWarnings({
+   sfj_voronoi = sfj %>%
+     sf::st_geometry() %>%
+     sf::st_union() %>%
+     sf::st_voronoi() %>%
+     sf::st_collection_extract() %>%
+     sf::st_sf(geometry = .) %>%
+     tibble::as_tibble() %>%
+     sf::st_as_sf()
+   })
 
   return(sfj_voronoi)
 }
