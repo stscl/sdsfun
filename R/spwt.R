@@ -14,10 +14,10 @@
 #' contiguity based spatial weights
 #' @noRd
 .spwt_contiguity = \(sfj,
-                     order = 1L,
-                     style = 'W',
                      queen = TRUE,
+                     order = 1L,
                      cumulate = TRUE,
+                     style = 'W',
                      zero.policy = TRUE){
   .check_spwt()
 
@@ -44,7 +44,9 @@
 #' distance based spatial weights
 #' @noRd
 .spwt_distance = \(sfj,
-                   k = 6){
+                   k = 6,
+                   style = 'W',
+                   zero.policy = TRUE){
   .check_spwt()
 
   if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
