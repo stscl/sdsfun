@@ -19,7 +19,7 @@
                      cumulate = TRUE,
                      style = 'W',
                      zero.policy = TRUE){
-  .check_spwt()
+  .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('point','multipoint')){
     sfj = sf_voronoi_diagram(sfj)
@@ -47,7 +47,7 @@
                    k = 6,
                    style = 'W',
                    zero.policy = TRUE){
-  .check_spwt()
+  .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
     sfj = sf::st_point_on_surface(sfj)
