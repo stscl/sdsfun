@@ -38,3 +38,31 @@ sf_geometry_type = \(sfj){
     unique()
   return(tolower(sfj_type))
 }
+
+#' @title generates voronoi diagram
+#' @description
+#' Generates Voronoi diagram (Thiessen polygons) for sf object
+#' @note
+#' Only sf objects of (multi-)point type are supported to generate voronoi diagram
+#'
+#' @param sfj An `sf` object.
+#'
+#' @return An `sf` object of polygon geometry type.
+#' @export
+#'
+#' @examples
+#'
+#'
+sf_voronoi_diagram = \(sfj){
+  if (!(sf_geometry_type(sfj) %in% c('point','multipoint'))){
+    stop("Only (multi-)point vector objects are supported to generate voronoi diagram")
+  }
+
+  sfj_voronoi = sfj %>%
+    sf::st_geometry() %>%
+    sf::st_union() %>%
+    sf::st_voronoi() %>%
+    sf::st_collection_extract()
+
+  return(sfj_voronoi)
+}
