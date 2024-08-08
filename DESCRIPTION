@@ -15,4 +15,4 @@ Imports:
     sf
 Suggests: 
     spData
-URL: https://spatlyu.github.io/sdsfun/
+URL: https://spatlyu.github.io/sdsfun, https://github.com/SpatLyu/sdsfun
