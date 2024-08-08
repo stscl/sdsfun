@@ -25,7 +25,7 @@
     if (cumulate){
       sfj_nb = spdep::nblag_cumul(sfj_nb_highorder)
     } else {
-      sfj_nb = sfj_nb_highorder
+      sfj_nb = sfj_nb_highorder[[order]]
     }
   }
 
