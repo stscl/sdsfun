@@ -17,3 +17,4 @@ reference:
   contents:
   - sf_geometry_name
   - sf_geometry_type
+  - sf_voronoi_diagram

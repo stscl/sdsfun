@@ -59,7 +59,6 @@ sf_geometry_type = \(sfj){
 #' plot(pts_v, col = NA, border = 'red')
 #' plot(st_geometry(pts),col = 'blue',cex = .5, add = T)
 #'
-#'
 sf_voronoi_diagram = \(sfj){
   if (!(sf_geometry_type(sfj) %in% c('point','multipoint'))){
     stop("Only (multi-)point vector objects are supported to generate voronoi diagram")
