@@ -25,6 +25,6 @@ pts = read_sf(system.file('extdata/pts.geojson',package = 'sdsfun'))
 pts_v = sf_voronoi_diagram(pts)
 
 plot(pts_v, col = NA, border = 'red')
-plot(st_geometry(pts),col = 'blue',cex = .5, add = T)
+plot(st_geometry(pts),col = 'blue',cex = .5, add = TRUE)
 
 }
