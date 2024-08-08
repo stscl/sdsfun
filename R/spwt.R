@@ -1,11 +1,6 @@
-#' contiguity spatial weights
+#' check sf object geometry type that spwt supported
 #' @noRd
-.spwt_contiguity = \(sfj,
-                     order = 1L,
-                     style = 'W',
-                     queen = TRUE,
-                     cumulate = TRUE,
-                     zero.policy = TRUE){
+.check_spwt = \(sfj){
   if (!inherits(sfj,'sf')){
     stop('sfj must be an sf object')
   }
@@ -14,6 +9,17 @@
                                      'polygon','multipolygon'))){
     stop("Only (multi-)point and (multi-)polygon vector objects are supported")
   }
+}
+
+#' contiguity based spatial weights
+#' @noRd
+.spwt_contiguity = \(sfj,
+                     order = 1L,
+                     style = 'W',
+                     queen = TRUE,
+                     cumulate = TRUE,
+                     zero.policy = TRUE){
+  .check_spwt()
 
   if (sf_geometry_type(sfj) %in% c('point','multipoint')){
     sfj = sf_voronoi_diagram(sfj)
@@ -28,6 +34,27 @@
       sfj_nb = sfj_nb_highorder[[order]]
     }
   }
+
+  sfj_wt = spdep::nb2mat(sfj_nb, style = style,
+                         zero.policy = zero.policy)
+
+  return(sfj_wt)
+}
+
+#' distance based spatial weights
+#' @noRd
+.spwt_distance = \(sfj,
+                   k = 6){
+  .check_spwt()
+
+  if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
+    sfj = sf::st_point_on_surface(sfj)
+  } else if (sf_geometry_type(sfj) == 'polygon') {
+    sfj = sf::st_centroid(sfj)
+  }
+
+  nb_knn = spdep::knearneigh(sf::st_coordinates(sfj), k = k)
+  sfj_nb = spdep::knn2nb(nb_knn)
 
   sfj_wt = spdep::nb2mat(sfj_nb, style = style,
                          zero.policy = zero.policy)
