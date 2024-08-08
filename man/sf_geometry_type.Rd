@@ -16,7 +16,8 @@ A lowercase character vector
 Get the geometry type of an sf object
 }
 \examples{
-nz = spData::nz
-sf_geometry_type(nz)
+library(sf)
+snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
+sf_geometry_type(snnu)
 
 }

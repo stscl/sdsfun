@@ -16,7 +16,8 @@ A character.
 Get the geometry column name of an sf object
 }
 \examples{
-nz = spData::nz
-sf_geometry_name(nz)
+library(sf)
+snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
+sf_geometry_name(snnu)
 
 }
