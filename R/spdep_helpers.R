@@ -1,5 +1,5 @@
 #' @title generates sppatial weight matrix
-#' @details
+#' @description
 #' Generates a spatial weight matrix based on contiguity or distance via `spdep` package.
 #'
 #' @param sfj An sf object.
@@ -9,7 +9,7 @@
 #' contiguity based spatial weights; Otherwise distance based spatial weights are used.
 #' @param order (optional) The order of the adjacency object. Default is `1`.
 #' @param cumulate (optional) Whether to accumulate adjacency objects. Default is `TRUE`.
-#' @param style (optional) `style` can take values W, B, C, and S. More to see
+#' @param style (optional) `style` can take values `W`, `B`, `C`, and `S`. More to see
 #' `spdep::nb2mat()`. Default is `W`.
 #' @param zero.policy (optional)  if `FALSE` stop with error for any empty neighbour sets,
 #' if `TRUE` permit the weights list to be formed with zero-length weights vectors. Default

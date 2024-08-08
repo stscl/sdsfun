@@ -27,7 +27,7 @@ contiguity based spatial weights; Otherwise distance based spatial weights are u
 
 \item{cumulate}{(optional) Whether to accumulate adjacency objects. Default is \code{TRUE}.}
 
-\item{style}{(optional) \code{style} can take values W, B, C, and S. More to see
+\item{style}{(optional) \code{style} can take values \code{W}, \code{B}, \code{C}, and \code{S}. More to see
 \code{spdep::nb2mat()}. Default is \code{W}.}
 
 \item{zero.policy}{(optional)  if \code{FALSE} stop with error for any empty neighbour sets,
@@ -38,9 +38,6 @@ is \code{TRUE}.}
 A matrix
 }
 \description{
-generates sppatial weight matrix
-}
-\details{
 Generates a spatial weight matrix based on contiguity or distance via \code{spdep} package.
 }
 \examples{
