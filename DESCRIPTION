@@ -15,4 +15,6 @@ Imports:
     sf
 Suggests: 
     spData
+Depends: 
+    R (>= 4.1.0)
 URL: https://spatlyu.github.io/sdsfun, https://github.com/SpatLyu/sdsfun
