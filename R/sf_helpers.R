@@ -8,8 +8,9 @@
 #' @export
 #'
 #' @examples
-#' nz = spData::nz
-#' sf_geometry_name(nz)
+#' library(sf)
+#' snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
+#' sf_geometry_name(snnu)
 #'
 sf_geometry_name = \(sfj){
   gname = attr(sfj, "sf_column")
@@ -26,8 +27,9 @@ sf_geometry_name = \(sfj){
 #' @export
 #'
 #' @examples
-#' nz = spData::nz
-#' sf_geometry_type(nz)
+#' library(sf)
+#' snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
+#' sf_geometry_type(snnu)
 #'
 sf_geometry_type = \(sfj){
   sfj_type = sfj %>%
