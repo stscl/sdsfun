@@ -16,7 +16,8 @@ Depends:
     R (>= 4.1.0)
 Imports: 
     magrittr,
-    sf
+    sf,
+    spdep
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
