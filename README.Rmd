@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# sdsfun <img src="man/figures/logo.png" align="right"/>
+# sdsfun <img src="man/figures/logo.png" align="right" height="120"/>
 
 <!-- badges: start -->
 [![CRAN](https://www.r-pkg.org/badges/version/sdsfun)](https://CRAN.R-project.org/package=sdsfun) [![r-universe](https://spatlyu.r-universe.dev/badges/sdsfun)](https://spatlyu.r-universe.dev/sdsfun)
