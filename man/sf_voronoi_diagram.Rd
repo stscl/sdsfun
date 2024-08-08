@@ -24,7 +24,11 @@ library(sf)
 pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 pts_v = sf_voronoi_diagram(pts)
 
-plot(pts_v, col = NA, border = 'red')
-plot(st_geometry(pts),col = 'blue',cex = .5, add = TRUE)
+library(ggplot2)
+ggplot() +
+  geom_sf(data = pts_v, color = 'red',
+          fill = 'transparent') +
+  geom_sf(data = pts, color = 'blue', size = 1.25) +
+  theme_void()
 
 }
