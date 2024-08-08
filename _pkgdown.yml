@@ -1,4 +1,13 @@
 url: https://spatlyu.github.io/sdsfun/
 template:
   bootstrap: 5
+  bootswatch: spacelab
+  math-rendering: mathjax
+  light-switch: true
 
+home:
+  title: |
+    sdsfun | Functions for Spatial Data Science
+authors:
+  Wenbo Lv:
+    href: https://spatlyu.github.io/
