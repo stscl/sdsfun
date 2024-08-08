@@ -1,10 +1,10 @@
 Package: sdsfun
-Title: A collection of useful spatial data science functions for R
+Title: A collection of useful spatial data science functions
 Version: 0.0.0.9000
 Authors@R: 
     person("Wenbo", "Lv", , "lyu.geosocial@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0002-6003-3800"))
-Description: Collect functions that summarize common operations of R packages 
+Description: Miscellaneous functions that summarize common operations of R packages 
              (such as sf and terra packages) related to spatial data science.
 License: GPL-3
 Encoding: UTF-8
