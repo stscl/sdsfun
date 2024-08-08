@@ -19,7 +19,6 @@ reference:
   - sf_geometry_type
   - sf_voronoi_diagram
 
-reference:
 - title: utility functions for spdep package
   contents:
   - spdep_swm
