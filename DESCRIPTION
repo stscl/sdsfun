@@ -8,13 +8,16 @@ Description: Miscellaneous functions that summarize common operations of R packa
              (such as sf and terra packages) related to spatial data science.
 License: GPL-3
 Encoding: UTF-8
+URL: https://spatlyu.github.io/sdsfun, https://github.com/SpatLyu/sdsfun
+BugReports: https://github.com/SpatLyu/sdsfun/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Depends: 
+    R (>= 4.1.0)
 Imports: 
     magrittr,
     sf
 Suggests: 
     spData
-Depends: 
-    R (>= 4.1.0)
-URL: https://spatlyu.github.io/sdsfun, https://github.com/SpatLyu/sdsfun
+
+
