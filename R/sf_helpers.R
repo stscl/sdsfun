@@ -44,6 +44,7 @@ sf_geometry_type = \(sfj){
 #' Generates Voronoi diagram (Thiessen polygons) for sf object
 #' @note
 #' Only sf objects of (multi-)point type are supported to generate voronoi diagram
+#' and the returned result includes only the geometry column.
 #'
 #' @param sfj An `sf` object.
 #'
@@ -54,6 +55,10 @@ sf_geometry_type = \(sfj){
 #' library(sf)
 #' pts = read_sf(system.file('extdata/pts.geojson',package = 'sdsfun'))
 #' pts_v = sf_voronoi_diagram(pts)
+#'
+#' plot(pts_v, col = NA, border = 'red')
+#' plot(st_geometry(pts),col = 'blue',cex = .5, add = T)
+#'
 #'
 sf_voronoi_diagram = \(sfj){
   if (!(sf_geometry_type(sfj) %in% c('point','multipoint'))){
