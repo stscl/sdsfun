@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "bbox_north": 34.1595273, "bbox_south": 34.1505448, "bbox_east": 108.8935465, "bbox_west": 108.8798671, "place_id": 193415202, "osm_type": "way", "osm_id": 246285589, "lat": 34.15527855, "lon": 108.88663126165171, "class": "amenity", "type": "university", "place_rank": 30, "importance": 0.41113533400689056, "addresstype": "amenity", "name": "Shaanxi Normal University (Chang'an Campus)", "display_name": "Shaanxi Normal University (Chang'an Campus), 620, Chang'an West street, Guodu, Chang'an District, Xi'an, Shaanxi, 710119, China" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 108.8798671, 34.1595273 ], [ 108.8799195, 34.1505511 ], [ 108.8824461, 34.1505448 ], [ 108.8824824, 34.1514883 ], [ 108.8837869, 34.1514456 ], [ 108.8931785, 34.1511383 ], [ 108.8935465, 34.1590688 ], [ 108.8896399, 34.159199 ], [ 108.8798671, 34.1595273 ] ] ] } }
+]
+}
