@@ -13,7 +13,7 @@ authors:
     href: https://spatlyu.github.io/
 
 reference:
-- title: Utility Functions for sf object
+- title: utility functions for sf object
   contents:
   - sf_geometry_name
   - sf_geometry_type
