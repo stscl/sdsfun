@@ -1,5 +1,5 @@
 Package: sdsfun
-Title: A collection of useful spatial data science functions
+Title: Functions for Spatial Data Science
 Version: 0.0.0.9000
 Authors@R: 
     person("Wenbo", "Lv", , "lyu.geosocial@gmail.com", role = c("aut", "cre"),
