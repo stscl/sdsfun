@@ -51,7 +51,9 @@ sf_geometry_type = \(sfj){
 #' @export
 #'
 #' @examples
-#'
+#' library(sf)
+#' pts = read_sf(system.file('extdata/pts.geojson',package = 'sdsfun'))
+#' sf_voronoi_diagram(pts)
 #'
 sf_voronoi_diagram = \(sfj){
   if (!(sf_geometry_type(sfj) %in% c('point','multipoint'))){
