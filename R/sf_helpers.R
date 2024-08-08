@@ -53,7 +53,7 @@ sf_geometry_type = \(sfj){
 #'
 #' @examples
 #' library(sf)
-#' pts = read_sf(system.file('extdata/pts.geojson',package = 'sdsfun'))
+#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 #' pts_v = sf_voronoi_diagram(pts)
 #'
 #' plot(pts_v, col = NA, border = 'red')
