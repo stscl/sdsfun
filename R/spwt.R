@@ -73,6 +73,8 @@
 #'
 #' @param sfj Vector object that can be converted to `sf` by `sf::st_as_sf()`.
 #' @param power (optional) Default is 1. Set to 2 for gravity weights.
+#' @param normalize (optional) Whether to further normalizes the constructed weight.
+#' Default is `FALSE`.
 #'
 #' @return A inverse distance weight matrices with class of `matrix`.
 #' @export
@@ -83,7 +85,9 @@
 #' wt = inverse_distance_swm(pts)
 #' wt[1:5,1:5]
 #'
-inverse_distance_swm = \(sfj,power = 1){
+inverse_distance_swm = \(sfj,
+                         power = 1,
+                         normalize = FALSE){
   .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
@@ -103,6 +107,9 @@ inverse_distance_swm = \(sfj,power = 1){
     distij = stats::dist(as.data.frame(coords))
   }
   wij = 1 / distij ^ power
-  wij = apply(wij,1,normalize_vector)
+  if (normalize) {
+    wij = apply(wij,1,normalize_vector)
+  }
+
   return(as.matrix(wij))
 }
