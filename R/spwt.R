@@ -41,12 +41,12 @@
   return(sfj_wt)
 }
 
-#' distance based spatial weights
+#' distance based contiguity to construct spatial weights
 #' @noRd
-.spwt_distance = \(sfj,
-                   k = 6,
-                   style = 'W',
-                   zero.policy = TRUE){
+.spwt_distance_nbswt = \(sfj,
+                         k = 6,
+                         style = 'W',
+                         zero.policy = TRUE){
   .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){

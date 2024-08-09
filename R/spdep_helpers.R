@@ -6,7 +6,8 @@
 #' @param queen (optional) if `TRUE`, using queen contiguity, otherwise rook contiguity.
 #' Default is `TRUE`.
 #' @param k (optional) The number of nearest neighbours. Ignore this parameter when using
-#' contiguity based spatial weights; Otherwise distance based spatial weights are used.
+#' contiguity based spatial weights; Otherwise distance based neighbours are used to construct
+#' spatial weights.
 #' @param order (optional) The order of the adjacency object. Default is `1`.
 #' @param cumulate (optional) Whether to accumulate adjacency objects. Default is `TRUE`.
 #' @param style (optional) `style` can take values `W`, `B`, `C`, and `S`. More to see
@@ -36,7 +37,7 @@ spdep_swm = \(sfj,
   if (is.null(k)){
     spdep_wt = .spwt_contiguity(sfj,queen,order,cumulate,style,zero.policy)
   } else {
-    spdep_wt = .spwt_distance(sfj,k,style,zero.policy)
+    spdep_wt = .spwt_distance_nbswt(sfj,k,style,zero.policy)
   }
   return(spdep_wt)
 }
