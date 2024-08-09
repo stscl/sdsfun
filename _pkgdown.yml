@@ -21,4 +21,4 @@ reference:
 
 - title: utility functions for spdep package
   contents:
-  - spdep_swm
+  - spdep_contiguity_swm
