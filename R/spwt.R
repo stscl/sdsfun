@@ -66,7 +66,7 @@
 
 #' @title construct inverse distance weight
 #' @description
-#' Function for construct inverse distance weight.
+#' Function for constructing inverse distance weight.
 #' @details
 #' The inverse distance weight formula is
 #' \eqn{w_{ij} = 1 / d_{ij}^\alpha}

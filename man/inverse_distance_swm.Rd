@@ -18,7 +18,7 @@ Default is \code{FALSE}.}
 A inverse distance weight matrices with class of \code{matrix}.
 }
 \description{
-Function for construct inverse distance weight.
+Function for constructing inverse distance weight.
 }
 \details{
 The inverse distance weight formula is
