@@ -11,7 +11,7 @@
   }
 }
 
-#' contiguity based spatial weights
+#' polygon contiguity based spatial weights
 #' @noRd
 .spwt_contiguity = \(sfj,
                      queen = TRUE,
