@@ -22,3 +22,7 @@ reference:
 - title: utility functions for spdep package
   contents:
   - spdep_contiguity_swm
+
+- title: utility functions for spatial weight matrices
+  contents:
+  - inverse_distance_swm
