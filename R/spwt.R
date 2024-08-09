@@ -103,5 +103,6 @@ inverse_distance_swm = \(sfj,power = 1){
     distij = stats::dist(as.data.frame(coords))
   }
   wij = 1 / distij ^ power
+  wij = apply(wij,1,normalize_vector)
   return(as.matrix(wij))
 }
