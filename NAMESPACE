@@ -2,8 +2,10 @@
 
 export("%>%")
 export(inverse_distance_swm)
+export(normalize_vector)
 export(sf_geometry_name)
 export(sf_geometry_type)
 export(sf_voronoi_diagram)
 export(spdep_contiguity_swm)
+export(standardize_vector)
 importFrom(magrittr,"%>%")
