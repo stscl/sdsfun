@@ -1,4 +1,4 @@
-#' @title constructs spatial weight matrices
+#' @title constructs spatial weight matrices based on contiguity
 #' @description
 #' Constructs spatial weight matrices based on contiguity via `spdep` package.
 #'
@@ -22,17 +22,17 @@
 #' library(sf)
 #' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 #'
-#' wt1 = spdep_swm(pts, k = 6, style = 'B')
-#' wt2 = spdep_swm(pts, queen = TRUE, style = 'B')
-#' wt2 = spdep_swm(pts, queen = FALSE, order = 2, style = 'B')
+#' wt1 = spdep_contiguity_swm(pts, k = 6, style = 'B')
+#' wt2 = spdep_contiguity_swm(pts, queen = TRUE, style = 'B')
+#' wt2 = spdep_contiguity_swm(pts, queen = FALSE, order = 2, style = 'B')
 #'
-spdep_swm = \(sfj,
-              queen = TRUE,
-              k = NULL,
-              order = 1L,
-              cumulate = TRUE,
-              style = 'W',
-              zero.policy = TRUE){
+spdep_contiguity_swm = \(sfj,
+                         queen = TRUE,
+                         k = NULL,
+                         order = 1L,
+                         cumulate = TRUE,
+                         style = 'W',
+                         zero.policy = TRUE){
   if (is.null(k)){
     spdep_wt = .spwt_contiguity(sfj,queen,order,cumulate,style,zero.policy)
   } else {
