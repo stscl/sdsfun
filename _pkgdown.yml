@@ -26,3 +26,8 @@ reference:
 - title: utility functions for spatial weight matrices
   contents:
   - inverse_distance_swm
+
+- title: other utility functions
+  contents:
+  - normalize_vector
+  - standardize_vector
