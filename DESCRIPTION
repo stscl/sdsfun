@@ -15,9 +15,11 @@ RoxygenNote: 7.3.2
 Depends: 
     R (>= 4.1.0)
 Imports: 
+    geosphere,
     magrittr,
     sf,
     spdep,
+    stats,
     tibble
 Suggests: 
     ggplot2,

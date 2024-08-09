@@ -50,9 +50,9 @@
   .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
-    sfj = sf::st_point_on_surface(sfj)
+    suppressWarnings({sfj = sf::st_point_on_surface(sfj)})
   } else if (sf_geometry_type(sfj) == 'polygon') {
-    sfj = sf::st_centroid(sfj)
+    suppressWarnings({sfj = sf::st_centroid(sfj)})
   }
 
   nb_knn = spdep::knearneigh(sf::st_coordinates(sfj), k = k)
@@ -64,3 +64,27 @@
   return(sfj_wt)
 }
 
+#' calculate inverse distance weight
+#' @noRd
+.inverse_distance_weight = \(sfj,power = 1){
+  .check_spwt(sfj)
+
+  if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
+    suppressWarnings({sfj = sf::st_point_on_surface(sfj)})
+  } else if (sf_geometry_type(sfj) == 'polygon') {
+    suppressWarnings({sfj = sf::st_centroid(sfj)})
+  }
+
+  coords = sfj %>%
+    sf::st_coordinates() %>%
+    {.[,c('X','Y')]}
+
+  is_arc = ifelse(sf::st_is_longlat(sfj),TRUE,FALSE)
+  if (is_arc) {
+    distij = stats::as.dist(geosphere::distm(coords))
+  } else {
+    distij = stats::dist(as.data.frame(coords))
+  }
+  wij = 1 / distij ^ power
+  return(as.matrix(wij))
+}
