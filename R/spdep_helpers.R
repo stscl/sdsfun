@@ -34,9 +34,10 @@ spdep_contiguity_swm = \(sfj,
                          style = 'W',
                          zero.policy = TRUE){
   if (is.null(k)){
-    spdep_wt = .spwt_contiguity(sfj,queen,order,cumulate,style,zero.policy)
+    spdep_wt = .spwt_polygon_contiguity(sfj,queen,order,cumulate,
+                                        style,zero.policy)
   } else {
-    spdep_wt = .spwt_distance_nbswt(sfj,k,style,zero.policy)
+    spdep_wt = .spwt_distance_contiguity(sfj,k,style,zero.policy)
   }
   return(spdep_wt)
 }

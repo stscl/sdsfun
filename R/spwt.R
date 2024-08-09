@@ -13,12 +13,12 @@
 
 #' polygon contiguity based spatial weights
 #' @noRd
-.spwt_contiguity = \(sfj,
-                     queen = TRUE,
-                     order = 1L,
-                     cumulate = TRUE,
-                     style = 'W',
-                     zero.policy = TRUE){
+.spwt_polygon_contiguity = \(sfj,
+                             queen = TRUE,
+                             order = 1L,
+                             cumulate = TRUE,
+                             style = 'W',
+                             zero.policy = TRUE){
   .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('point','multipoint')){
@@ -43,10 +43,10 @@
 
 #' distance based contiguity to construct spatial weights
 #' @noRd
-.spwt_distance_nbswt = \(sfj,
-                         k = 6,
-                         style = 'W',
-                         zero.policy = TRUE){
+.spwt_distance_contiguity = \(sfj,
+                              k = 6,
+                              style = 'W',
+                              zero.policy = TRUE){
   .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
