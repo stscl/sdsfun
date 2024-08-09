@@ -41,3 +41,5 @@ spdep_contiguity_swm = \(sfj,
   }
   return(spdep_wt)
 }
+
+spdep_distance_swm = \(){}

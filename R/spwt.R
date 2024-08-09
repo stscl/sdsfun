@@ -64,9 +64,26 @@
   return(sfj_wt)
 }
 
-#' calculate inverse distance weight
-#' @noRd
-.inverse_distance_weight = \(sfj,power = 1){
+#' @title construct inverse distance weight
+#' @description
+#' Function for construct inverse distance weight.
+#' @details
+#' The inverse distance weight formula is
+#' \eqn{w_{ij} = 1 / d_{ij}^\alpha}
+#'
+#' @param sfj Vector object that can be converted to `sf` by `sf::st_as_sf()`.
+#' @param power (optional) Default is 1. Set to 2 for gravity weights.
+#'
+#' @return A inverse distance weight matrices with class of `matrix`.
+#' @export
+#'
+#' @examples
+#' library(sf)
+#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+#' wt = inverse_distance_swm(pts)
+#' wt[1:5,1:5]
+#'
+inverse_distance_swm = \(sfj,power = 1){
   .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
