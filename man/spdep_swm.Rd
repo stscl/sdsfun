@@ -21,8 +21,7 @@ spdep_swm(
 Default is \code{TRUE}.}
 
 \item{k}{(optional) The number of nearest neighbours. Ignore this parameter when using
-contiguity based spatial weights; Otherwise distance based neighbours are used to construct
-spatial weights.}
+distance based neighbours to construct spatial weights.}
 
 \item{order}{(optional) The order of the adjacency object. Default is \code{1}.}
 
