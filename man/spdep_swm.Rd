@@ -2,7 +2,7 @@
 % Please edit documentation in R/spdep_helpers.R
 \name{spdep_swm}
 \alias{spdep_swm}
-\title{generates sppatial weight matrix}
+\title{constructs spatial weight matrices}
 \usage{
 spdep_swm(
   sfj,
@@ -20,8 +20,8 @@ spdep_swm(
 \item{queen}{(optional) if \code{TRUE}, using queen contiguity, otherwise rook contiguity.
 Default is \code{TRUE}.}
 
-\item{k}{(optional) The number of nearest neighbours. Ignore this parameter when using
-distance based neighbours to construct spatial weights.}
+\item{k}{(optional) The number of nearest neighbours. Ignore this parameter when not
+using distance based neighbours to construct spatial weight matrices.}
 
 \item{order}{(optional) The order of the adjacency object. Default is \code{1}.}
 
@@ -38,7 +38,7 @@ is \code{TRUE}.}
 A matrix
 }
 \description{
-Generates a spatial weight matrix based on contiguity or distance via \code{spdep} package.
+Constructs spatial weight matrices based on contiguity via \code{spdep} package.
 }
 \examples{
 library(sf)

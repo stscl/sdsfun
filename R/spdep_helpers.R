@@ -1,12 +1,12 @@
-#' @title generates sppatial weight matrix
+#' @title constructs spatial weight matrices
 #' @description
-#' Generates a spatial weight matrix based on contiguity or distance via `spdep` package.
+#' Constructs spatial weight matrices based on contiguity via `spdep` package.
 #'
 #' @param sfj An sf object.
 #' @param queen (optional) if `TRUE`, using queen contiguity, otherwise rook contiguity.
 #' Default is `TRUE`.
-#' @param k (optional) The number of nearest neighbours. Ignore this parameter when using
-#' distance based neighbours to construct spatial weights.
+#' @param k (optional) The number of nearest neighbours. Ignore this parameter when not
+#' using distance based neighbours to construct spatial weight matrices.
 #' @param order (optional) The order of the adjacency object. Default is `1`.
 #' @param cumulate (optional) Whether to accumulate adjacency objects. Default is `TRUE`.
 #' @param style (optional) `style` can take values `W`, `B`, `C`, and `S`. More to see
