@@ -131,6 +131,42 @@
   return(sfj_wt)
 }
 
+#' inverse distance weight via spdep package
+#' @noRd
+.spwt_idw = \(sfj,
+              bandwidth = NULL,
+              power = 1,
+              style = 'W',
+              zero.policy = TRUE){
+  .check_spwt(sfj)
+
+  if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
+    suppressWarnings({sfj = sf::st_point_on_surface(sfj)})
+  } else if (sf_geometry_type(sfj) == 'polygon') {
+    suppressWarnings({sfj = sf::st_centroid(sfj)})
+  }
+
+  coords = sfj %>%
+    sf::st_coordinates() %>%
+    {.[,c('X','Y')]}
+
+  longlat = dplyr::if_else(sf::st_is_longlat(sfj),TRUE,FALSE,FALSE)
+
+  k = nrow(coords)
+  if (is.null(bandwidth)){
+    k1 = spdep::knn2nb(spdep::knearneigh(coords,k = k,longlat = longlat))
+    bandwidth = max(unlist(spdep::nbdists(k1,coords,longlat = longlat)))
+  }
+
+  kernelnb = spdep::dnearneigh(coords, 0, bandwidth, longlat = longlat)
+  kerneldist = spdep::nbdists(kernelnb,coords,longlat = longlat)
+  kernelwt = lapply(kerneldist, \(x) 1 / x ^ power)
+  sfj_wt = spdep::nb2mat(kernelwt, glist = kernelwt,
+                         style = style, zero.policy = zero.policy)
+
+  return(sfj_wt)
+}
+
 #' @title construct inverse distance weight
 #' @description
 #' Function for constructing inverse distance weight.
@@ -143,8 +179,6 @@
 #' @param bandwidth (optional) When the distance is bigger than bandwidth, the
 #' corresponding part of the weight matrix is set to 0. Default is `NULL`, which
 #' means not use the bandwidth.
-#' @param normalize (optional) Whether to further normalizes the constructed weight.
-#' Default is `FALSE`.
 #'
 #' @return A inverse distance weight matrices with class of `matrix`.
 #' @export
@@ -157,8 +191,7 @@
 #'
 inverse_distance_swm = \(sfj,
                          power = 1,
-                         bandwidth = NULL,
-                         normalize = FALSE){
+                         bandwidth = NULL){
   .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
@@ -181,10 +214,6 @@ inverse_distance_swm = \(sfj,
 
   if (!is.null(bandwidth)){
     wij = apply(wij,1,\(x) ifelse(x >= bandwidth,0,x))
-  }
-
-  if (normalize) {
-    wij = apply(wij,1,normalize_vector)
   }
 
   return(as.matrix(wij))

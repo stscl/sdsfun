@@ -40,6 +40,9 @@ A matrix
 \description{
 Constructs spatial weight matrices based on contiguity via \code{spdep} package.
 }
+\note{
+When \code{k} is set to a positive value, using K-Nearest Neighbor Weights.
+}
 \examples{
 library(sf)
 pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))

@@ -1,6 +1,8 @@
 #' @title constructs spatial weight matrices based on contiguity
 #' @description
 #' Constructs spatial weight matrices based on contiguity via `spdep` package.
+#' @note
+#' When `k` is set to a positive value, using K-Nearest Neighbor Weights.
 #'
 #' @param sfj An sf object.
 #' @param queen (optional) if `TRUE`, using queen contiguity, otherwise rook contiguity.
@@ -42,4 +44,14 @@ spdep_contiguity_swm = \(sfj,
   return(spdep_wt)
 }
 
-spdep_distance_swm = \(){}
+spdep_distance_swm = \(sfj,
+                       bandwidth = NULL,
+                       k = NULL,
+                       kernel = NULL,
+                       power = 1,
+                       style = 'W',
+                       zero.policy = TRUE){
+  if (is.null(kernel)){
+    spdep_wt = inverse_distance_swm(sfj,power)
+  }
+}
