@@ -4,12 +4,16 @@
 \alias{inverse_distance_swm}
 \title{construct inverse distance weight}
 \usage{
-inverse_distance_swm(sfj, power = 1, normalize = FALSE)
+inverse_distance_swm(sfj, power = 1, bandwidth = NULL, normalize = FALSE)
 }
 \arguments{
 \item{sfj}{Vector object that can be converted to \code{sf} by \code{sf::st_as_sf()}.}
 
 \item{power}{(optional) Default is 1. Set to 2 for gravity weights.}
+
+\item{bandwidth}{(optional) When the distance is bigger than bandwidth, the
+corresponding part of the weight matrix is set to 0. Default is \code{NULL}, which
+means not use the bandwidth.}
 
 \item{normalize}{(optional) Whether to further normalizes the constructed weight.
 Default is \code{FALSE}.}
