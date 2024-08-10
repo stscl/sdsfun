@@ -67,7 +67,8 @@
 
 
 <dt id="arg-k">k<a class="anchor" aria-label="anchor" href="#arg-k"></a></dt>
-<dd><p>(optional) The number of nearest neighbours. Default is <code>NULL</code>.</p></dd>
+<dd><p>(optional) The number of nearest neighbours. Default is <code>NULL</code>. Only useful
+when <code>kernel</code> is provided.</p></dd>
 
 
 <dt id="arg-kernel">kernel<a class="anchor" aria-label="anchor" href="#arg-kernel"></a></dt>
@@ -95,8 +96,23 @@ is <code>TRUE</code>.</p></dd>
     <p>A matrix</p>
     </div>
     <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>five different kernel weight functions:</p><ul><li><p>uniform:
+\(K_{(z)} = 1/2\),for \(\lvert z \rvert &lt; 1\)</p></li>
+<li><p>triangular
+\(K_{(z)} = 1 - \lvert z \rvert\),for \(\lvert z \rvert &lt; 1\)</p></li>
+<li><p>quadratic (epanechnikov)
+\(K_{(z)} = \frac{3}{4} \left( 1 - z^2 \right)\),for \(\lvert z \rvert &lt; 1\)</p></li>
+<li><p>quartic
+\(K_{(z)} = \frac{15}{16} {\left( 1 - z^2 \right)}^2\),for \(\lvert z \rvert &lt; 1\)</p></li>
+<li><p>gaussian
+\(K_{(z)} = {\left(2 \pi\right)}^{\frac{1}{2}} e^{- \frac{z^2}{2}}\)</p></li>
+</ul><p>For the equation above, \(z = d_{ij} / h_i\)
+where \(h_i\) is the bandwidth</p>
+    </div>
+    <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
-    <p>When <code>kernel</code> is setting, using kernel function based distance weight.</p>
+    <p>When <code>kernel</code> is setting, using distance weight based on kernel function.</p>
     </div>
 
     <div class="section level2">
