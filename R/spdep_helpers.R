@@ -73,7 +73,8 @@ spdep_contiguity_swm = \(sfj,
 #'
 #' @param sfj An sf object.
 #' @param bandwidth (optional) The bandwidth, default is `NULL`.
-#' @param k (optional) The number of nearest neighbours. Default is `NULL`.
+#' @param k (optional) The number of nearest neighbours. Default is `NULL`. Only useful
+#' when `kernel` is provided.
 #' @param kernel (optional) The kernel function, can be one of `uniform`,
 #' `triangular`,`quadratic`(`epanechnikov`),`quartic` and `gaussian`. Default is `NULL`.
 #' @param power (optional) Default is `1`. Useful when `kernel` is not provided.

@@ -19,7 +19,8 @@ spdep_distance_swm(
 
 \item{bandwidth}{(optional) The bandwidth, default is \code{NULL}.}
 
-\item{k}{(optional) The number of nearest neighbours. Default is \code{NULL}.}
+\item{k}{(optional) The number of nearest neighbours. Default is \code{NULL}. Only useful
+when \code{kernel} is provided.}
 
 \item{kernel}{(optional) The kernel function, can be one of \code{uniform},
 \code{triangular},\code{quadratic}(\code{epanechnikov}),\code{quartic} and \code{gaussian}. Default is \code{NULL}.}
