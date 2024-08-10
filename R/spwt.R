@@ -154,7 +154,9 @@
 
   k = nrow(coords) - 1
   if (is.null(bandwidth)){
-    k1 = spdep::knn2nb(spdep::knearneigh(coords,k = k,longlat = longlat))
+    suppressWarnings({
+      k1 = spdep::knn2nb(spdep::knearneigh(coords,k = k,longlat = longlat))
+    })
     bandwidth = max(unlist(spdep::nbdists(k1,coords,longlat = longlat)))
   }
 
