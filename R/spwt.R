@@ -125,7 +125,7 @@
   )
 
   kernelwt = lapply(kerneldist, kw_fun)
-  sfj_wt = spdep::nb2mat(kernelwt, glist = kernelwt,
+  sfj_wt = spdep::nb2mat(kernelnb, glist = kernelwt,
                          style = style, zero.policy = zero.policy)
 
   return(sfj_wt)
@@ -161,7 +161,7 @@
   kernelnb = spdep::dnearneigh(coords, 0, bandwidth, longlat = longlat)
   kerneldist = spdep::nbdists(kernelnb,coords,longlat = longlat)
   kernelwt = lapply(kerneldist, \(x) 1 / x ^ power)
-  sfj_wt = spdep::nb2mat(kernelwt, glist = kernelwt,
+  sfj_wt = spdep::nb2mat(kernelnb, glist = kernelwt,
                          style = style, zero.policy = zero.policy)
 
   return(sfj_wt)
