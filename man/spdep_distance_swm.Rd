@@ -39,8 +39,26 @@ A matrix
 \description{
 Constructs spatial weight matrices based on distance via \code{spdep} package.
 }
+\details{
+five different kernel weight functions:
+\itemize{
+\item uniform:
+\eqn{K_{(z)} = 1/2},for \eqn{\lvert z \rvert < 1}
+\item triangular
+\eqn{K_{(z)} = 1 - \lvert z \rvert},for \eqn{\lvert z \rvert < 1}
+\item quadratic (epanechnikov)
+\eqn{K_{(z)} = \frac{3}{4} \left( 1 - z^2 \right)},for \eqn{\lvert z \rvert < 1}
+\item quartic
+\eqn{K_{(z)} = \frac{15}{16} {\left( 1 - z^2 \right)}^2},for \eqn{\lvert z \rvert < 1}
+\item gaussian
+\eqn{K_{(z)} = {\left(2 \pi\right)}^{\frac{1}{2}} e^{- \frac{z^2}{2}}}
+}
+
+For the equation above, \eqn{z = d_{ij} / h_i}
+where \eqn{h_i} is the bandwidth
+}
 \note{
-When \code{kernel} is setting, using kernel function based distance weight.
+When \code{kernel} is setting, using distance weight based on kernel function.
 }
 \examples{
 library(sf)
