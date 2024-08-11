@@ -3,9 +3,9 @@
 #' See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
 #'
 #' @name %>%
+#' @usage lhs \%>\% rhs
 #' @rdname pipe
 #' @keywords internal
-#' @export
 #' @importFrom magrittr %>%
-#' @usage lhs \%>\% rhs
+#' @export
 NULL
