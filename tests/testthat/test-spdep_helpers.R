@@ -46,3 +46,11 @@ test_that("check first order inverse distance weights in spdep_distance_swm",
             expect_equal(unname(wt[1,2]), wt2[1,2])
           }
 )
+
+test_that("check kernel functional distance weights in spdep_distance_swm",
+          {
+            pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+            wt = spdep_distance_swm(pts, kernel = 'gaussian', k = 6, style = 'B')
+            expect_equal(unname(wt[1,2]), 0)
+          }
+)
