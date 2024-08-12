@@ -28,7 +28,7 @@
   sfj_nb = spdep::poly2nb(sfj,queen = queen)
   if (order >= 2) {
     sfj_nb_highorder = spdep::nblag(sfj_nb, order)
-    if (cumulate){
+    if (cumulate) {
       sfj_nb = spdep::nblag_cumul(sfj_nb_highorder)
     } else {
       sfj_nb = sfj_nb_highorder[[order]]
