@@ -37,3 +37,12 @@ test_that("check knn neighbours contiguity for point data in spdep_contiguity_sw
             expect_equal(unname(wt[2,7]), 1)
           }
 )
+
+test_that("check first order inverse distance weights in spdep_distance_swm",
+          {
+            pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+            wt = spdep_distance_swm(pts, style = 'B')
+            wt2 = inverse_distance_swm(pts)
+            expect_equal(unname(wt[1,2]), wt2[1,2])
+          }
+)

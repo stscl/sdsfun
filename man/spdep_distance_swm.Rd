@@ -6,9 +6,9 @@
 \usage{
 spdep_distance_swm(
   sfj,
-  bandwidth = NULL,
-  k = NULL,
   kernel = NULL,
+  k = NULL,
+  bandwidth = NULL,
   power = 1,
   style = "W",
   zero.policy = TRUE
@@ -17,13 +17,13 @@ spdep_distance_swm(
 \arguments{
 \item{sfj}{An sf object.}
 
-\item{bandwidth}{(optional) The bandwidth, default is \code{NULL}.}
+\item{kernel}{(optional) The kernel function, can be one of \code{uniform},
+\code{triangular},\code{quadratic}(\code{epanechnikov}),\code{quartic} and \code{gaussian}. Default is \code{NULL}.}
 
 \item{k}{(optional) The number of nearest neighbours. Default is \code{NULL}. Only useful
 when \code{kernel} is provided.}
 
-\item{kernel}{(optional) The kernel function, can be one of \code{uniform},
-\code{triangular},\code{quadratic}(\code{epanechnikov}),\code{quartic} and \code{gaussian}. Default is \code{NULL}.}
+\item{bandwidth}{(optional) The bandwidth, default is \code{NULL}.}
 
 \item{power}{(optional) Default is \code{1}. Useful when \code{kernel} is not provided.}
 
@@ -60,6 +60,9 @@ where \eqn{h_i} is the bandwidth
 }
 \note{
 When \code{kernel} is setting, using distance weight based on kernel function.
+
+For spatial weights based on distance functions, a style of B means using the
+original value of the calculated distance function.
 }
 \examples{
 library(sf)

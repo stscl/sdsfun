@@ -71,12 +71,15 @@ spdep_contiguity_swm = \(sfj,
 #' @note
 #' When `kernel` is setting, using distance weight based on kernel function.
 #'
+#' For spatial weights based on distance functions, a style of B means using the
+#' original value of the calculated distance function.
+#'
 #' @param sfj An sf object.
-#' @param bandwidth (optional) The bandwidth, default is `NULL`.
-#' @param k (optional) The number of nearest neighbours. Default is `NULL`. Only useful
-#' when `kernel` is provided.
 #' @param kernel (optional) The kernel function, can be one of `uniform`,
 #' `triangular`,`quadratic`(`epanechnikov`),`quartic` and `gaussian`. Default is `NULL`.
+#' @param k (optional) The number of nearest neighbours. Default is `NULL`. Only useful
+#' when `kernel` is provided.
+#' @param bandwidth (optional) The bandwidth, default is `NULL`.
 #' @param power (optional) Default is `1`. Useful when `kernel` is not provided.
 #' @param style (optional) `style` can take values `W`, `B`, `C`, and `S`. More to see
 #' `spdep::nb2mat()`. Default is `W`.
@@ -96,9 +99,9 @@ spdep_contiguity_swm = \(sfj,
 #' wt2 = spdep_distance_swm(pts, k = 3, kernel = 'gaussian')
 #'
 spdep_distance_swm = \(sfj,
-                       bandwidth = NULL,
-                       k = NULL,
                        kernel = NULL,
+                       k = NULL,
+                       bandwidth = NULL,
                        power = 1,
                        style = 'W',
                        zero.policy = TRUE){
