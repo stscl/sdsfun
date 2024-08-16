@@ -1,9 +1,10 @@
 url: https://spatlyu.github.io/sdsfun/
 template:
   bootstrap: 5
-  bootswatch: spacelab
   math-rendering: mathjax
   light-switch: true
+navbar:
+  bg: custom
 
 home:
   title: |
