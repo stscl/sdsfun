@@ -1,6 +1,6 @@
 Package: sdsfun
 Title: Functions for Spatial Data Science
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person(given = "Wenbo", family = "Lv",
            email = "lyu.geosocial@gmail.com", 
