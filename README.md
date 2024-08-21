@@ -15,26 +15,28 @@ packages) related to spatial data science.
 
 ## Installation
 
-### Install from source
+- Install from [CRAN](https://CRAN.R-project.org/package=sdsfun) with:
 
-You can install the development version of **sdsfun** from
-[GitHub](https://github.com/SpatLyu/sdsfun) with:
+``` r
+install.packages("sdsfun")
+```
+
+- Install development binary version from
+  [r-universe](https://spatlyu.r-universe.dev/sdsfun) with:
+
+``` r
+install.packages('sdsfun',
+                 repos = c("https://spatlyu.r-universe.dev",
+                           "https://cran.rstudio.com/"),
+                 dep = TRUE)
+```
+
+- Install development source version from
+  [GitHub](https://github.com/SpatLyu/sdsfun) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("SpatLyu/sdsfun",
                          build_vignettes = TRUE,
                          dep = TRUE)
-```
-
-### Install the binary version
-
-You can also install the binary version of **sdsfun** from
-[r-universe](https://spatlyu.r-universe.dev/sdsfun):
-
-``` r
-install.packages("sdsfun", 
-                 repos = c("https://spatlyu.r-universe.dev",
-                           "https://cran.rstudio.com/"),
-                 dep = TRUE)
 ```
