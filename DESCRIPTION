@@ -1,5 +1,5 @@
 Package: sdsfun
-Title: Functions for Spatial Data Science
+Title: Spatial Data Science Complementary Features
 Version: 0.1.0
 Authors@R: 
     person(given = "Wenbo", family = "Lv",
