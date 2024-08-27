@@ -1,4 +1,5 @@
 ## Resubmission
+
 This is a resubmission. In this version I have:
 
 * Omit the redundant "Functions for" at the start of title in the DESCRIPTION
