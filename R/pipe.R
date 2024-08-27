@@ -7,5 +7,6 @@
 #' @rdname pipe
 #' @keywords internal
 #' @importFrom magrittr %>%
+#' @return `NULL` (this is the magrittr pipe operator)
 #' @export
 NULL
