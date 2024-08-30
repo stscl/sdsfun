@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![CRAN](https://www.r-pkg.org/badges/version/sdsfun)](https://CRAN.R-project.org/package=sdsfun)
+[![Downloads](https://cranlogs.r-pkg.org/badges/sdsfun)](https://CRAN.R-project.org/package=sdsfun)
 [![r-universe](https://spatlyu.r-universe.dev/badges/sdsfun)](https://spatlyu.r-universe.dev/sdsfun)
 <!-- badges: end -->
 
