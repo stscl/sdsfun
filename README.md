@@ -10,9 +10,7 @@
 [![r-universe](https://spatlyu.r-universe.dev/badges/sdsfun)](https://spatlyu.r-universe.dev/sdsfun)
 <!-- badges: end -->
 
-The goal of **sdsfun** is to provide miscellaneous functions that
-summarize common operations of R packages (such as sf and terra
-packages) related to spatial data science.
+**Spatial Data Science Complementary Features**
 
 ## Installation
 
@@ -28,7 +26,7 @@ install.packages("sdsfun")
 ``` r
 install.packages('sdsfun',
                  repos = c("https://spatlyu.r-universe.dev",
-                           "https://cran.rstudio.com/"),
+                           "https://cloud.r-project.org"),
                  dep = TRUE)
 ```
 
