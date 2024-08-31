@@ -11,8 +11,8 @@ Description: Wrapping and supplementing commonly used functions in the R ecosyst
              maintained by Wenbo Lv.
 License: GPL-3
 Encoding: UTF-8
-URL: https://spatlyu.github.io/sdsfun/, https://github.com/SpatLyu/sdsfun
-BugReports: https://github.com/SpatLyu/sdsfun/issues
+URL: https://stscl.github.io/sdsfun/, https://github.com/stscl/sdsfun
+BugReports: https://github.com/stscl/sdsfun/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Depends: 
