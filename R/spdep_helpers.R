@@ -84,7 +84,7 @@ spdep_contiguity_swm = \(sfj,
 #' @param power (optional) Default is `1`. Useful when `kernel` is not provided.
 #' @param style (optional) `style` can take values `W`, `B`, `C`, and `S`. More to see
 #' `spdep::nb2mat()`. Default is `W`. For spatial weights based on distance functions,
-#' a style of B means using the original value of the calculated distance function.
+#' a style of `B` means using the original value of the calculated distance function.
 #' @param zero.policy (optional)  if `FALSE` stop with error for any empty neighbour sets,
 #' if `TRUE` permit the weights list to be formed with zero-length weights vectors. Default
 #' is `TRUE`.

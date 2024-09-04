@@ -32,7 +32,7 @@ object coordinate system.}
 
 \item{style}{(optional) \code{style} can take values \code{W}, \code{B}, \code{C}, and \code{S}. More to see
 \code{spdep::nb2mat()}. Default is \code{W}. For spatial weights based on distance functions,
-a style of B means using the original value of the calculated distance function.}
+a style of \code{B} means using the original value of the calculated distance function.}
 
 \item{zero.policy}{(optional)  if \code{FALSE} stop with error for any empty neighbour sets,
 if \code{TRUE} permit the weights list to be formed with zero-length weights vectors. Default
