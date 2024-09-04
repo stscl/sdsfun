@@ -61,6 +61,10 @@ where \eqn{h_i} is the bandwidth
 \note{
 When \code{kernel} is setting, using distance weight based on kernel function.
 
+When the spatial reference of sf object is the geographical coordinate system,
+the unit of \code{bandwidth} is \code{km}. The unit used in the projection coordinate system
+are consistent with those used in the sf object coordinate system.
+
 For spatial weights based on distance functions, a style of B means using the
 original value of the calculated distance function.
 }
@@ -70,6 +74,7 @@ pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 
 wt1 = spdep_distance_swm(pts, style = 'B')
 wt2 = spdep_distance_swm(pts, kernel = 'gaussian')
-wt2 = spdep_distance_swm(pts, k = 3, kernel = 'gaussian')
+wt3 = spdep_distance_swm(pts, k = 3, kernel = 'gaussian')
+wt4 = spdep_distance_swm(pts, k = 3, kernel = 'gaussian', bandwidth = 10000)
 
 }

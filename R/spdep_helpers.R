@@ -26,7 +26,7 @@
 #'
 #' wt1 = spdep_contiguity_swm(pts, k = 6, style = 'B')
 #' wt2 = spdep_contiguity_swm(pts, queen = TRUE, style = 'B')
-#' wt2 = spdep_contiguity_swm(pts, queen = FALSE, order = 2, style = 'B')
+#' wt3 = spdep_contiguity_swm(pts, queen = FALSE, order = 2, style = 'B')
 #'
 spdep_contiguity_swm = \(sfj,
                          queen = TRUE,
@@ -71,6 +71,10 @@ spdep_contiguity_swm = \(sfj,
 #' @note
 #' When `kernel` is setting, using distance weight based on kernel function.
 #'
+#' When the spatial reference of sf object is the geographical coordinate system,
+#' the unit of `bandwidth` is `km`. The unit used in the projection coordinate system
+#' are consistent with those used in the sf object coordinate system.
+#'
 #' For spatial weights based on distance functions, a style of B means using the
 #' original value of the calculated distance function.
 #'
@@ -96,7 +100,8 @@ spdep_contiguity_swm = \(sfj,
 #'
 #' wt1 = spdep_distance_swm(pts, style = 'B')
 #' wt2 = spdep_distance_swm(pts, kernel = 'gaussian')
-#' wt2 = spdep_distance_swm(pts, k = 3, kernel = 'gaussian')
+#' wt3 = spdep_distance_swm(pts, k = 3, kernel = 'gaussian')
+#' wt4 = spdep_distance_swm(pts, k = 3, kernel = 'gaussian', bandwidth = 10000)
 #'
 spdep_distance_swm = \(sfj,
                        kernel = NULL,
