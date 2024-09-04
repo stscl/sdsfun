@@ -74,7 +74,10 @@ when <code>kernel</code> is provided.</p></dd>
 
 
 <dt id="arg-bandwidth">bandwidth<a class="anchor" aria-label="anchor" href="#arg-bandwidth"></a></dt>
-<dd><p>(optional) The bandwidth, default is <code>NULL</code>.</p></dd>
+<dd><p>(optional) The bandwidth, default is <code>NULL</code>. When the spatial reference
+of sf object is the geographical coordinate system, the unit of <code>bandwidth</code> is <code>km</code>. The
+unit used in the projection coordinate system are consistent with those used in the sf
+object coordinate system.</p></dd>
 
 
 <dt id="arg-power">power<a class="anchor" aria-label="anchor" href="#arg-power"></a></dt>
@@ -83,7 +86,8 @@ when <code>kernel</code> is provided.</p></dd>
 
 <dt id="arg-style">style<a class="anchor" aria-label="anchor" href="#arg-style"></a></dt>
 <dd><p>(optional) <code>style</code> can take values <code>W</code>, <code>B</code>, <code>C</code>, and <code>S</code>. More to see
-<code><a href="https://r-spatial.github.io/spdep/reference/nb2mat.html" class="external-link">spdep::nb2mat()</a></code>. Default is <code>W</code>.</p></dd>
+<code><a href="https://r-spatial.github.io/spdep/reference/nb2mat.html" class="external-link">spdep::nb2mat()</a></code>. Default is <code>W</code>. For spatial weights based on distance functions,
+a style of B means using the original value of the calculated distance function.</p></dd>
 
 
 <dt id="arg-zero-policy">zero.policy<a class="anchor" aria-label="anchor" href="#arg-zero-policy"></a></dt>
@@ -115,11 +119,6 @@ where \(h_i\) is the bandwidth</p>
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
     <p>When <code>kernel</code> is setting, using distance weight based on kernel function, Otherwise
 the inverse distance weight will be used.</p>
-<p>When the spatial reference of sf object is the geographical coordinate system,
-the unit of <code>bandwidth</code> is <code>km</code>. The unit used in the projection coordinate system
-are consistent with those used in the sf object coordinate system.</p>
-<p>For spatial weights based on distance functions, a style of B means using the
-original value of the calculated distance function.</p>
     </div>
 
     <div class="section level2">
