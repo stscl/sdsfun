@@ -69,7 +69,8 @@ spdep_contiguity_swm = \(sfj,
 #' where \eqn{h_i} is the bandwidth
 #'
 #' @note
-#' When `kernel` is setting, using distance weight based on kernel function.
+#' When `kernel` is setting, using distance weight based on kernel function, Otherwise
+#' the inverse distance weight will be used.
 #'
 #' When the spatial reference of sf object is the geographical coordinate system,
 #' the unit of `bandwidth` is `km`. The unit used in the projection coordinate system

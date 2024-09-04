@@ -59,7 +59,8 @@ For the equation above, \eqn{z = d_{ij} / h_i}
 where \eqn{h_i} is the bandwidth
 }
 \note{
-When \code{kernel} is setting, using distance weight based on kernel function.
+When \code{kernel} is setting, using distance weight based on kernel function, Otherwise
+the inverse distance weight will be used.
 
 When the spatial reference of sf object is the geographical coordinate system,
 the unit of \code{bandwidth} is \code{km}. The unit used in the projection coordinate system
