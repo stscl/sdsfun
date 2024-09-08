@@ -1,5 +1,9 @@
 # sdsfun 0.1.1
 
+* Update the function documentation for `spdep_contiguity_swm` and `spdep_distance_swm`.
+
+* Move the source code from `SpatLyu/sdsfun` on github to `stscl/sdsfun`.
+
 # sdsfun 0.1.0
 
 * Initial CRAN submission.
