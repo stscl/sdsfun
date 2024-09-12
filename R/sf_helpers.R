@@ -117,5 +117,5 @@ sf_distance_matrix = \(sfj){
     distij = stats::dist(as.data.frame(coords))
   }
 
-  return(as.matrix(wij))
+  return(as.matrix(distij))
 }
