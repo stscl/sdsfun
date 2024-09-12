@@ -3,6 +3,7 @@
 export("%>%")
 export(inverse_distance_swm)
 export(normalize_vector)
+export(sf_distance_matrix)
 export(sf_geometry_name)
 export(sf_geometry_type)
 export(sf_voronoi_diagram)
