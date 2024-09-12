@@ -63,7 +63,7 @@ spdep_contiguity_swm = \(sfj,
 #' \eqn{K_{(z)} = \frac{15}{16} {\left( 1 - z^2 \right)}^2},for \eqn{\lvert z \rvert < 1}
 #'
 #' - gaussian
-#' \eqn{K_{(z)} = {\left(2 \pi\right)}^{\frac{1}{2}} e^{- \frac{z^2}{2}}}
+#' \eqn{K_{(z)} = \frac{1}{\sqrt{2 \pi}} e^{- \frac{z^2}{2}}}
 #'
 #' For the equation above, \eqn{z = d_{ij} / h_i}
 #' where \eqn{h_i} is the bandwidth
