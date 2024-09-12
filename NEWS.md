@@ -1,3 +1,5 @@
+# sdsfun 0.2.0
+
 # sdsfun 0.1.1
 
 * Update the function documentation for `spdep_contiguity_swm()` and 
