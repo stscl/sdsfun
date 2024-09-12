@@ -82,6 +82,21 @@ sf_voronoi_diagram = \(sfj){
   return(sfj_voronoi)
 }
 
+#' @title generates distance matrix
+#' @description
+#' Generates distance matrix) for sf object
+#'
+#' @param sfj An `sf` object.
+#'
+#' @return A matix.
+#' @export
+#'
+#' @examples
+#' library(sf)
+#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+#' pts_distm = sf_distance_matrix(pts)
+#'
+#'
 sf_distance_matrix = \(sfj){
   .check_spwt(sfj)
 
