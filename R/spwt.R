@@ -120,7 +120,7 @@
             kw_fun = function(x) (15/16)*(1-(x/bandwidth)^2)^2
           },
           "gaussian" = {
-            kw_fun = function(x) sqrt(2*pi)*exp((-(x/bandwidth)^2)/2)
+            kw_fun = function(x) (1/sqrt(2*pi))*exp((-(x/bandwidth)^2)/2)
           }
   )
 
