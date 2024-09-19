@@ -10,10 +10,10 @@ sf_distance_matrix(sfj)
 \item{sfj}{An \code{sf} object.}
 }
 \value{
-A matix.
+A matrix.
 }
 \description{
-Generates distance matrix) for sf object
+Generates distance matrix for sf object
 }
 \examples{
 library(sf)
