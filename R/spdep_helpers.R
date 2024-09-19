@@ -4,7 +4,7 @@
 #' @note
 #' When `k` is set to a positive value, using K-Nearest Neighbor Weights.
 #'
-#' @param sfj An sf object.
+#' @param sfj An `sf` object or can be converted to `sf` by `sf::st_as_sf()`.
 #' @param queen (optional) if `TRUE`, using queen contiguity, otherwise rook contiguity.
 #' Default is `TRUE`.
 #' @param k (optional) The number of nearest neighbours. Ignore this parameter when not
@@ -72,7 +72,7 @@ spdep_contiguity_swm = \(sfj,
 #' When `kernel` is setting, using distance weight based on kernel function, Otherwise
 #' the inverse distance weight will be used.
 #'
-#' @param sfj An sf object.
+#' @param sfj An `sf` object or can be converted to `sf` by `sf::st_as_sf()`.
 #' @param kernel (optional) The kernel function, can be one of `uniform`,
 #' `triangular`,`quadratic`(`epanechnikov`),`quartic` and `gaussian`. Default is `NULL`.
 #' @param k (optional) The number of nearest neighbours. Default is `NULL`. Only useful

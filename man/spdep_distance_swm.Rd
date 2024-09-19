@@ -15,7 +15,7 @@ spdep_distance_swm(
 )
 }
 \arguments{
-\item{sfj}{An sf object.}
+\item{sfj}{An \code{sf} object or can be converted to \code{sf} by \code{sf::st_as_sf()}.}
 
 \item{kernel}{(optional) The kernel function, can be one of \code{uniform},
 \code{triangular},\code{quadratic}(\code{epanechnikov}),\code{quartic} and \code{gaussian}. Default is \code{NULL}.}

@@ -15,7 +15,7 @@ spdep_contiguity_swm(
 )
 }
 \arguments{
-\item{sfj}{An sf object.}
+\item{sfj}{An \code{sf} object or can be converted to \code{sf} by \code{sf::st_as_sf()}.}
 
 \item{queen}{(optional) if \code{TRUE}, using queen contiguity, otherwise rook contiguity.
 Default is \code{TRUE}.}
