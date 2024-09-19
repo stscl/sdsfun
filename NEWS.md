@@ -1,3 +1,7 @@
+# sdsfun 0.2.1
+
+* Add `sf_distance_matrix()` function.
+
 # sdsfun 0.2.0
 
 * Add `sf_distance_matrix()` function.
