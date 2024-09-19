@@ -20,6 +20,7 @@ reference:
   - sf_geometry_type
   - sf_voronoi_diagram
   - sf_distance_matrix
+  - sf_utm_proj_wgs84
 
 - title: utility functions for spdep package
   contents:
