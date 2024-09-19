@@ -127,7 +127,7 @@ sf_distance_matrix = \(sfj){
 #' @details
 #' For more details, please refer to https://zhuanlan.zhihu.com/p/670055831
 #'
-#' @param sfj An `sf` object.
+#' @param sfj An `sf` object or can be converted to `sf` by `sf::st_as_sf()`.
 #'
 #' @return A character.
 #' @export
@@ -138,6 +138,9 @@ sf_distance_matrix = \(sfj){
 #' sf_utm_proj_wgs84(snnu)
 #'
 sf_utm_proj_wgs84 = \(sfj){
+  if (!inherits(sfj,'sf')){
+    sfj = sf::st_as_sf(sfj)
+  }
   longlat = dplyr::if_else(sf::st_is_longlat(sfj),TRUE,FALSE,FALSE)
   if (!longlat){
     stop("The spatial reference of the input `sfj` object needs to be in the WGS84 geographic coordinate system.")

@@ -7,7 +7,7 @@
 sf_utm_proj_wgs84(sfj)
 }
 \arguments{
-\item{sfj}{An \code{sf} object.}
+\item{sfj}{An \code{sf} object or can be converted to \code{sf} by \code{sf::st_as_sf()}.}
 }
 \value{
 A character.
