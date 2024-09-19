@@ -2,4 +2,4 @@
 
 0 errors | 0 warnings | 1 note
 
-* This release adds `sf_distance_matrix()` function.
+* This release enhances support for other types of spatial vector data.
