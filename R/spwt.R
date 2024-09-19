@@ -2,7 +2,7 @@
 #' @noRd
 .check_spwt = \(sfj){
   if (!inherits(sfj,'sf')){
-    stop('sfj must be an sf object')
+    sfj = sf::st_as_sf(sfj)
   }
 
   if (!(sf_geometry_type(sfj) %in% c('point','multipoint',
