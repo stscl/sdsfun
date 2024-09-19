@@ -10,7 +10,7 @@ sf_voronoi_diagram(sfj)
 \item{sfj}{An \code{sf} object.}
 }
 \value{
-An \code{sf} object of polygon geometry type.
+An \code{sf} object of polygon geometry type or can be converted to this by \code{sf::st_as_sf()}.
 }
 \description{
 Generates Voronoi diagram (Thiessen polygons) for sf object

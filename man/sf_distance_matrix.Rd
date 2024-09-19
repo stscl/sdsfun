@@ -7,7 +7,7 @@
 sf_distance_matrix(sfj)
 }
 \arguments{
-\item{sfj}{An \code{sf} object.}
+\item{sfj}{An \code{sf} object or can be converted to \code{sf} by \code{sf::st_as_sf()}.}
 }
 \value{
 A matrix.

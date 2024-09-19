@@ -48,7 +48,7 @@ sf_geometry_type = \(sfj){
 #'
 #' @param sfj An `sf` object.
 #'
-#' @return An `sf` object of polygon geometry type.
+#' @return An `sf` object of polygon geometry type or can be converted to this by `sf::st_as_sf()`.
 #' @export
 #'
 #' @examples
@@ -64,6 +64,10 @@ sf_geometry_type = \(sfj){
 #'   theme_void()
 #'
 sf_voronoi_diagram = \(sfj){
+  if (!inherits(sfj,'sf')){
+    sfj = sf::st_as_sf(sfj)
+  }
+
   if (!(sf_geometry_type(sfj) %in% c('point','multipoint'))){
     stop("Only (multi-)point vector objects are supported to generate voronoi diagram")
   }
@@ -86,7 +90,7 @@ sf_voronoi_diagram = \(sfj){
 #' @description
 #' Generates distance matrix for sf object
 #'
-#' @param sfj An `sf` object.
+#' @param sfj An `sf` object or can be converted to `sf` by `sf::st_as_sf()`.
 #'
 #' @return A matrix.
 #' @export
