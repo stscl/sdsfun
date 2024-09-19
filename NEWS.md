@@ -1,5 +1,7 @@
 # sdsfun 0.2.1
 
+* Enhance support for other types of spatial vector data.
+
 * Add `sf_utm_proj_wgs84()` function.
 
 # sdsfun 0.2.0
