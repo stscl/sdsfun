@@ -84,11 +84,11 @@ sf_voronoi_diagram = \(sfj){
 
 #' @title generates distance matrix
 #' @description
-#' Generates distance matrix) for sf object
+#' Generates distance matrix for sf object
 #'
 #' @param sfj An `sf` object.
 #'
-#' @return A matix.
+#' @return A matrix.
 #' @export
 #'
 #' @examples
@@ -120,6 +120,21 @@ sf_distance_matrix = \(sfj){
   return(as.matrix(distij))
 }
 
+#' @title generates wgs84 utm projection epsg coding character
+#' @description
+#' Generates a utm projection epsg coding character corresponding to an `sfj` object
+#' under the WGS84 spatial reference.
+#'
+#' @param sfj An `sf` object.
+#'
+#' @return A character.
+#' @export
+#'
+#' @examples
+#' library(sf)
+#' snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
+#' sf_utm_proj_wgs84(snnu)
+#'
 sf_utm_proj_wgs84 = \(sfj){
   longlat = dplyr::if_else(sf::st_is_longlat(sfj),TRUE,FALSE,FALSE)
   if (!longlat){
