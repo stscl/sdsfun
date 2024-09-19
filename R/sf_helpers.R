@@ -119,3 +119,15 @@ sf_distance_matrix = \(sfj){
 
   return(as.matrix(distij))
 }
+
+sf_utm_proj_wgs84 = \(sfj){
+  longlat = dplyr::if_else(sf::st_is_longlat(sfj),TRUE,FALSE,FALSE)
+  if (!longlat){
+    stop("The spatial reference of the input `sfj` object needs to be in the WGS84 geographic coordinate system.")
+  } else {
+    sf_ext = as.double(sf::st_bbox(sfj))
+    center_lon = mean(sf_ext[c(1,3)])
+    utm_zone = floor((center_lon + 180) / 6) + 1
+    return(paste0("EPSG:326",utm_zone))
+  }
+}
