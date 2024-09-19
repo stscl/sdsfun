@@ -8,7 +8,7 @@
 [![cran](https://www.r-pkg.org/badges/version/sdsfun)](https://CRAN.R-project.org/package=sdsfun)
 [![downloads_all](https://badgen.net/cran/dt/sdsfun?color=orange)](https://CRAN.R-project.org/package=sdsfun)
 [![downloads_month](https://cranlogs.r-pkg.org/badges/sdsfun)](https://CRAN.R-project.org/package=sdsfun)
-[![r-universe](https://stscl.r-universe.dev/badges/sdsfun)](https://stscl.r-universe.dev/sdsfun)
+[![r-universe](https://stscl.r-universe.dev/badges/sdsfun?color=cyan)](https://stscl.r-universe.dev/sdsfun)
 <!-- badges: end -->
 
 **Spatial Data Science Complementary Features**
