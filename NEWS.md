@@ -1,6 +1,6 @@
 # sdsfun 0.2.1
 
-* Add `sf_distance_matrix()` function.
+* Add `sf_utm_proj_wgs84()` function.
 
 # sdsfun 0.2.0
 
