@@ -16,6 +16,9 @@ A character.
 Generates a utm projection epsg coding character corresponding to an \code{sfj} object
 under the WGS84 spatial reference.
 }
+\details{
+For more details, please refer to https://zhuanlan.zhihu.com/p/670055831
+}
 \examples{
 library(sf)
 snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
