@@ -25,7 +25,7 @@
     sfj = sf_voronoi_diagram(sfj)
   }
 
-  sfj_nb = spdep::poly2nb(sfj,queen = queen)
+  suppressWarnings({sfj_nb = spdep::poly2nb(sfj,queen = queen)})
   if (order >= 2) {
     sfj_nb_highorder = spdep::nblag(sfj_nb, order)
     if (cumulate) {
