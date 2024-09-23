@@ -101,7 +101,9 @@
     bandwidth = max(unlist(spdep::nbdists(k1,coords,longlat = longlat)))
   }
 
+  suppressWarnings({
   kernelnb = spdep::dnearneigh(coords, 0, bandwidth, longlat = longlat)
+  })
   kernelnb = spdep::include.self(kernelnb)
   kerneldist = spdep::nbdists(kernelnb,coords,longlat = longlat)
 
@@ -162,7 +164,9 @@
     bandwidth = max(unlist(spdep::nbdists(k1,coords,longlat = longlat)))
   }
 
+  suppressWarnings({
   kernelnb = spdep::dnearneigh(coords, 0, bandwidth, longlat = longlat)
+  })
   kerneldist = spdep::nbdists(kernelnb,coords,longlat = longlat)
   kernelwt = lapply(kerneldist, \(x) 1 / x ^ power)
   sfj_wt = spdep::nb2mat(kernelnb, glist = kernelwt,
