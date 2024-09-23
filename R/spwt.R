@@ -61,7 +61,7 @@
 
   longlat = dplyr::if_else(sf::st_is_longlat(sfj),TRUE,FALSE,FALSE)
 
-  nb_knn = spdep::knearneigh(coords,k = k,longlat = longlat)
+  suppressWarnings({nb_knn = spdep::knearneigh(coords,k = k,longlat = longlat)})
   sfj_nb = spdep::knn2nb(nb_knn)
 
   sfj_wt = spdep::nb2mat(sfj_nb, style = style,
