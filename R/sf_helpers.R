@@ -146,7 +146,8 @@ sf_utm_proj_wgs84 = \(sfj){
     sfj = sf::st_as_sf(sfj)
   }
   crs_info = sf::st_crs(sfj)
-  if (crs_info$epsg != 4326){
+  iswgs84 = dplyr::if_else(crs_info$epsg == 4326,TRUE,FALSE,FALSE)
+  if (!iswgs84){
     stop("The spatial reference of the input `sfj` object needs to be the WGS84 geographic coordinate system.")
   } else {
     sf_ext = as.double(sf::st_bbox(sfj))
