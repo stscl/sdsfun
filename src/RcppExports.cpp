@@ -11,7 +11,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 // DummyVar
-Rcpp::NumericMatrix DummyVar(Rcpp::IntegerVector x);
+Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x);
 RcppExport SEXP _sdsfun_DummyVar(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;

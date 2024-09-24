@@ -2,14 +2,14 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-Rcpp::NumericMatrix DummyVar(Rcpp::IntegerVector x) {
+Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x) {
   // Get the number of unique levels
   Rcpp::IntegerVector levels = sort_unique(x);
   int n = x.size();
   int k = levels.size();
 
   // Create an n-row by k-column matrix to store the dummy variables
-  Rcpp::NumericMatrix dummy(n, k);
+  Rcpp::IntegerMatrix dummy(n, k);
 
   // Iterate over the input vector x
   for (int i = 0; i < n; ++i) {
