@@ -2,6 +2,7 @@
 using namespace Rcpp;
 
 // Function to return unique elements while preserving the original order
+// [[Rcpp::export]]
 IntegerVector Runique(IntegerVector x) {
   std::vector<int> seen;
   std::vector<int> result;

@@ -10,6 +10,17 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// Runique
+IntegerVector Runique(IntegerVector x);
+RcppExport SEXP _sdsfun_Runique(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< IntegerVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(Runique(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // DummyVar
 Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x);
 RcppExport SEXP _sdsfun_DummyVar(SEXP xSEXP) {
@@ -23,6 +34,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_sdsfun_Runique", (DL_FUNC) &_sdsfun_Runique, 1},
     {"_sdsfun_DummyVar", (DL_FUNC) &_sdsfun_DummyVar, 1},
     {NULL, NULL, 0}
 };
