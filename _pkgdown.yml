@@ -36,3 +36,4 @@ reference:
   - normalize_vector
   - standardize_vector
   - dummy_vector
+  - dummy_tbl
