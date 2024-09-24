@@ -13,10 +13,24 @@ dummy_vector = \(x){
   return(DummyVar(x))
 }
 
-# dummy_tbl = \(tbl){
-#   new_tblname = purrr::map2_chr(tbl,
-#                                 colnames(tbl),
-#                                 \(.tbl,.tblname) paste0(.tblname,
-#                                                         "_",
-#                                                         Runique(.tbl)))
-# }
+#' @title transforming a category tibble into the corresponding dummy variable tibble
+#'
+#' @param tbl A `tibble` or `data.frame`.
+#'
+#' @return A `tibble`
+#' @export
+#'
+#' @examples
+#' a = tibble::tibble(x = 1:3,y = 4:6)
+#' dummy_tbl(a)
+#'
+dummy_tbl = \(tbl){
+  new_tblname = purrr::map2(tbl,
+                            colnames(tbl),
+                            \(.tbl,.tblname) paste0(.tblname,
+                                                    "_",
+                                                    Runique(.tbl)))
+  dummytbl = DummyMat(as.matrix(tbl))
+  colnames(dummytbl) = unlist(new_tblname)
+  return(tibble::as_tibble(dummytbl))
+}
