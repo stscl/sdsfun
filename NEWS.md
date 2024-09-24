@@ -1,3 +1,10 @@
+# sdsfun 0.3.0
+
+* Begin to use `Rcpp` to complete some tasks with high computational complexity.
+
+* Add `dummy_vector` function.
+
+
 # sdsfun 0.2.1
 
 * Enhance support for other types of spatial vector data.
