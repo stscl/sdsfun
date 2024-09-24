@@ -21,6 +21,7 @@ Imports:
     dplyr,
     geosphere,
     magrittr,
+    purrr,
     sf,
     spdep,
     stats,

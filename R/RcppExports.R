@@ -9,3 +9,7 @@ DummyVar <- function(x) {
     .Call(`_sdsfun_DummyVar`, x)
 }
 
+DummyMat <- function(mat) {
+    .Call(`_sdsfun_DummyMat`, mat)
+}
+

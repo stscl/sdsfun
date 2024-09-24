@@ -34,18 +34,3 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
   xnew = (x - xmin) / (xmax - xmin) * (to_right - to_left) + to_left
   return(xnew)
 }
-
-#' @title transforming a categorical variable into dummy variables
-#'
-#' @param x An integer vector or can be converted into an integer vector.
-#'
-#' @return A matrix.
-#' @export
-#'
-#' @examples
-#' dummy_vector(c(1,1,3,2,4,6))
-#'
-dummy_vector = \(x){
-  x = as.integer(x)
-  return(DummyVar(x))
-}

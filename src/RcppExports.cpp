@@ -11,12 +11,12 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 // Runique
-IntegerVector Runique(IntegerVector x);
+Rcpp::IntegerVector Runique(Rcpp::IntegerVector x);
 RcppExport SEXP _sdsfun_Runique(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< IntegerVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type x(xSEXP);
     rcpp_result_gen = Rcpp::wrap(Runique(x));
     return rcpp_result_gen;
 END_RCPP
@@ -32,10 +32,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// DummyMat
+Rcpp::IntegerMatrix DummyMat(Rcpp::IntegerMatrix mat);
+RcppExport SEXP _sdsfun_DummyMat(SEXP matSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::IntegerMatrix >::type mat(matSEXP);
+    rcpp_result_gen = Rcpp::wrap(DummyMat(mat));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_Runique", (DL_FUNC) &_sdsfun_Runique, 1},
     {"_sdsfun_DummyVar", (DL_FUNC) &_sdsfun_DummyVar, 1},
+    {"_sdsfun_DummyMat", (DL_FUNC) &_sdsfun_DummyMat, 1},
     {NULL, NULL, 0}
 };
 
