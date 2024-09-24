@@ -2,4 +2,4 @@
 
 0 errors | 0 warnings | 1 note
 
-* This release enhances support for other types of spatial vector data.
+* This release begins to use `Rcpp` to complete some tasks with high       computational complexity.
