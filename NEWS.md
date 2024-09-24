@@ -2,7 +2,7 @@
 
 * Begin to use `Rcpp` to complete some tasks with high computational complexity.
 
-* Add `dummy_vector` function.
+* Add `dummy_vector` and `dummy_tbl` functions for dummy variables generation.
 
 
 # sdsfun 0.2.1
