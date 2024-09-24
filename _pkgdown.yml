@@ -31,9 +31,12 @@ reference:
   contents:
   - inverse_distance_swm
 
+- title: utility functions for dummy variables generation
+  contents:
+  - dummy_vector
+  - dummy_tbl
+
 - title: other utility functions
   contents:
   - normalize_vector
   - standardize_vector
-  - dummy_vector
-  - dummy_tbl
