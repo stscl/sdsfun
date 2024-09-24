@@ -35,3 +35,4 @@ reference:
   contents:
   - normalize_vector
   - standardize_vector
+  - dummy_vector
