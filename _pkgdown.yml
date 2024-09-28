@@ -24,6 +24,7 @@ reference:
 
 - title: utility functions for spdep package
   contents:
+  - spdep_nb
   - spdep_contiguity_swm
   - spdep_distance_swm
 
