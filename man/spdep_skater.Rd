@@ -27,12 +27,9 @@ SKATER forms clusters by spatially partitioning data that has similar values for
 }
 \examples{
 library(sf)
-pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
-ppts = sf_voronoi_diagram(pts)
-ppts$incidence = pts$incidence
-ppts_c = spdep_skater(ppts,4)
-ppts_c
-ppts$group = ppts_c
-plot(ppts["group"])
+bh = read_sf(system.file('extdata/bh.gpkg',package = 'sdsfun'))
+bh_c = spdep_skater(bh,5)
+bh$group = bh_c
+plot(bh["group"])
 
 }
