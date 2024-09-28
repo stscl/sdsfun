@@ -27,9 +27,9 @@ SKATER forms clusters by spatially partitioning data that has similar values for
 }
 \examples{
 library(sf)
-bh = read_sf(system.file('extdata/bh.gpkg',package = 'sdsfun'))
-bh_c = spdep_skater(bh,5)
-bh$group = bh_c
-plot(bh["group"])
+gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+gzma_c = spdep_skater(gzma,8)
+gzma$group = gzma_c
+plot(gzma["group"])
 
 }
