@@ -21,7 +21,7 @@ For more details, please refer to \url{https://zhuanlan.zhihu.com/p/670055831}.
 }
 \examples{
 library(sf)
-snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
-sf_utm_proj_wgs84(snnu)
+gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+sf_utm_proj_wgs84(gzma)
 
 }

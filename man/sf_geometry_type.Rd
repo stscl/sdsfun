@@ -17,7 +17,7 @@ Get the geometry type of an sf object
 }
 \examples{
 library(sf)
-snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
-sf_geometry_type(snnu)
+gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+sf_geometry_type(gzma)
 
 }
