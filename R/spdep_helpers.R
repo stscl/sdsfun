@@ -172,6 +172,8 @@ spdep_distance_swm = \(sfj,
 #' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 #' pts_c = spdep_skater(pts,4)
 #' pts_c
+#' pts$group = pts_c
+#' plot(pts["group"])
 #'
 spdep_skater = \(sfj,
                  k = 6,
