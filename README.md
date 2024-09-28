@@ -22,7 +22,7 @@ install.packages("sdsfun")
 ```
 
 - Install development binary version from
-  [r-universe](https://stscl.r-universe.dev/sdsfun) with:
+  [R-universe](https://stscl.r-universe.dev/sdsfun) with:
 
 ``` r
 install.packages('sdsfun',

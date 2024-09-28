@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 install.packages("sdsfun")
 ```
 
-- Install development binary version from [r-universe](https://stscl.r-universe.dev/sdsfun) with:
+- Install development binary version from [R-universe](https://stscl.r-universe.dev/sdsfun) with:
 
 ``` r
 install.packages('sdsfun',
