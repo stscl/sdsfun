@@ -1,8 +1,8 @@
 test_that("check first order queen contiguity for polygon data in spdep_contiguity_swm",
           {
-            henan = sf::read_sf(system.file('extdata/henan.geojson',package = 'sdsfun'))
-            wt = spdep_contiguity_swm(henan, queen = TRUE, style = 'B')
-            expect_equal(unname(wt[1,2]), 1)
+            bh = sf::read_sf(system.file('extdata/bh.gpkg',package = 'sdsfun'))
+            wt = spdep_contiguity_swm(bh, queen = TRUE, style = 'B')
+            expect_equal(unname(wt[1,2]), 0)
           }
 )
 
@@ -16,17 +16,17 @@ test_that("check first order queen contiguity for point data in spdep_contiguity
 
 test_that("check high order queen contiguity for polygon data in spdep_contiguity_swm",
           {
-            henan = sf::read_sf(system.file('extdata/henan.geojson',package = 'sdsfun'))
-            wt = spdep_contiguity_swm(henan, queen = TRUE, order = 2, style = 'B')
-            expect_equal(unname(wt[1,4]), 1)
+            bh = sf::read_sf(system.file('extdata/bh.gpkg',package = 'sdsfun'))
+            wt = spdep_contiguity_swm(bh, queen = TRUE, order = 2, style = 'B')
+            expect_equal(unname(wt[1,4]), 0)
           }
 )
 
 test_that("check knn neighbours contiguity for polygon data in spdep_contiguity_swm",
           {
-            henan = sf::read_sf(system.file('extdata/henan.geojson',package = 'sdsfun'))
-            wt = spdep_contiguity_swm(henan, k = 6, style = 'B')
-            expect_equal(unname(wt[2,1]), 1)
+            bh = sf::read_sf(system.file('extdata/bh.gpkg',package = 'sdsfun'))
+            wt = spdep_contiguity_swm(bh, k = 6, style = 'B')
+            expect_equal(unname(wt[2,1]), 0)
           }
 )
 
