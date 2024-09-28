@@ -1,9 +1,9 @@
 test_that("sf_geometry_name works", {
-  snnu = sf::read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
-  expect_equal(sf_geometry_name(snnu), "geometry")
+  gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+  expect_equal(sf_geometry_name(gzma), "geom")
 })
 
 test_that("sf_geometry_type works", {
-  snnu = sf::read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
-  expect_equal(sf_geometry_type(snnu), "polygon")
+  gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+  expect_equal(sf_geometry_type(gzma), "polygon")
 })
