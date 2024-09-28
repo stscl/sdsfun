@@ -4,8 +4,9 @@
 
 * Add `dummy_vector` and `dummy_tbl` functions for dummy variables generation.
 
-* Add `spdep_nb` functions for neighbours list generation.
+* Add `spdep_nb` function for neighbours list generation.
 
+* Add `spdep_skater` function for spatial constrained clustering.
 
 # sdsfun 0.2.1
 
