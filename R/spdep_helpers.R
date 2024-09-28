@@ -1,4 +1,6 @@
 #' construct neighbours list
+#' @note
+#' When `k` is set to a positive value, using K-Nearest Neighbor
 #'
 #' @param sfj An `sf` object or can be converted to `sf` by `sf::st_as_sf()`.
 #' @param queen (optional) if `TRUE`, using queen contiguity, otherwise rook contiguity.
