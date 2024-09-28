@@ -1,3 +1,37 @@
+#' construct neighbours list
+#'
+#' @param sfj An `sf` object or can be converted to `sf` by `sf::st_as_sf()`.
+#' @param queen (optional) if `TRUE`, using queen contiguity, otherwise rook contiguity.
+#' Default is `TRUE`.
+#' @param k (optional) The number of nearest neighbours. Ignore this parameter when not
+#' using distance based neighbours.
+#' @param order (optional) The order of the adjacency object. Default is `1`.
+#' @param cumulate (optional) Whether to accumulate adjacency objects. Default is `TRUE`.
+#'
+#' @return A neighbours list with class `nb`
+#' @export
+#'
+#' @examples
+#' library(sf)
+#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+#'
+#' nb1 = spdep_nb(pts, k = 6)
+#' wt2 = spdep_nb(pts, queen = TRUE)
+#' wt3 = spdep_nb(pts, queen = FALSE, order = 2)
+#'
+spdep_nb = \(sfj,
+             queen = TRUE,
+             k = NULL,
+             order = 1L,
+             cumulate = TRUE){
+  if (is.null(k)){
+    spnb = .spdep_polynb(sfj,queen,order,cumulate)
+  } else {
+    spnb = .spdep_knnnb(sfj,k)
+  }
+  return(spnb)
+}
+
 #' @title constructs spatial weight matrices based on contiguity
 #' @description
 #' Constructs spatial weight matrices based on contiguity via `spdep` package.
@@ -114,4 +148,11 @@ spdep_distance_swm = \(sfj,
     spdep_wt = .spwt_kernel_weight(sfj,bandwidth,k,kernel,style,zero.policy)
   }
   return(spdep_wt)
+}
+
+spdep_skater = \(sfj,
+                 wt = NULL,
+                 k = 6,
+                 ...){
+
 }

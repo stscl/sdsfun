@@ -11,14 +11,12 @@
   }
 }
 
-#' polygon contiguity based spatial weights
+#' polygon neighbor object generation
 #' @noRd
-.spwt_polygon_contiguity = \(sfj,
-                             queen = TRUE,
-                             order = 1L,
-                             cumulate = TRUE,
-                             style = 'W',
-                             zero.policy = TRUE){
+.spdep_polynb = \(sfj,
+                  queen = TRUE,
+                  order = 1L,
+                  cumulate = TRUE){
   .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('point','multipoint')){
@@ -35,18 +33,14 @@
     }
   }
 
-  sfj_wt = spdep::nb2mat(sfj_nb, style = style,
-                         zero.policy = zero.policy)
-
-  return(sfj_wt)
+  return(sfj_nb)
 }
 
-#' distance based contiguity to construct spatial weights
+
+#' k-nearest neighbors
 #' @noRd
-.spwt_distance_contiguity = \(sfj,
-                              k = 6,
-                              style = 'W',
-                              zero.policy = TRUE){
+.spdep_knnnb = \(sfj,
+                 k = 6){
   .check_spwt(sfj)
 
   if (sf_geometry_type(sfj) %in% c('multipoint','multipolygon')){
@@ -64,9 +58,32 @@
   suppressWarnings({nb_knn = spdep::knearneigh(coords,k = k,longlat = longlat)})
   sfj_nb = spdep::knn2nb(nb_knn)
 
+  return(sfj_nb)
+}
+
+#' polygon contiguity based spatial weights
+#' @noRd
+.spwt_polygon_contiguity = \(sfj,
+                             queen = TRUE,
+                             order = 1L,
+                             cumulate = TRUE,
+                             style = 'W',
+                             zero.policy = TRUE){
+  sfj_nb = .spdep_polynb(sfj,queen,order,cumulate)
   sfj_wt = spdep::nb2mat(sfj_nb, style = style,
                          zero.policy = zero.policy)
+  return(sfj_wt)
+}
 
+#' distance based contiguity to construct spatial weights
+#' @noRd
+.spwt_distance_contiguity = \(sfj,
+                              k = 6,
+                              style = 'W',
+                              zero.policy = TRUE){
+  sfj_nb = .spdep_knnnb(sfj,k)
+  sfj_wt = spdep::nb2mat(sfj_nb, style = style,
+                         zero.policy = zero.policy)
   return(sfj_wt)
 }
 
