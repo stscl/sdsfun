@@ -8,6 +8,8 @@
 
 * Add `spdep_skater` function for spatial constrained clustering.
 
+* Update package extdata; now `sdsfun` has two extdata: `gzma.gpkg` and `pts.gpkg`.
+
 # sdsfun 0.2.1
 
 * Enhance support for other types of spatial vector data.
@@ -22,8 +24,7 @@
 
 # sdsfun 0.1.1
 
-* Update the function documentation for `spdep_contiguity_swm()` and 
-  `spdep_distance_swm()`.
+* Update the function documentation for `spdep_contiguity_swm()` and `spdep_distance_swm()`.
 
 * Move the source code from `SpatLyu/sdsfun` on GitHub to `stscl/sdsfun`.
 
