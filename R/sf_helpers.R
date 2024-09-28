@@ -9,8 +9,8 @@
 #'
 #' @examples
 #' library(sf)
-#' snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
-#' sf_geometry_name(snnu)
+#' gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' sf_geometry_name(gzma)
 #'
 sf_geometry_name = \(sfj){
   gname = attr(sfj, "sf_column")
@@ -28,8 +28,8 @@ sf_geometry_name = \(sfj){
 #'
 #' @examples
 #' library(sf)
-#' snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
-#' sf_geometry_type(snnu)
+#' gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' sf_geometry_type(gzma)
 #'
 sf_geometry_type = \(sfj){
   sfj_type = sfj %>%
@@ -138,8 +138,8 @@ sf_distance_matrix = \(sfj){
 #'
 #' @examples
 #' library(sf)
-#' snnu = read_sf(system.file('extdata/snnu.geojson',package = 'sdsfun'))
-#' sf_utm_proj_wgs84(snnu)
+#' gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' sf_utm_proj_wgs84(gzma)
 #'
 sf_utm_proj_wgs84 = \(sfj){
   if (!inherits(sfj,'sf')){
