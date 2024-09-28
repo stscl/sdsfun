@@ -1,7 +1,7 @@
 test_that("check first order queen contiguity for polygon data in spdep_contiguity_swm",
           {
-            bh = sf::read_sf(system.file('extdata/bh.gpkg',package = 'sdsfun'))
-            wt = spdep_contiguity_swm(bh, queen = TRUE, style = 'B')
+            gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+            wt = spdep_contiguity_swm(gzma, queen = TRUE, style = 'B')
             expect_equal(unname(wt[1,2]), 0)
           }
 )
@@ -16,16 +16,16 @@ test_that("check first order queen contiguity for point data in spdep_contiguity
 
 test_that("check high order queen contiguity for polygon data in spdep_contiguity_swm",
           {
-            bh = sf::read_sf(system.file('extdata/bh.gpkg',package = 'sdsfun'))
-            wt = spdep_contiguity_swm(bh, queen = TRUE, order = 2, style = 'B')
-            expect_equal(unname(wt[1,4]), 0)
+            gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+            wt = spdep_contiguity_swm(gzma, queen = TRUE, order = 2, style = 'B')
+            expect_equal(unname(wt[1,4]), 1)
           }
 )
 
 test_that("check knn neighbours contiguity for polygon data in spdep_contiguity_swm",
           {
-            bh = sf::read_sf(system.file('extdata/bh.gpkg',package = 'sdsfun'))
-            wt = spdep_contiguity_swm(bh, k = 6, style = 'B')
+            gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+            wt = spdep_contiguity_swm(gzma, k = 6, style = 'B')
             expect_equal(unname(wt[2,1]), 0)
           }
 )
