@@ -152,6 +152,27 @@ spdep_distance_swm = \(sfj,
   return(spdep_wt)
 }
 
+#' @title spatial c(k)luster analysis by tree edge removal
+#' @description
+#' SKATER forms clusters by spatially partitioning data that has similar values for features of interest.
+#'
+#' @param sfj An `sf` object of observation data. Please ensure that the attribute columns are included
+#' in the SKATER analysis.
+#' @param nb (optional) A neighbours list with class nb. If the input `nb` is NULL, it will be constructed
+#' automatically using `spdep_nb()`.
+#' @param k (optional) The number of clusters. Default is `6`.
+#' @param ini (optional) The initial node in the minimal spanning tree. Defaul is `5`.
+#' @param ... (optional) Other parameters passed to spdep::skater().
+#'
+#' @return A numeric vector of clusters.
+#' @export
+#'
+#' @examples
+#' library(sf)
+#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+#' pts_c = spdep_skater(pts,4)
+#' pts_c
+#'
 spdep_skater = \(sfj,
                  nb = NULL,
                  k = 6,
