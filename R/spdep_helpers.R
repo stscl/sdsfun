@@ -153,8 +153,22 @@ spdep_distance_swm = \(sfj,
 }
 
 spdep_skater = \(sfj,
-                 wt = NULL,
+                 nb = NULL,
                  k = 6,
+                 ini = 5,
                  ...){
+  .check_spwt(sfj)
 
+  if (is.null(nb)) {
+    nb = spdep_nb(sfj,queen = TRUE)
+  }
+
+  dpad = as.matrix(sf::st_drop_geometry(sfj))
+  dpad = apply(dpad,2,normalize_vector)
+  lcosts = spdep::nbcosts(nb, dpad)
+  nbw = spdep::nb2listw(nb, glist = lcosts, style = "B")
+  mst = spdep::mstree(nbw,ini)
+  res = spdep::skater(mst[,1:2], dpad, k-1, ...)
+
+  return(res$groups)
 }
