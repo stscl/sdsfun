@@ -4,16 +4,16 @@
 \alias{spdep_skater}
 \title{spatial c(k)luster analysis by tree edge removal}
 \usage{
-spdep_skater(sfj, nb = NULL, k = 6, ini = 5, ...)
+spdep_skater(sfj, k = 6, nb = NULL, ini = 5, ...)
 }
 \arguments{
 \item{sfj}{An \code{sf} object of observation data. Please ensure that the attribute columns are included
 in the SKATER analysis.}
 
+\item{k}{(optional) The number of clusters. Default is \code{6}.}
+
 \item{nb}{(optional) A neighbours list with class nb. If the input \code{nb} is NULL, it will be constructed
 automatically using \code{spdep_nb()}.}
-
-\item{k}{(optional) The number of clusters. Default is \code{6}.}
 
 \item{ini}{(optional) The initial node in the minimal spanning tree. Defaul is \code{5}.}
 
