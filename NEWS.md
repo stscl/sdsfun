@@ -4,6 +4,8 @@
 
 * Add `dummy_vector` and `dummy_tbl` functions for dummy variables generation.
 
+* Add `spdep_nb` functions for neighbours list generation.
+
 
 # sdsfun 0.2.1
 
