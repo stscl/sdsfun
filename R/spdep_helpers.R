@@ -58,11 +58,11 @@ spdep_nb = \(sfj,
 #'
 #' @examples
 #' library(sf)
-#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+#' gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 #'
-#' wt1 = spdep_contiguity_swm(pts, k = 6, style = 'B')
-#' wt2 = spdep_contiguity_swm(pts, queen = TRUE, style = 'B')
-#' wt3 = spdep_contiguity_swm(pts, queen = FALSE, order = 2, style = 'B')
+#' wt1 = spdep_contiguity_swm(gzma, k = 6, style = 'B')
+#' wt2 = spdep_contiguity_swm(gzma, queen = TRUE, style = 'B')
+#' wt3 = spdep_contiguity_swm(gzma, queen = FALSE, order = 2, style = 'B')
 #'
 spdep_contiguity_swm = \(sfj,
                          queen = TRUE,
