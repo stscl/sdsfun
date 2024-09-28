@@ -158,9 +158,9 @@ spdep_distance_swm = \(sfj,
 #'
 #' @param sfj An `sf` object of observation data. Please ensure that the attribute columns are included
 #' in the SKATER analysis.
+#' @param k (optional) The number of clusters. Default is `6`.
 #' @param nb (optional) A neighbours list with class nb. If the input `nb` is NULL, it will be constructed
 #' automatically using `spdep_nb()`.
-#' @param k (optional) The number of clusters. Default is `6`.
 #' @param ini (optional) The initial node in the minimal spanning tree. Defaul is `5`.
 #' @param ... (optional) Other parameters passed to spdep::skater().
 #'
@@ -174,8 +174,8 @@ spdep_distance_swm = \(sfj,
 #' pts_c
 #'
 spdep_skater = \(sfj,
-                 nb = NULL,
                  k = 6,
+                 nb = NULL,
                  ini = 5,
                  ...){
   .check_spwt(sfj)
