@@ -33,7 +33,7 @@ library(sf)
 pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 
 nb1 = spdep_nb(pts, k = 6)
-wt2 = spdep_nb(pts, queen = TRUE)
-wt3 = spdep_nb(pts, queen = FALSE, order = 2)
+nb2 = spdep_nb(pts, queen = TRUE)
+nb3 = spdep_nb(pts, queen = FALSE, order = 2)
 
 }
