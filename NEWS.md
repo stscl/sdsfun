@@ -8,6 +8,8 @@
 
 * Add `spdep_skater` function for spatial constrained clustering.
 
+* Add `fuzzyoverlay` function for spatial fuzzy overlay.
+
 * Update package extdata; now `sdsfun` has two extdata: `gzma.gpkg` and `pts.gpkg`.
 
 # sdsfun 0.2.1
