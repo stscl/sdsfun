@@ -29,11 +29,11 @@ reference:
   - spdep_distance_swm
   - spdep_skater
 
-- title: utility functions for spatial weight matrices
+- title: utility function for spatial weight matrices
   contents:
   - inverse_distance_swm
 
-- title: utility functions for spatial fuzzy overlay
+- title: utility function for spatial fuzzy overlay
   contents:
   - fuzzyoverlay
 
