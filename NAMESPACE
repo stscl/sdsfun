@@ -3,6 +3,7 @@
 export("%>%")
 export(dummy_tbl)
 export(dummy_vector)
+export(fuzzyoverlay)
 export(inverse_distance_swm)
 export(normalize_vector)
 export(sf_distance_matrix)

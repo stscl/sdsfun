@@ -40,7 +40,7 @@ fuzzyoverlay = \(formula, data, method = "and"){
     purrr::map2_dfc(colnames(xs),
                     \(.x,.y) paste(.y,.x,sep = "_"))
   meanrisk = purrr::map(xs, \(.x) tapply(y,.x,mean))
-  fuzzynum = rescale_vector(unlist(meanrisk,use.names = FALSE))
+  fuzzynum = normalize_vector(unlist(meanrisk,use.names = FALSE))
   names(fuzzynum) = unlist(lapply(meanrisk, names),use.names = FALSE)
   xsfn = dplyr::mutate(xs, dplyr::across(dplyr::everything(),
                                    \(.x) return(fuzzynum[.x])))
