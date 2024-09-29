@@ -33,6 +33,10 @@ reference:
   contents:
   - inverse_distance_swm
 
+- title: utility functions for spatial fuzzy overlay
+  contents:
+  - fuzzyoverlay
+
 - title: utility functions for dummy variables generation
   contents:
   - dummy_vector
