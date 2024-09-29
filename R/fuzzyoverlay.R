@@ -11,14 +11,12 @@
 #' @return A numeric vector.
 #' @export
 #' @examples
-#' library(sf)
-#' gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun')) |>
-#'   st_drop_geometry()
-#' sim = sim %>%
-#'   dplyr::mutate(dplyr::across(4:6,\(.x) st_unidisc(.x,4,"quantile")))
-#' fo1 = st_fuzzyoverlay(y~xa+xb+xc,data = sim, method = 'and')
-#' fo2 = st_fuzzyoverlay(y~xa+xb+xc,data = sim, method = 'or')
+#' sim = tibble::tibble(y = stats::runif(7,0,10),
+#'                      x1 = c(1,rep(2,3),rep(3,3)),
+#'                      x2 = c(rep(1,2),rep(2,2),rep(3,3)))
+#' fo1 = fuzzyoverlay(y~x1+x2,data = sim, method = 'and')
 #' fo1
+#' fo2 = fuzzyoverlay(y~x1+x2,data = sim, method = 'or')
 #' fo2
 #'
 fuzzyoverlay = \(formula, data, method = "and"){
