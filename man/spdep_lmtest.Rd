@@ -22,7 +22,6 @@ spatial linear models selection
 }
 \examples{
 boston_506 = sf::read_sf(system.file("shapes/boston_tracts.shp", package = "spData"))
-g = spdep_lmtest(log(median) ~ CRIM + ZN + INDUS + CHAS, boston_506)
-g
+spdep_lmtest(log(median) ~ CRIM + ZN + INDUS + CHAS, boston_506)
 
 }
