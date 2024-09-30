@@ -199,15 +199,15 @@ spdep_skater = \(sfj,
 #'
 #' @param formula A formula for linear regression model.
 #' @param data An `sf` object of observation data.
-#' @param listw (optional) A listw. See `spdepspdep::mat2listw()` and `spdep::nb2listw()`
+#' @param listw (optional) A listw. See `spdep::mat2listw()` and `spdep::nb2listw()`
 #' for details.
 #'
 #' @return A list
 #' @export
 #'
 #' @examples
-#' boston_506 = sf::read_sf(system.file("shapes/boston_tracts.shp",package = "spData"))
-#' g = spdep_lmtest(log(median) ~ CRIM + ZN + INDUS + CHAS,boston_506)
+#' boston_506 = sf::read_sf(system.file("shapes/boston_tracts.shp", package = "spData"))
+#' g = spdep_lmtest(log(median) ~ CRIM + ZN + INDUS + CHAS, boston_506)
 #' g
 #'
 spdep_lmtest = \(formula,data,listw = NULL){

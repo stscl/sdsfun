@@ -11,7 +11,7 @@ spdep_lmtest(formula, data, listw = NULL)
 
 \item{data}{An \code{sf} object of observation data.}
 
-\item{listw}{(optional) A listw. See \code{spdepspdep::mat2listw()} and \code{spdep::nb2listw()}
+\item{listw}{(optional) A listw. See \code{spdep::mat2listw()} and \code{spdep::nb2listw()}
 for details.}
 }
 \value{
@@ -21,8 +21,8 @@ A list
 spatial linear models selection
 }
 \examples{
-boston_506 = sf::read_sf(system.file("shapes/boston_tracts.shp",package = "spData"))
-g = spdep_lmtest(log(median) ~ CRIM + ZN + INDUS + CHAS,boston_506)
+boston_506 = sf::read_sf(system.file("shapes/boston_tracts.shp", package = "spData"))
+g = spdep_lmtest(log(median) ~ CRIM + ZN + INDUS + CHAS, boston_506)
 g
 
 }
