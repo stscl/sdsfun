@@ -17,7 +17,7 @@ Generates a utm projection epsg coding character corresponding to an \code{sfj} 
 under the WGS84 spatial reference.
 }
 \details{
-For more details, please refer to \url{https://zhuanlan.zhihu.com/p/670055831}.
+See \url{https://zhuanlan.zhihu.com/p/670055831} for more details.
 }
 \examples{
 library(sf)
