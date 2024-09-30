@@ -28,6 +28,7 @@ reference:
   - spdep_contiguity_swm
   - spdep_distance_swm
   - spdep_skater
+  - spdep_lmtest
 
 - title: utility function for spatial weight matrices
   contents:
