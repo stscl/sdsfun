@@ -194,3 +194,15 @@ spdep_skater = \(sfj,
 
   return(res$groups)
 }
+
+spdep_lmtest(formula,data,listw = NULL){
+  .check_spwt(data)
+  if (is.null(listw)) {
+    nb = sdsfun::spdep_nb(data)
+    listw = spdep::nb2listw(nb, style = "W", zero.policy = TRUE)
+  }
+  data = sf::st_drop_geometry(data)
+  lm1 = stats::lm(formula,data)
+  res = spdep::lm.RStests(lm1,listw,test = "all")
+  return(res)
+}
