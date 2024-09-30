@@ -1,6 +1,6 @@
 # sdsfun 0.3.1
 
-* Ensure that n-level variables generate n-1 dummy variables (#2).
+* Ensure that `n`-level variables generate `n-1` dummy variables (#2).
 
 # sdsfun 0.3.0
 
