@@ -2,7 +2,7 @@
 
 * Ensure that `n`-level variables generate `n-1` dummy variables (#2).
 
-* Add `spdep_lmtest` function to support spatial linear models selection. (#3)
+* Add `spdep_lmtest` function to support spatial linear models selection (#3).
 
 # sdsfun 0.3.0
 
