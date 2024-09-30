@@ -195,7 +195,22 @@ spdep_skater = \(sfj,
   return(res$groups)
 }
 
-spdep_lmtest(formula,data,listw = NULL){
+#' spatial linear models selection
+#'
+#' @param formula A formula for linear regression model.
+#' @param data An `sf` object of observation data.
+#' @param listw (optional) A listw. See `spdepspdep::mat2listw()` and `spdep::nb2listw()`
+#' for details.
+#'
+#' @return A list
+#' @export
+#'
+#' @examples
+#' library(spdep)
+#' data(oldcol)
+#' lm(CRIME ~ HOVAL + INC, data = COL.OLD)
+#'
+spdep_lmtest = \(formula,data,listw = NULL){
   .check_spwt(data)
   if (is.null(listw)) {
     nb = sdsfun::spdep_nb(data)
