@@ -25,12 +25,12 @@ Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x) {
   int n = x.size();
   int k = levels.size();
 
-  // Create an n-row by k-column matrix to store the dummy variables
-  Rcpp::IntegerMatrix dummy(n, k);
+  // We will generate k-1 dummy variables (excluding the last level as reference)
+  Rcpp::IntegerMatrix dummy(n, k - 1);
 
   // Iterate over the input vector x
   for (int i = 0; i < n; ++i) {
-    for (int j = 0; j < k; ++j) {
+    for (int j = 0; j < k - 1; ++j) {
       // Set the corresponding column to 1 if the level matches, else 0
       if (x[i] == levels[j]) {
         dummy(i, j) = 1;
@@ -58,8 +58,8 @@ Rcpp::IntegerMatrix DummyMat(Rcpp::IntegerMatrix mat) {
   for (int col_idx = 0; col_idx < p; ++col_idx) {
     Rcpp::IntegerVector x = mat(_, col_idx);
     Rcpp::IntegerVector levels = Runique(x);
-    dummy_col_count[col_idx] = levels.size();
-    total_dummy_cols += levels.size();
+    dummy_col_count[col_idx] = levels.size() - 1;  // n-1 dummy variables
+    total_dummy_cols += levels.size() - 1;
   }
 
   // Create an IntegerMatrix to store the dummy variables
@@ -71,12 +71,12 @@ Rcpp::IntegerMatrix DummyMat(Rcpp::IntegerMatrix mat) {
     Rcpp::IntegerVector x = mat(_, col_idx);
     Rcpp::IntegerVector levels = Runique(x);  // Get unique levels
 
-    // Create dummy variables for each level
-    for (int level_idx = 0; level_idx < levels.size(); ++level_idx) {
+    // Create dummy variables for each level, except the last one
+    for (int level_idx = 0; level_idx < levels.size() - 1; ++level_idx) {
       int current_level = levels[level_idx];
 
       // Fill in the dummy variable column
-      for (int i = 0; i < n; i++) {
+      for (int i = 0; i < n; ++i) {
         dummy_matrix(i, current_col) = (x[i] == current_level) ? 1 : 0;
       }
 
