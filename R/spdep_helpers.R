@@ -206,9 +206,8 @@ spdep_skater = \(sfj,
 #' @export
 #'
 #' @examples
-#' library(spdep)
-#' data(oldcol)
-#' lm(CRIME ~ HOVAL + INC, data = COL.OLD)
+#' boston_506 = sf::read_sf(system.file("shapes/boston_tracts.shp",package = "spData"))
+#' spdep_lmtest(log(median) ~ CRIM + ZN + INDUS + CHAS,boston_506)
 #'
 spdep_lmtest = \(formula,data,listw = NULL){
   .check_spwt(data)
@@ -218,6 +217,6 @@ spdep_lmtest = \(formula,data,listw = NULL){
   }
   data = sf::st_drop_geometry(data)
   lm1 = stats::lm(formula,data)
-  res = spdep::lm.RStests(lm1,listw,test = "all")
-  return(res)
+  suppressWarnings({res = spdep::lm.RStests(lm1,listw,test = "all")})
+  return(summary(res))
 }
