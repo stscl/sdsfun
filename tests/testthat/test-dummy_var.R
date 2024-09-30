@@ -5,7 +5,7 @@ test_that("test dummy_vector works", {
 
 test_that("test dummy_tbl works", {
   a = tibble::tibble(x = 1:2,y = 3:4)
-  b = diag(1,2,2)
+  b = matrix(c(1,0,1,0),ncol = 2)
   colnames(b) = paste0(c("x","y"),"_1")
   expect_equal(dummy_tbl(a),
                tibble::as_tibble(b))
