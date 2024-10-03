@@ -38,7 +38,7 @@ moran_test = \(sfj,
                wt = NULL,
                alternative = "greater",
                symmetrize = FALSE){
-  .check_spwt()
+  .check_spwt(sfj)
 
   if (is.null(wt)){
     wt = sdsfun::spdep_contiguity_swm(sfj,
