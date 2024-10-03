@@ -6,6 +6,8 @@
 
 * Transfer the `moran_test` function from `geocomplexity` to `sdsfun` (#4).
 
+* Implement the geographical detector factor detector in`ssh_test` using `Rcpp` (#5).
+
 * Rename `dummy_vector` to `dummy_vec`.
 
 * Add `sf_coordinates` function to extract locations of `sf` object.
