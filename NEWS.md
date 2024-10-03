@@ -4,6 +4,8 @@
 
 * Add `spdep_lmtest` function to support spatial linear models selection (#3).
 
+* Transfer the `moran_test` function from `geocomplexity` to `sdsfun` (#4).
+
 * Add `sf_coordinates` function to extract locations of `sf` object.
 
 # sdsfun 0.3.0
