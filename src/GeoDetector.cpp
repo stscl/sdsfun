@@ -84,8 +84,14 @@ Rcpp::List GDFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
   double var_y = var(y) * (N - 1) / N;
   double lambda = (v1 - v2) / var_y;
 
-  // Compute p-value using the non-central F distribution
-  double pv = R::pf(Fv, L - 1, N - L, lambda, false);
+  // Obtaining namespace of stats package
+  Rcpp::Environment pkg = Rcpp::Environment::namespace_env("stats");
+  // Picking up pf() function from Matrix package
+  Rcpp::Function RStatsPf = pkg["pf"];
+  // Use R's stats::pf function to compute p-value
+  double pv = as<double>(RStatsPf(Fv, L - 1, N - L,
+                                  Rcpp::Named("ncp") = lambda,
+                                  Rcpp::Named("lower.tail") = false));
 
   // Return both Fv and p-value
   return Rcpp::List::create(Rcpp::Named("Qvalue") = qv,
