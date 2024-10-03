@@ -28,7 +28,7 @@ dummy_tbl = \(tbl){
   new_tblname = purrr::map2(tbl,
                             colnames(tbl),
                             \(.tbl,.tblname) paste0(.tblname, "_",
-                                                    seq_along(Runique(.tbl)[-1])))
+                                                    seq_along(RcppUnique(.tbl)[-1])))
   dummytbl = DummyMat(as.matrix(tbl))
   colnames(dummytbl) = unlist(new_tblname)
   return(tibble::as_tibble(dummytbl))
