@@ -30,7 +30,7 @@ Which contains the following information for each variable:
 }
 }
 \description{
-Spatial autocorrelation test based on global Moran Index.
+Spatial autocorrelation test based on global moran index.
 }
 \note{
 This is a \verb{C++} implementation of the \code{MI.vec} function in \code{spfilteR} package,
