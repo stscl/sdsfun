@@ -31,6 +31,10 @@ reference:
   - spdep_skater
   - spdep_lmtest
 
+- title: utility function for spatial relationship test
+  contents:
+  - moran_test
+
 - title: utility function for spatial weight matrices
   contents:
   - inverse_distance_swm
