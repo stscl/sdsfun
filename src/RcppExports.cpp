@@ -11,17 +11,6 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// Runique
-Rcpp::IntegerVector Runique(Rcpp::IntegerVector x);
-RcppExport SEXP _sdsfun_Runique(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(Runique(x));
-    return rcpp_result_gen;
-END_RCPP
-}
 // DummyVar
 Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x);
 RcppExport SEXP _sdsfun_DummyVar(SEXP xSEXP) {
@@ -69,13 +58,24 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// RcppUnique
+Rcpp::IntegerVector RcppUnique(Rcpp::IntegerVector x);
+RcppExport SEXP _sdsfun_RcppUnique(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(RcppUnique(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_sdsfun_Runique", (DL_FUNC) &_sdsfun_Runique, 1},
     {"_sdsfun_DummyVar", (DL_FUNC) &_sdsfun_DummyVar, 1},
     {"_sdsfun_DummyMat", (DL_FUNC) &_sdsfun_DummyMat, 1},
     {"_sdsfun_MI_vec", (DL_FUNC) &_sdsfun_MI_vec, 4},
     {"_sdsfun_PrintGlobalMoranI", (DL_FUNC) &_sdsfun_PrintGlobalMoranI, 1},
+    {"_sdsfun_RcppUnique", (DL_FUNC) &_sdsfun_RcppUnique, 1},
     {NULL, NULL, 0}
 };
 

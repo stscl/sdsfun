@@ -1,27 +1,11 @@
 #include <Rcpp.h>
+#include "SDSUtils.h"
 using namespace Rcpp;
-
-// Function to return unique elements while preserving the original order
-// [[Rcpp::export]]
-Rcpp::IntegerVector Runique(Rcpp::IntegerVector x) {
-  std::vector<int> seen;
-  std::vector<int> result;
-
-  for (int i = 0; i < x.size(); ++i) {
-    // If the value has not been seen before, add it to the result
-    if (std::find(seen.begin(), seen.end(), x[i]) == seen.end()) {
-      seen.push_back(x[i]);
-      result.push_back(x[i]);
-    }
-  }
-
-  return wrap(result);
-}
 
 // [[Rcpp::export]]
 Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x) {
   // Get the number of unique levels
-  Rcpp::IntegerVector levels = Runique(x);
+  Rcpp::IntegerVector levels = RcppUnique(x);
   int n = x.size();
   int k = levels.size();
 
@@ -57,7 +41,7 @@ Rcpp::IntegerMatrix DummyMat(Rcpp::IntegerMatrix mat) {
   // Loop to count the total dummy columns
   for (int col_idx = 0; col_idx < p; ++col_idx) {
     Rcpp::IntegerVector x = mat(_, col_idx);
-    Rcpp::IntegerVector levels = Runique(x);
+    Rcpp::IntegerVector levels = RcppUnique(x);
     dummy_col_count[col_idx] = levels.size() - 1;  // n-1 dummy variables
     total_dummy_cols += levels.size() - 1;
   }
@@ -69,7 +53,7 @@ Rcpp::IntegerMatrix DummyMat(Rcpp::IntegerMatrix mat) {
   // Loop through each column of the input matrix to create dummy variables
   for (int col_idx = 0; col_idx < p; ++col_idx) {
     Rcpp::IntegerVector x = mat(_, col_idx);
-    Rcpp::IntegerVector levels = Runique(x);  // Get unique levels
+    Rcpp::IntegerVector levels = RcppUnique(x);  // Get unique levels
 
     // Create dummy variables for each level, except the last one
     for (int level_idx = 0; level_idx < levels.size() - 1; ++level_idx) {
