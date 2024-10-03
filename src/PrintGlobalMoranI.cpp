@@ -2,22 +2,14 @@
 #include <iomanip>
 #include <sstream>
 #include <string>
+#include "SDSUtils.h"
 
 using namespace Rcpp;
 
-// Function to calculate the star based on p-value
-std::string star(double p) {
-  if (p < 0.001) return "***";
-  if (p < 0.01) return "**";
-  if (p < 0.05) return "*";
-  if (p < 0.1) return ".";
-  return " ";
-}
-
 // Helper function to concatenate a number and a significance star
-std::string concat_num_with_star(double num, double p) {
+std::string ConcatNumStar(double num, double p) {
   std::ostringstream oss;
-  oss << num << star(p);
+  oss << num << SignificanceStar(p);
   return oss.str();
 }
 
@@ -33,7 +25,7 @@ Rcpp::DataFrame PrintGlobalMoranI(Rcpp::DataFrame df) {
   Rcpp::CharacterVector stars(variable.size());
 
   for (int i = 0; i < variable.size(); ++i) {
-    stars[i] = concat_num_with_star(moran_i[i],pi[i]);
+    stars[i] = ConcatNumStar(moran_i[i],pi[i]);
   }
 
   Rcpp::DataFrame out = Rcpp::DataFrame::create(Rcpp::Named("Variable") = variable,
