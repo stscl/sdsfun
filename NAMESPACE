@@ -3,7 +3,7 @@
 S3method(print,moran_test)
 export("%>%")
 export(dummy_tbl)
-export(dummy_vector)
+export(dummy_vec)
 export(fuzzyoverlay)
 export(inverse_distance_swm)
 export(moran_test)

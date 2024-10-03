@@ -6,9 +6,9 @@
 #' @export
 #'
 #' @examples
-#' dummy_vector(c(1,1,3,2,4,6))
+#' dummy_vec(c(1,1,3,2,4,6))
 #'
-dummy_vector = \(x){
+dummy_vec = \(x){
   x = as.integer(x)
   return(DummyVar(x))
 }
