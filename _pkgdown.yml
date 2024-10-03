@@ -45,7 +45,7 @@ reference:
 
 - title: utility functions for dummy variables generation
   contents:
-  - dummy_vector
+  - dummy_vec
   - dummy_tbl
 
 - title: other utility functions
