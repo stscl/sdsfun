@@ -2,7 +2,7 @@
 % Please edit documentation in R/moran_test.R
 \name{moran_test}
 \alias{moran_test}
-\title{global spatial autocorrelation test}
+\title{test global spatial autocorrelation}
 \usage{
 moran_test(sfj, wt = NULL, alternative = "greater", symmetrize = FALSE)
 }

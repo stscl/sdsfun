@@ -1,4 +1,4 @@
-#' @title global spatial autocorrelation test
+#' @title test global spatial autocorrelation
 #' @description
 #' Spatial autocorrelation test based on global moran index.
 #' @note
