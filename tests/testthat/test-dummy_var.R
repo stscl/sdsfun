@@ -1,5 +1,5 @@
-test_that("test dummy_vector works", {
-  expect_equal(dummy_vector(c(1,2,4,6)),
+test_that("test dummy_vec works", {
+  expect_equal(dummy_vec(c(1,2,4,6)),
                rbind(diag(1,3,3),rep(0,3)))
 })
 
