@@ -13,3 +13,11 @@ DummyMat <- function(mat) {
     .Call(`_sdsfun_DummyMat`, mat)
 }
 
+MI_vec <- function(x, W, alternative = "greater", symmetrize = FALSE) {
+    .Call(`_sdsfun_MI_vec`, x, W, alternative, symmetrize)
+}
+
+PrintGlobalMoranI <- function(df) {
+    .Call(`_sdsfun_PrintGlobalMoranI`, df)
+}
+
