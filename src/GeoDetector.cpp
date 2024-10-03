@@ -1,0 +1,93 @@
+#include <Rcpp.h>
+#include "SDSUtils.h"
+using namespace Rcpp;
+
+// [[Rcpp::export]]
+double CalcFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
+  int N = y.size();
+
+  // Global mean of y
+  double y_mean = mean(y);
+
+  // Sum of squared differences for the denominator (global variance)
+  double denom = 0;
+  for (int i = 0; i < N; ++i) {
+    denom += std::pow(y[i] - y_mean, 2);
+  }
+
+  // Get unique levels of h
+  Rcpp::IntegerVector unique_levels = RcppUnique(h);
+
+  // Sum of squared differences within each level of h for the numerator
+  double numer = 0;
+  for (int level : unique_levels) {
+    // Get indices corresponding to the current level
+    NumericVector y_h;
+    for (int i = 0; i < N; ++i) {
+      if (h[i] == level) {
+        y_h.push_back(y[i]);
+      }
+    }
+
+    // Mean of y for the current level
+    double y_h_mean = mean(y_h);
+
+    // Sum of squared differences for the current level
+    for (int i = 0; i < y_h.size(); ++i) {
+      numer += std::pow(y_h[i] - y_h_mean, 2);
+    }
+  }
+
+  // Calculate q value
+  double q = 1 - (numer / denom);
+
+  return q;
+}
+
+// [[Rcpp::export]]
+Rcpp::List GDFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
+  int N = y.size();
+
+  // Calculate Q value
+  double qv = CalcFactorQ(y, h);
+
+  // Get unique levels of h
+  Rcpp::IntegerVector unique_levels = RcppUnique(h);
+  int L = unique_levels.size();
+
+  // Calculate Fv (test statistic)
+  double Fv = ((N - L) * qv) / ((L - 1) * (1 - qv));
+
+  // Compute means and sizes for each level of h
+  Rcpp::NumericVector hmean(L);
+  Rcpp::NumericVector Nh(L);
+
+  for (int j = 0; j < L; ++j) {
+    int level = unique_levels[j];
+    Rcpp::NumericVector y_h;
+
+    for (int i = 0; i < N; ++i) {
+      if (h[i] == level) {
+        y_h.push_back(y[i]);
+      }
+    }
+
+    hmean[j] = mean(y_h);
+    Nh[j] = y_h.size();
+  }
+
+  // Calculate v1 and v2
+  double v1 = sum(pow(hmean, 2.0));
+  double v2 = pow(sum(sqrt(Nh) * hmean), 2.0) / N;
+
+  // Calculate variance and lambda
+  double var_y = var(y) * (N - 1) / N;
+  double lambda = (v1 - v2) / var_y;
+
+  // Compute p-value using the non-central F distribution
+  double pv = R::pf(Fv, L - 1, N - L, lambda, false);
+
+  // Return both Fv and p-value
+  return Rcpp::List::create(Rcpp::Named("Qvalue") = qv,
+                            Rcpp::Named("Pvalue") = pv);
+}

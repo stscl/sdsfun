@@ -9,6 +9,14 @@ DummyMat <- function(mat) {
     .Call(`_sdsfun_DummyMat`, mat)
 }
 
+CalcFactorQ <- function(y, h) {
+    .Call(`_sdsfun_CalcFactorQ`, y, h)
+}
+
+GDFactorQ <- function(y, h) {
+    .Call(`_sdsfun_GDFactorQ`, y, h)
+}
+
 MI_vec <- function(x, W, alternative = "greater", symmetrize = FALSE) {
     .Call(`_sdsfun_MI_vec`, x, W, alternative, symmetrize)
 }

@@ -33,6 +33,30 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// CalcFactorQ
+double CalcFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h);
+RcppExport SEXP _sdsfun_CalcFactorQ(SEXP ySEXP, SEXP hSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type y(ySEXP);
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type h(hSEXP);
+    rcpp_result_gen = Rcpp::wrap(CalcFactorQ(y, h));
+    return rcpp_result_gen;
+END_RCPP
+}
+// GDFactorQ
+Rcpp::List GDFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h);
+RcppExport SEXP _sdsfun_GDFactorQ(SEXP ySEXP, SEXP hSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type y(ySEXP);
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type h(hSEXP);
+    rcpp_result_gen = Rcpp::wrap(GDFactorQ(y, h));
+    return rcpp_result_gen;
+END_RCPP
+}
 // MI_vec
 Rcpp::DataFrame MI_vec(arma::mat x, arma::mat W, std::string alternative, bool symmetrize);
 RcppExport SEXP _sdsfun_MI_vec(SEXP xSEXP, SEXP WSEXP, SEXP alternativeSEXP, SEXP symmetrizeSEXP) {
@@ -73,6 +97,8 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_DummyVar", (DL_FUNC) &_sdsfun_DummyVar, 1},
     {"_sdsfun_DummyMat", (DL_FUNC) &_sdsfun_DummyMat, 1},
+    {"_sdsfun_CalcFactorQ", (DL_FUNC) &_sdsfun_CalcFactorQ, 2},
+    {"_sdsfun_GDFactorQ", (DL_FUNC) &_sdsfun_GDFactorQ, 2},
     {"_sdsfun_MI_vec", (DL_FUNC) &_sdsfun_MI_vec, 4},
     {"_sdsfun_PrintGlobalMoranI", (DL_FUNC) &_sdsfun_PrintGlobalMoranI, 1},
     {"_sdsfun_RcppUnique", (DL_FUNC) &_sdsfun_RcppUnique, 1},
