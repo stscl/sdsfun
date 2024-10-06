@@ -52,6 +52,10 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
 #' discretize_vector(xvar, n = 5, method = 'sd')
 #'
 discretize_vector = \(x, n = 6, method = 'sd'){
-  res = eval(parse(text = paste0(method,"Disc(x,n)")))
-  return(res)
+  if (method %in% c("sd","equal","geometric","quantile","natural")){
+    res = eval(parse(text = paste0(method,"Disc(x,n)")))
+    return(res)
+  } else {
+    stop("Only support those methods: equal, natural, quantile, geometric and sd")
+  }
 }
