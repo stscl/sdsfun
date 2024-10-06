@@ -1,5 +1,6 @@
 #include <RcppArmadillo.h>
 #include <limits>  // for std::numeric_limits
+#include <random>  // For sampling
 
 // [[Rcpp::depends(RcppArmadillo)]]
 
@@ -147,12 +148,34 @@ arma::vec GetJenksBreaks(const arma::vec& x, int nclass) {
 }
 
 // [[Rcpp::export]]
-Rcpp::IntegerVector naturalDisc(const arma::vec& x, int n) {
-  arma::vec breaks = GetJenksBreaks(x, n);
+Rcpp::IntegerVector naturalDisc(const arma::vec& x,
+                                int n, double sampleprob) {
+  arma::vec data = x;  // Copy of input data
+  arma::vec breaks;
+
+  // Check if sampling is needed
+  if (x.n_elem > 3000) {
+    // Calculate sample size based on sample probability
+    int sample_size = static_cast<int>(std::round(x.n_elem * sampleprob));
+
+    // Ensure sample size is within valid range
+    if (sample_size < 1) {
+      Rcpp::stop("Sample size is too small");
+    }
+
+    // Generate random indices for sampling
+    arma::uvec indices = arma::randperm(x.n_elem, sample_size);
+
+    // Sample the data
+    data = x.elem(indices);
+  }
+
+  // Compute Jenks breaks using sampled data (or full data if no sampling)
+  breaks = GetJenksBreaks(data, n);
 
   Rcpp::IntegerVector result(x.n_elem);
 
-  // Assign each data point to a class based on breakpoints
+  // Assign each data point to a class based on the computed breakpoints
   for (size_t i = 0; i < x.n_elem; ++i) {
     for (int j = 0; j < n; ++j) {
       if (x[i] <= breaks[j + 1]) {
