@@ -11,15 +11,15 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// stdDisc
-Rcpp::NumericVector stdDisc(const arma::vec& x, double n);
-RcppExport SEXP _sdsfun_stdDisc(SEXP xSEXP, SEXP nSEXP) {
+// sdDisc
+Rcpp::NumericVector sdDisc(const arma::vec& x, double n);
+RcppExport SEXP _sdsfun_sdDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type n(nSEXP);
-    rcpp_result_gen = Rcpp::wrap(stdDisc(x, n));
+    rcpp_result_gen = Rcpp::wrap(sdDisc(x, n));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -143,7 +143,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_sdsfun_stdDisc", (DL_FUNC) &_sdsfun_stdDisc, 2},
+    {"_sdsfun_sdDisc", (DL_FUNC) &_sdsfun_sdDisc, 2},
     {"_sdsfun_equalDisc", (DL_FUNC) &_sdsfun_equalDisc, 2},
     {"_sdsfun_geometricDisc", (DL_FUNC) &_sdsfun_geometricDisc, 2},
     {"_sdsfun_quantileDisc", (DL_FUNC) &_sdsfun_quantileDisc, 2},

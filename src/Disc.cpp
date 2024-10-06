@@ -2,7 +2,7 @@
 // [[Rcpp::depends(RcppArmadillo)]]
 
 // [[Rcpp::export]]
-Rcpp::NumericVector stdDisc(const arma::vec& x, double n) {
+Rcpp::NumericVector sdDisc(const arma::vec& x, double n) {
   double mean_x = arma::mean(x);
   double std_x = arma::stddev(x);
 
