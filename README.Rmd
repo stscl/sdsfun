@@ -47,7 +47,5 @@ install.packages('sdsfun',
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("stscl/sdsfun",
-                         build_vignettes = TRUE,
-                         dep = TRUE)
+devtools::install_github("stscl/sdsfun", dep = TRUE)
 ```
