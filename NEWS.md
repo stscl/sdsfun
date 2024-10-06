@@ -8,6 +8,8 @@
 
 * Implement the geographical detector factor detector in`ssh_test` using `Rcpp` (#5).
 
+* Add `discretize_vector` function to support variable discretization (#6).
+
 * Rename `dummy_vector` to `dummy_vec`.
 
 * Add `sf_coordinates` function to extract locations of `sf` object.
