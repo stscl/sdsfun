@@ -39,7 +39,9 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
 #'
 #' @param x A continuous numeric vector.
 #' @param n (optional) The number of discretized, default is `6`
-#' @param method (optional) The method of discretization, default is `sd`
+#' @param method (optional) The method of discretization, default is `sd`.
+#' @param sampleprob (optional) When the data size exceeds `3000`, perform sampling
+#' for discretization, applicable only to natural breaks. Default is `0.15`.
 #'
 #' @return A discretized integer vector
 #' @export
@@ -51,11 +53,14 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
 #'          7508, 5203)
 #' discretize_vector(xvar, n = 5, method = 'sd')
 #'
-discretize_vector = \(x, n = 6, method = 'sd'){
-  if (method %in% c("sd","equal","geometric","quantile","natural")){
+discretize_vector = \(x, n = 6, method = 'sd',
+                      sampleprob = 0.15){
+  if (method %in% c("sd","equal","geometric","quantile")){
     res = eval(parse(text = paste0(method,"Disc(x,n)")))
-    return(res)
+  } else if (method == "natural") {
+    res = naturalDisc(x,n,sampleprob)
   } else {
     stop("Only support those methods: equal, natural, quantile, geometric and sd")
   }
+  return(res)
 }
