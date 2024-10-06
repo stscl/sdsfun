@@ -2,7 +2,7 @@
 // [[Rcpp::depends(RcppArmadillo)]]
 
 // [[Rcpp::export]]
-Rcpp::NumericVector stdDiscretize(const arma::vec& x, double n) {
+Rcpp::NumericVector stdDisc(const arma::vec& x, double n) {
   double mean_x = arma::mean(x);
   double std_x = arma::stddev(x);
 
@@ -17,7 +17,7 @@ Rcpp::NumericVector stdDiscretize(const arma::vec& x, double n) {
 }
 
 // [[Rcpp::export]]
-Rcpp::NumericVector equalDiscretize(const arma::vec& x, double n) {
+Rcpp::NumericVector equalDisc(const arma::vec& x, double n) {
   double min_x = arma::min(x);
   double max_x = arma::max(x);
   double interval = (max_x - min_x) / n;
@@ -32,7 +32,7 @@ Rcpp::NumericVector equalDiscretize(const arma::vec& x, double n) {
 }
 
 // [[Rcpp::export]]
-Rcpp::NumericVector geometricDiscretize(const arma::vec& x, double n) {
+Rcpp::NumericVector geometricDisc(const arma::vec& x, double n) {
   double min_x = arma::min(x);
   double max_x = arma::max(x);
   double factor = std::pow(max_x / min_x, 1.0 / n);
@@ -47,7 +47,7 @@ Rcpp::NumericVector geometricDiscretize(const arma::vec& x, double n) {
 }
 
 // [[Rcpp::export]]
-Rcpp::NumericVector quantileDiscretize(const arma::vec& x, double n) {
+Rcpp::NumericVector quantileDisc(const arma::vec& x, double n) {
   arma::vec sorted_x = arma::sort(x);
   arma::vec quantiles(n);
 

@@ -11,51 +11,51 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// stdDiscretize
-Rcpp::NumericVector stdDiscretize(const arma::vec& x, double n);
-RcppExport SEXP _sdsfun_stdDiscretize(SEXP xSEXP, SEXP nSEXP) {
+// stdDisc
+Rcpp::NumericVector stdDisc(const arma::vec& x, double n);
+RcppExport SEXP _sdsfun_stdDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type n(nSEXP);
-    rcpp_result_gen = Rcpp::wrap(stdDiscretize(x, n));
+    rcpp_result_gen = Rcpp::wrap(stdDisc(x, n));
     return rcpp_result_gen;
 END_RCPP
 }
-// equalDiscretize
-Rcpp::NumericVector equalDiscretize(const arma::vec& x, double n);
-RcppExport SEXP _sdsfun_equalDiscretize(SEXP xSEXP, SEXP nSEXP) {
+// equalDisc
+Rcpp::NumericVector equalDisc(const arma::vec& x, double n);
+RcppExport SEXP _sdsfun_equalDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type n(nSEXP);
-    rcpp_result_gen = Rcpp::wrap(equalDiscretize(x, n));
+    rcpp_result_gen = Rcpp::wrap(equalDisc(x, n));
     return rcpp_result_gen;
 END_RCPP
 }
-// geometricDiscretize
-Rcpp::NumericVector geometricDiscretize(const arma::vec& x, double n);
-RcppExport SEXP _sdsfun_geometricDiscretize(SEXP xSEXP, SEXP nSEXP) {
+// geometricDisc
+Rcpp::NumericVector geometricDisc(const arma::vec& x, double n);
+RcppExport SEXP _sdsfun_geometricDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type n(nSEXP);
-    rcpp_result_gen = Rcpp::wrap(geometricDiscretize(x, n));
+    rcpp_result_gen = Rcpp::wrap(geometricDisc(x, n));
     return rcpp_result_gen;
 END_RCPP
 }
-// quantileDiscretize
-Rcpp::NumericVector quantileDiscretize(const arma::vec& x, double n);
-RcppExport SEXP _sdsfun_quantileDiscretize(SEXP xSEXP, SEXP nSEXP) {
+// quantileDisc
+Rcpp::NumericVector quantileDisc(const arma::vec& x, double n);
+RcppExport SEXP _sdsfun_quantileDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type n(nSEXP);
-    rcpp_result_gen = Rcpp::wrap(quantileDiscretize(x, n));
+    rcpp_result_gen = Rcpp::wrap(quantileDisc(x, n));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -143,10 +143,10 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_sdsfun_stdDiscretize", (DL_FUNC) &_sdsfun_stdDiscretize, 2},
-    {"_sdsfun_equalDiscretize", (DL_FUNC) &_sdsfun_equalDiscretize, 2},
-    {"_sdsfun_geometricDiscretize", (DL_FUNC) &_sdsfun_geometricDiscretize, 2},
-    {"_sdsfun_quantileDiscretize", (DL_FUNC) &_sdsfun_quantileDiscretize, 2},
+    {"_sdsfun_stdDisc", (DL_FUNC) &_sdsfun_stdDisc, 2},
+    {"_sdsfun_equalDisc", (DL_FUNC) &_sdsfun_equalDisc, 2},
+    {"_sdsfun_geometricDisc", (DL_FUNC) &_sdsfun_geometricDisc, 2},
+    {"_sdsfun_quantileDisc", (DL_FUNC) &_sdsfun_quantileDisc, 2},
     {"_sdsfun_DummyVar", (DL_FUNC) &_sdsfun_DummyVar, 1},
     {"_sdsfun_DummyMat", (DL_FUNC) &_sdsfun_DummyMat, 1},
     {"_sdsfun_CalcFactorQ", (DL_FUNC) &_sdsfun_CalcFactorQ, 2},
