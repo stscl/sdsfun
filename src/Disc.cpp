@@ -2,13 +2,12 @@
 // [[Rcpp::depends(RcppArmadillo)]]
 
 // [[Rcpp::export]]
-Rcpp::NumericVector sdDisc(const arma::vec& x, double n) {
+Rcpp::IntegerVector sdDisc(const arma::vec& x, double n) {
   double mean_x = arma::mean(x);
   double std_x = arma::stddev(x);
 
-  Rcpp::NumericVector result(x.n_elem);
+  Rcpp::IntegerVector result(x.n_elem);
 
-  // 按标准差划分区间，确保结果为1到N
   for (size_t i = 0; i < x.n_elem; ++i) {
     double diff = (x[i] - mean_x) / std_x;
     int index = std::floor((diff + n/2) / n * n);
@@ -19,12 +18,12 @@ Rcpp::NumericVector sdDisc(const arma::vec& x, double n) {
 }
 
 // [[Rcpp::export]]
-Rcpp::NumericVector equalDisc(const arma::vec& x, double n) {
+Rcpp::IntegerVector equalDisc(const arma::vec& x, double n) {
   double min_x = arma::min(x);
   double max_x = arma::max(x);
   double interval = (max_x - min_x) / n;
 
-  Rcpp::NumericVector result(x.n_elem);
+  Rcpp::IntegerVector result(x.n_elem);
 
   for (size_t i = 0; i < x.n_elem; ++i) {
     int index = std::ceil((x[i] - min_x) / interval);
@@ -35,12 +34,12 @@ Rcpp::NumericVector equalDisc(const arma::vec& x, double n) {
 }
 
 // [[Rcpp::export]]
-Rcpp::NumericVector geometricDisc(const arma::vec& x, double n) {
+Rcpp::IntegerVector geometricDisc(const arma::vec& x, double n) {
   double min_x = arma::min(x);
   double max_x = arma::max(x);
   double factor = std::pow(max_x / min_x, 1.0 / n);
 
-  Rcpp::NumericVector result(x.n_elem);
+  Rcpp::IntegerVector result(x.n_elem);
 
   for (size_t i = 0; i < x.n_elem; ++i) {
     int index = std::floor(std::log(x[i] / min_x) / std::log(factor)) + 1;
@@ -51,7 +50,7 @@ Rcpp::NumericVector geometricDisc(const arma::vec& x, double n) {
 }
 
 // [[Rcpp::export]]
-Rcpp::NumericVector quantileDisc(const arma::vec& x, double n) {
+Rcpp::IntegerVector quantileDisc(const arma::vec& x, double n) {
   arma::vec sorted_x = arma::sort(x);
   arma::vec quantiles(n + 1);
 
@@ -59,7 +58,7 @@ Rcpp::NumericVector quantileDisc(const arma::vec& x, double n) {
     quantiles[i] = sorted_x[i * (sorted_x.n_elem - 1) / n];
   }
 
-  Rcpp::NumericVector result(x.n_elem);
+  Rcpp::IntegerVector result(x.n_elem);
 
   for (size_t i = 0; i < x.n_elem; ++i) {
     for (int j = 0; j < n; ++j) {

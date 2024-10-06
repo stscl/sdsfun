@@ -35,6 +35,16 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
   return(xnew)
 }
 
+#' @title discretization
+#'
+#' @param x A continuous numeric vector.
+#' @param n (optional) The number of discretized, default is `6`
+#' @param method (optional) The method of discretization, default is `sd`
+#'
+#' @return A discretized integer vector
+#' @export
+#'
+#' @examples
 discretize_vector = \(x, n = 6, method = 'sd'){
   res = eval(parse(text = paste0(method,"Disc(x,n)")))
   return(res)

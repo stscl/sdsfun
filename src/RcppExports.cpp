@@ -12,7 +12,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 // sdDisc
-Rcpp::NumericVector sdDisc(const arma::vec& x, double n);
+Rcpp::IntegerVector sdDisc(const arma::vec& x, double n);
 RcppExport SEXP _sdsfun_sdDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -24,7 +24,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // equalDisc
-Rcpp::NumericVector equalDisc(const arma::vec& x, double n);
+Rcpp::IntegerVector equalDisc(const arma::vec& x, double n);
 RcppExport SEXP _sdsfun_equalDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -36,7 +36,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // geometricDisc
-Rcpp::NumericVector geometricDisc(const arma::vec& x, double n);
+Rcpp::IntegerVector geometricDisc(const arma::vec& x, double n);
 RcppExport SEXP _sdsfun_geometricDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -48,7 +48,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // quantileDisc
-Rcpp::NumericVector quantileDisc(const arma::vec& x, double n);
+Rcpp::IntegerVector quantileDisc(const arma::vec& x, double n);
 RcppExport SEXP _sdsfun_quantileDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
