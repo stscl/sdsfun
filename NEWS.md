@@ -1,18 +1,18 @@
 # sdsfun 0.3.1
 
-* Ensure that `n`-level variables generate `n-1` dummy variables (#2).
+* Modify the handling of `n`-level variables to generate `n-1` dummy variables (#2).
 
-* Add `spdep_lmtest` function to support spatial linear models selection (#3).
+* Introduce the `spdep_lmtest` function for spatial linear model selection (#3).
 
-* Transfer the `moran_test` function from `geocomplexity` to `sdsfun` (#4).
+* Migrate the `moran_test` function from the `geocomplexity` package to `sdsfun` (#4).
 
-* Implement the geographical detector factor detector in`ssh_test` using `Rcpp` (#5).
+* Implement the geographical detector's factor detector in `ssh_test` using `Rcpp` (#5).
 
-* Add `discretize_vector` function to support variable discretization (#6).
+* Add the `discretize_vector` function to support variable discretization (#6).
 
-* Rename `dummy_vector` to `dummy_vec`.
+* Rename `dummy_vector` to `dummy_vec` for consistency.
 
-* Add `sf_coordinates` function to extract locations of `sf` object.
+* Add the `sf_coordinates` function to extract coordinates from `sf` objects.
 
 # sdsfun 0.3.0
 
