@@ -53,3 +53,4 @@ reference:
   contents:
   - normalize_vector
   - standardize_vector
+  - discretize_vector
