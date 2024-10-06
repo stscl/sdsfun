@@ -34,3 +34,8 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
   xnew = (x - xmin) / (xmax - xmin) * (to_right - to_left) + to_left
   return(xnew)
 }
+
+discretize_vector = \(x, n = 6, method = 'sd'){
+  res = eval(parse(text = paste0(method,"Disc(x,n)")))
+  return(res)
+}
