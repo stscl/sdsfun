@@ -17,6 +17,10 @@ quantileDisc <- function(x, n) {
     .Call(`_sdsfun_quantileDisc`, x, n)
 }
 
+naturalDisc <- function(x, n) {
+    .Call(`_sdsfun_naturalDisc`, x, n)
+}
+
 DummyVar <- function(x) {
     .Call(`_sdsfun_DummyVar`, x)
 }
