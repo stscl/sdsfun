@@ -77,15 +77,16 @@ Rcpp::IntegerVector quantileDisc(const arma::vec& x, double n) {
 
 // [[Rcpp::export]]
 Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec breakpoint) {
-  // Check if the minimum value of x is in breakpoint
   double min_x = x.min();
-  if (arma::any(breakpoint > min_x) == false) {
+  double max_x = x.max();
+
+  // Check if the minimum value of x is in breakpoint
+  if (arma::any(breakpoint > min_x) == true) {
     breakpoint.insert_rows(0, arma::vec({min_x}));
   }
 
   // Check if the maximum value of x is in breakpoint
-  double max_x = x.max();
-  if (arma::any(breakpoint < max_x) == false) {
+  if (arma::any(breakpoint < max_x) == true) {
     breakpoint.insert_rows(breakpoint.n_elem, arma::vec({max_x}));
   }
 
