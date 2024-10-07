@@ -111,3 +111,106 @@ Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec breakpoint) {
 
   return result;
 }
+
+arma::vec ArmaJenksBreaks(const arma::vec& inp_data, int n_classes,
+                          bool is_sorted = true) {
+
+  arma::vec data = inp_data;
+  if (!is_sorted) {
+    data = arma::sort(inp_data);
+  }
+
+  int data_length = data.n_elem;
+
+  // Initialize matrices for lower class limits and variance combinations
+  arma::imat lower_class_limits(data_length + 1, n_classes + 1, arma::fill::zeros);
+  arma::mat variance_combinations(data_length + 1, n_classes + 1);
+  variance_combinations.fill(arma::datum::inf);
+
+  for (int i = 1; i <= n_classes; ++i) {
+    lower_class_limits(1, i) = 1;
+    variance_combinations(1, i) = 0.0;
+  }
+
+  for (int l = 2; l <= data_length; ++l) {
+    double sum = 0.0, sum_squares = 0.0, variance = 0.0;
+
+    for (int m = 1; m <= l; ++m) {
+      int lower_class_limit = l - m + 1;
+      double val = data[lower_class_limit - 1];
+      sum += val;
+      sum_squares += val * val;
+
+      // Compute variance at this point
+      variance = sum_squares - (sum * sum) / m;
+      int i4 = lower_class_limit - 1;
+      if (i4 != 0) {
+        for (int j = 2; j <= n_classes; ++j) {
+          if (variance_combinations(l, j) >= (variance + variance_combinations(i4, j - 1))) {
+            lower_class_limits(l, j) = lower_class_limit;
+            variance_combinations(l, j) = variance + variance_combinations(i4, j - 1);
+          }
+        }
+      }
+    }
+    lower_class_limits(l, 1) = 1;
+    variance_combinations(l, 1) = variance;  // 'variance' now properly declared and used
+  }
+
+  // Extracting the class breaks
+  arma::vec kclass(n_classes - 1, arma::fill::zeros);
+  int k = data_length - 1;
+
+  for (int countNum = n_classes - 1; countNum > 0; countNum--) {
+    if (countNum > 0) {
+      kclass[countNum - 1] = data[lower_class_limits(k, countNum + 1) - 2];
+    }
+    k = lower_class_limits(k, countNum + 1) - 1;
+  }
+
+  return kclass;
+}
+
+// [[Rcpp::export]]
+Rcpp::IntegerVector naturalDisc(const arma::vec& x,
+                                int n, double sampleprob) {
+  arma::vec data = x;  // Copy of input data
+  arma::vec breaks;
+
+  // Check if sampling is needed
+  if (x.n_elem > 3000) {
+    // Calculate sample size based on sample probability
+    int sample_size = static_cast<int>(std::round(x.n_elem * sampleprob));
+
+    // Ensure sample size is within valid range
+    if (sample_size < 1) {
+      Rcpp::stop("Sample size is too small");
+    }
+
+    // Generate random indices for sampling
+    arma::uvec indices = arma::randperm(x.n_elem, sample_size);
+
+    // Sample the data
+    data = x.elem(indices);
+  }
+
+  // Compute Jenks breaks using sampled data (or full data if no sampling)
+  breaks = ArmaJenksBreaks(data, n, false);
+
+  Rcpp::IntegerVector result(x.n_elem);
+
+  // Assign each data point to a class based on the computed breakpoints
+  for (size_t i = 0; i < x.n_elem; ++i) {
+    for (int j = 0; j < n - 2; ++j) {
+      if (x[i] < breaks[j]) {
+        result[i] = j + 1;
+        break;
+      }
+    }
+    if (x[i] >= breaks[breaks.n_elem - 1]) {
+      result[i] = n;
+    }
+  }
+
+  return result;
+}
