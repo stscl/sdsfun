@@ -40,11 +40,8 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
 #' @param x A continuous numeric vector.
 #' @param n (optional) The number of discretized classes.
 #' @param method (optional) The method of discretization, default is `sd`.
-#' @param sampleprob (optional) When the data size exceeds `3000`, perform sampling
-#' for discretization, applicable only to natural breaks. Default is `0.15`.
 #' @param breakpoint (optional) Break points for manually splitting data. When
 #' `method` is `manual`, `breakpoint` is required.
-#' @param seed (optional) Random seed number, default is `123456789`.
 #'
 #' @return A discretized integer vector
 #' @export
@@ -57,14 +54,9 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
 #' discretize_vector(xvar, n = 5, method = 'sd')
 #'
 discretize_vector = \(x, n, method = 'sd',
-                      sampleprob = 0.15,
-                      breakpoint = NULL,
-                      seed =  123456789){
-  base::set.seed(seed)
+                      breakpoint = NULL){
   if (method %in% c("sd","equal","geometric","quantile")){
     res = eval(parse(text = paste0(method,"Disc(x,n)")))
-  } else if (method == "natural") {
-    res = naturalDisc(x,n,sampleprob)
   } else if (method == "manual") {
     if (is.null(breakpoint)) {
       stop("When method is manual, breakpoint is required.")
@@ -72,7 +64,7 @@ discretize_vector = \(x, n, method = 'sd',
       res = manualDisc(x,breakpoint)
     }
   } else {
-    stop("Only support those methods: equal, natural, quantile, geometric sd and manual.")
+    stop("Only support those methods: equal,quantile,geometric,sd and manual.")
   }
   return(res)
 }
