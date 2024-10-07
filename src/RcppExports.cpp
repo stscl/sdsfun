@@ -131,6 +131,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// GetJenksBreaks
+NumericVector GetJenksBreaks(NumericVector inp_data, int n_classes, bool is_sorted);
+RcppExport SEXP _sdsfun_GetJenksBreaks(SEXP inp_dataSEXP, SEXP n_classesSEXP, SEXP is_sortedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type inp_data(inp_dataSEXP);
+    Rcpp::traits::input_parameter< int >::type n_classes(n_classesSEXP);
+    Rcpp::traits::input_parameter< bool >::type is_sorted(is_sortedSEXP);
+    rcpp_result_gen = Rcpp::wrap(GetJenksBreaks(inp_data, n_classes, is_sorted));
+    return rcpp_result_gen;
+END_RCPP
+}
 // PrintGlobalMoranI
 Rcpp::DataFrame PrintGlobalMoranI(Rcpp::DataFrame df);
 RcppExport SEXP _sdsfun_PrintGlobalMoranI(SEXP dfSEXP) {
@@ -165,6 +178,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_CalcFactorQ", (DL_FUNC) &_sdsfun_CalcFactorQ, 2},
     {"_sdsfun_GDFactorQ", (DL_FUNC) &_sdsfun_GDFactorQ, 2},
     {"_sdsfun_MI_vec", (DL_FUNC) &_sdsfun_MI_vec, 4},
+    {"_sdsfun_GetJenksBreaks", (DL_FUNC) &_sdsfun_GetJenksBreaks, 3},
     {"_sdsfun_PrintGlobalMoranI", (DL_FUNC) &_sdsfun_PrintGlobalMoranI, 1},
     {"_sdsfun_RcppUnique", (DL_FUNC) &_sdsfun_RcppUnique, 1},
     {NULL, NULL, 0}

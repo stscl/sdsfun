@@ -41,6 +41,10 @@ MI_vec <- function(x, W, alternative = "greater", symmetrize = FALSE) {
     .Call(`_sdsfun_MI_vec`, x, W, alternative, symmetrize)
 }
 
+GetJenksBreaks <- function(inp_data, n_classes, is_sorted = TRUE) {
+    .Call(`_sdsfun_GetJenksBreaks`, inp_data, n_classes, is_sorted)
+}
+
 PrintGlobalMoranI <- function(df) {
     .Call(`_sdsfun_PrintGlobalMoranI`, df)
 }
