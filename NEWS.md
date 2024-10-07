@@ -10,6 +10,8 @@
 
 * Add the `discretize_vector` function to support variable discretization (#6).
 
+* "Apply the `loess_optnum` function to select the optimal number of discretization (#10).
+
 * Rename `dummy_vector` to `dummy_vec` for consistency.
 
 * Add the `sf_coordinates` function to extract coordinates from `sf` objects.
