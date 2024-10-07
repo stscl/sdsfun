@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // [[Rcpp::export]]
 NumericVector GetJenksBreaks(NumericVector inp_data, int n_classes,
-                             bool is_sorted = true) {
+                             bool is_sorted = false) {
   if (!is_sorted) {
     std::sort(inp_data.begin(), inp_data.end());
   }

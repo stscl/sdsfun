@@ -45,7 +45,7 @@ MI_vec <- function(x, W, alternative = "greater", symmetrize = FALSE) {
     .Call(`_sdsfun_MI_vec`, x, W, alternative, symmetrize)
 }
 
-GetJenksBreaks <- function(inp_data, n_classes, is_sorted = TRUE) {
+GetJenksBreaks <- function(inp_data, n_classes, is_sorted = FALSE) {
     .Call(`_sdsfun_GetJenksBreaks`, inp_data, n_classes, is_sorted)
 }
 

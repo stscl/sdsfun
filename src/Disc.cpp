@@ -113,7 +113,7 @@ Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec breakpoint) {
 }
 
 arma::vec ArmaJenksBreaks(const arma::vec& inp_data, int n_classes,
-                          bool is_sorted = true) {
+                          bool is_sorted = false) {
 
   arma::vec data = inp_data;
   if (!is_sorted) {
