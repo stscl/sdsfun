@@ -189,3 +189,39 @@ Rcpp::IntegerVector naturalDisc(const arma::vec& x,
   return result;
 }
 
+// [[Rcpp::export]]
+Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec discpoint) {
+  // Check if the minimum value of x is in discpoint
+  double min_x = x.min();
+  if (arma::any(discpoint > min_x) == false) {
+    discpoint.insert_rows(0, arma::vec({min_x}));
+  }
+
+  // Check if the maximum value of x is in discpoint
+  double max_x = x.max();
+  if (arma::any(discpoint < max_x) == false) {
+    discpoint.insert_rows(discpoint.n_elem, arma::vec({max_x}));
+  }
+
+  // Sort discpoint in ascending order
+  discpoint = arma::sort(discpoint);
+
+  // Initialize result vector
+  Rcpp::IntegerVector result(x.n_elem);
+
+  // Classify x based on discpoint (left-closed, right-open intervals)
+  for (size_t i = 0; i < x.n_elem; ++i) {
+    for (size_t j = 0; j < discpoint.n_elem - 1; ++j) {
+      if (x[i] >= discpoint[j] && x[i] < discpoint[j + 1]) {
+        result[i] = j + 1;
+        break;
+      }
+    }
+    // If the value is equal to the last discpoint, classify it in the last category
+    if (x[i] == discpoint[discpoint.n_elem - 1]) {
+      result[i] = discpoint.n_elem - 1;
+    }
+  }
+
+  return result;
+}
