@@ -39,7 +39,7 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
 #'
 #' @param x A continuous numeric vector.
 #' @param n (optional) The number of discretized classes.
-#' @param method (optional) The method of discretization, default is `sd`.
+#' @param method (optional) The method of discretization, default is `natural`.
 #' @param breakpoint (optional) Break points for manually splitting data. When
 #' `method` is `manual`, `breakpoint` is required.
 #' @param sampleprob (optional) When the data size exceeds `3000`, perform sampling
@@ -54,9 +54,9 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
 #'          17816, 6909, 6936, 7990, 3758, 3569, 21965, 3605, 2181, 1892,
 #'          2459, 2934, 6399, 8578, 8537, 4840, 12132, 3734, 4372, 9073,
 #'          7508, 5203)
-#' discretize_vector(xvar, n = 5, method = 'sd')
+#' discretize_vector(xvar, n = 5, method = 'natural')
 #'
-discretize_vector = \(x, n, method = 'sd',
+discretize_vector = \(x, n, method = 'natural',
                       breakpoint = NULL,
                       sampleprob = 0.15,
                       seed = 123456789){

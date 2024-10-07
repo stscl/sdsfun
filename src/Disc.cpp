@@ -112,6 +112,7 @@ Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec breakpoint) {
   return result;
 }
 
+// [[Rcpp::export]]
 arma::vec ArmaJenksBreaks(const arma::vec& inp_data, int n_classes,
                           bool is_sorted = false) {
 

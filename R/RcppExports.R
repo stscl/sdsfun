@@ -21,6 +21,10 @@ manualDisc <- function(x, breakpoint) {
     .Call(`_sdsfun_manualDisc`, x, breakpoint)
 }
 
+ArmaJenksBreaks <- function(inp_data, n_classes, is_sorted = FALSE) {
+    .Call(`_sdsfun_ArmaJenksBreaks`, inp_data, n_classes, is_sorted)
+}
+
 naturalDisc <- function(x, n, sampleprob) {
     .Call(`_sdsfun_naturalDisc`, x, n, sampleprob)
 }
@@ -45,8 +49,8 @@ MI_vec <- function(x, W, alternative = "greater", symmetrize = FALSE) {
     .Call(`_sdsfun_MI_vec`, x, W, alternative, symmetrize)
 }
 
-GetJenksBreaks <- function(inp_data, n_classes, is_sorted = FALSE) {
-    .Call(`_sdsfun_GetJenksBreaks`, inp_data, n_classes, is_sorted)
+RcppJenksBreaks <- function(x, n_classes, is_sorted = FALSE) {
+    .Call(`_sdsfun_RcppJenksBreaks`, x, n_classes, is_sorted)
 }
 
 PrintGlobalMoranI <- function(df) {

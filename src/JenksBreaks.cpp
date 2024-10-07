@@ -6,8 +6,9 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-NumericVector GetJenksBreaks(NumericVector inp_data, int n_classes,
-                             bool is_sorted = false) {
+Rcpp::NumericVector RcppJenksBreaks(const Rcpp::NumericVector& x,
+                                    int n_classes, bool is_sorted = false) {
+  Rcpp::NumericVector inp_data = x; // create a copy
   if (!is_sorted) {
     std::sort(inp_data.begin(), inp_data.end());
   }
