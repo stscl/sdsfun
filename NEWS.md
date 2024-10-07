@@ -1,4 +1,4 @@
-# sdsfun 0.3.1
+# sdsfun 0.4.0
 
 * Modify the handling of `n`-level variables to generate `n-1` dummy variables (#2).
 
