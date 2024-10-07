@@ -85,14 +85,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // manualDisc
-Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec discpoint);
-RcppExport SEXP _sdsfun_manualDisc(SEXP xSEXP, SEXP discpointSEXP) {
+Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec breakpoint);
+RcppExport SEXP _sdsfun_manualDisc(SEXP xSEXP, SEXP breakpointSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
-    Rcpp::traits::input_parameter< arma::vec >::type discpoint(discpointSEXP);
-    rcpp_result_gen = Rcpp::wrap(manualDisc(x, discpoint));
+    Rcpp::traits::input_parameter< arma::vec >::type breakpoint(breakpointSEXP);
+    rcpp_result_gen = Rcpp::wrap(manualDisc(x, breakpoint));
     return rcpp_result_gen;
 END_RCPP
 }

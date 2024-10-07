@@ -4,17 +4,27 @@
 \alias{discretize_vector}
 \title{discretization}
 \usage{
-discretize_vector(x, n = 6, method = "sd", sampleprob = 0.15, seed = 123456789)
+discretize_vector(
+  x,
+  n,
+  method = "sd",
+  sampleprob = 0.15,
+  breakpoint = NULL,
+  seed = 123456789
+)
 }
 \arguments{
 \item{x}{A continuous numeric vector.}
 
-\item{n}{(optional) The number of discretized, default is \code{6}}
+\item{n}{(optional) The number of discretized classes.}
 
 \item{method}{(optional) The method of discretization, default is \code{sd}.}
 
 \item{sampleprob}{(optional) When the data size exceeds \code{3000}, perform sampling
 for discretization, applicable only to natural breaks. Default is \code{0.15}.}
+
+\item{breakpoint}{(optional) Break points for manually splitting data. When
+\code{method} is \code{manual}, \code{breakpoint} is required.}
 
 \item{seed}{(optional) Random seed number, default is \code{123456789}.}
 }

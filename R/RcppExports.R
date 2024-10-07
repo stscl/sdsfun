@@ -25,8 +25,8 @@ naturalDisc <- function(x, n, sampleprob) {
     .Call(`_sdsfun_naturalDisc`, x, n, sampleprob)
 }
 
-manualDisc <- function(x, discpoint) {
-    .Call(`_sdsfun_manualDisc`, x, discpoint)
+manualDisc <- function(x, breakpoint) {
+    .Call(`_sdsfun_manualDisc`, x, breakpoint)
 }
 
 DummyVar <- function(x) {
