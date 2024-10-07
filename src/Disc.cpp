@@ -190,6 +190,9 @@ Rcpp::IntegerVector naturalDisc(const arma::vec& x,
         break;
       }
     }
+    if (x[i] == breaks[breaks.n_elem - 1]) {
+      result[i] = breaks.n_elem - 1;
+    }
   }
 
   return result;
