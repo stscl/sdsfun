@@ -60,15 +60,16 @@ BEGIN_RCPP
 END_RCPP
 }
 // naturalDisc
-Rcpp::IntegerVector naturalDisc(const arma::vec& x, int n, double sampleprob);
-RcppExport SEXP _sdsfun_naturalDisc(SEXP xSEXP, SEXP nSEXP, SEXP sampleprobSEXP) {
+Rcpp::IntegerVector naturalDisc(const arma::vec& x, int n, double sampleprob, int seed);
+RcppExport SEXP _sdsfun_naturalDisc(SEXP xSEXP, SEXP nSEXP, SEXP sampleprobSEXP, SEXP seedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< int >::type n(nSEXP);
     Rcpp::traits::input_parameter< double >::type sampleprob(sampleprobSEXP);
-    rcpp_result_gen = Rcpp::wrap(naturalDisc(x, n, sampleprob));
+    Rcpp::traits::input_parameter< int >::type seed(seedSEXP);
+    rcpp_result_gen = Rcpp::wrap(naturalDisc(x, n, sampleprob, seed));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -160,7 +161,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_equalDisc", (DL_FUNC) &_sdsfun_equalDisc, 2},
     {"_sdsfun_geometricDisc", (DL_FUNC) &_sdsfun_geometricDisc, 2},
     {"_sdsfun_quantileDisc", (DL_FUNC) &_sdsfun_quantileDisc, 2},
-    {"_sdsfun_naturalDisc", (DL_FUNC) &_sdsfun_naturalDisc, 3},
+    {"_sdsfun_naturalDisc", (DL_FUNC) &_sdsfun_naturalDisc, 4},
     {"_sdsfun_DummyVar", (DL_FUNC) &_sdsfun_DummyVar, 1},
     {"_sdsfun_DummyMat", (DL_FUNC) &_sdsfun_DummyMat, 1},
     {"_sdsfun_CalcFactorQ", (DL_FUNC) &_sdsfun_CalcFactorQ, 2},
