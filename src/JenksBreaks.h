@@ -3,7 +3,7 @@
 
 #include <Rcpp.h>
 
-Rcpp::NumericVector GetJenksBreaks(Rcpp::NumericVector inp_data,
-                                   int n_classes,bool is_sorted = true);
+Rcpp::NumericVector RcppJenksBreaks(const Rcpp::NumericVector& x,
+                                    int n_classes, bool is_sorted = false);
 
 #endif // JenksBreaks_H

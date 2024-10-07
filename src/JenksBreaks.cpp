@@ -8,9 +8,13 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 Rcpp::NumericVector RcppJenksBreaks(const Rcpp::NumericVector& x,
                                     int n_classes, bool is_sorted = false) {
-  Rcpp::NumericVector inp_data = x; // create a copy
+  Rcpp::NumericVector inp_data;  // No copy initially
+
   if (!is_sorted) {
+    inp_data = Rcpp::clone(x);  // Only copy and sort if needed
     std::sort(inp_data.begin(), inp_data.end());
+  } else {
+    inp_data = x;  // Use input directly if already sorted
   }
 
   int data_length = inp_data.size();
@@ -49,7 +53,7 @@ Rcpp::NumericVector RcppJenksBreaks(const Rcpp::NumericVector& x,
       }
     }
     lower_class_limits(l, 1) = 1;
-    variance_combinations(l, 1) = variance;  // 'variance' now properly declared and used
+    variance_combinations(l, 1) = variance;
   }
 
   // Extracting the class breaks

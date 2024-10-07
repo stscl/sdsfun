@@ -118,7 +118,7 @@ arma::vec ArmaJenksBreaks(const arma::vec& inp_data, int n_classes,
 
   arma::vec data = inp_data;
   if (!is_sorted) {
-    data = arma::sort(inp_data);
+    data = arma::sort(data);
   }
 
   int data_length = data.n_elem;
@@ -197,12 +197,13 @@ Rcpp::IntegerVector naturalDisc(const arma::vec& x,
 
   // Compute Jenks breaks using sampled data (or full data if no sampling)
   breaks = ArmaJenksBreaks(data, n, false);
+  int bn = breaks.n_elem;
 
   Rcpp::IntegerVector result(x.n_elem);
 
   // Assign each data point to a class based on the computed breakpoints
   for (size_t i = 0; i < x.n_elem; ++i) {
-    for (int j = 0; j < n - 2; ++j) {
+    for (int j = 0; j < bn; ++j) {
       if (x[i] < breaks[j]) {
         result[i] = j + 1;
         break;
