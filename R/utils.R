@@ -42,6 +42,7 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
 #' @param method (optional) The method of discretization, default is `sd`.
 #' @param sampleprob (optional) When the data size exceeds `3000`, perform sampling
 #' for discretization, applicable only to natural breaks. Default is `0.15`.
+#' @param seed (optional) Random seed number, default is `123456789`.
 #'
 #' @return A discretized integer vector
 #' @export
@@ -54,7 +55,9 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
 #' discretize_vector(xvar, n = 5, method = 'sd')
 #'
 discretize_vector = \(x, n = 6, method = 'sd',
-                      sampleprob = 0.15){
+                      sampleprob = 0.15,
+                      seed =  123456789){
+  base::set.seed(seed)
   if (method %in% c("sd","equal","geometric","quantile")){
     res = eval(parse(text = paste0(method,"Disc(x,n)")))
   } else if (method == "natural") {

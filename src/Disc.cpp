@@ -149,16 +149,9 @@ arma::vec GetJenksBreaks(const arma::vec& x, int nclass) {
 
 // [[Rcpp::export]]
 Rcpp::IntegerVector naturalDisc(const arma::vec& x,
-                                int n,
-                                double sampleprob,
-                                int seed = 123456789) {
+                                int n, double sampleprob) {
   arma::vec data = x;  // Copy of input data
   arma::vec breaks;
-
-  // Set the random seed if specified
-  if (seed != 0) {
-    arma::arma_rng::set_seed(seed);
-  }
 
   // Check if sampling is needed
   if (x.n_elem > 3000) {
