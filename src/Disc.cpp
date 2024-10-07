@@ -75,74 +75,80 @@ Rcpp::IntegerVector quantileDisc(const arma::vec& x, double n) {
   return result;
 }
 
-arma::mat calculate_variances(const arma::vec& data, int nclass) {
-  int n = data.n_elem;
-  arma::mat variance_matrix(n, nclass, arma::fill::zeros);
-  arma::mat break_matrix(n, nclass, arma::fill::zeros);
+// Helper function to calculate variance matrix
+arma::mat calculate_variances(const arma::vec& sorted_x, int n) {
+  int nx = sorted_x.n_elem;
+  arma::mat variance(nx, n, arma::fill::zeros);
+  arma::mat indexes(nx, n, arma::fill::zeros);
 
-  // Initialize variance_matrix with positive infinity
-  variance_matrix.fill(std::numeric_limits<double>::infinity());
+  // Initialize arrays for means and squared sums
+  arma::vec sums(nx, arma::fill::zeros);
+  arma::vec sumsq(nx, arma::fill::zeros);
 
-  arma::vec sum1(n, arma::fill::zeros);  // Prefix sum
-  arma::vec sum2(n, arma::fill::zeros);  // Prefix sum of squares
-
-  // Compute prefix sums
-  for (int i = 0; i < n; ++i) {
-    sum1[i] = (i == 0 ? 0 : sum1[i-1]) + data[i];
-    sum2[i] = (i == 0 ? 0 : sum2[i-1]) + data[i] * data[i];
+  // First class
+  for (int i = 0; i < nx; ++i) {
+    sums[i] = sorted_x[i] + (i > 0 ? sums[i - 1] : 0);
+    sumsq[i] = sorted_x[i] * sorted_x[i] + (i > 0 ? sumsq[i - 1] : 0);
+    double variance_val = (i > 0) ? sumsq[i] - (sums[i] * sums[i] / (i + 1)) : 0;
+    variance(i, 0) = variance_val;
+    indexes(i, 0) = i;
   }
 
-  // Calculate variance for 1-class solutions
-  for (int i = 1; i < n; ++i) {
-    for (int j = i; j < n; ++j) {
-      double s1 = sum1[j] - (i > 0 ? sum1[i - 1] : 0);
-      double s2 = sum2[j] - (i > 0 ? sum2[i - 1] : 0);
-      double mean = s1 / (j - i + 1);
-      double variance = s2 - s1 * mean;
+  // Subsequent classes
+  for (int j = 1; j < n; ++j) {
+    for (int i = j; i < nx; ++i) {
+      double min_var = std::numeric_limits<double>::infinity();
+      int best_index = 0;
 
-      variance_matrix(j, 0) = std::min(variance_matrix(j, 0), variance);
-    }
-  }
+      for (int k = 0; k < i; ++k) {
+        double mean_ik = sums[i] - sums[k];
+        double sumsq_ik = sumsq[i] - sumsq[k];
+        double variance_ik = sumsq_ik - (mean_ik * mean_ik / (i - k));
 
-  // Calculate variance for multi-class solutions
-  for (int k = 1; k < nclass; ++k) {
-    for (int j = 1; j < n; ++j) {
-      double min_variance = std::numeric_limits<double>::infinity();
-      int best_index = -1;
+        double total_variance = variance(k, j - 1) + variance_ik;
 
-      // Try all possible splits
-      for (int i = 0; i < j; ++i) {
-        double variance = variance_matrix(i, k - 1) + (sum2[j] - sum2[i]);
-        if (variance < min_variance) {
-          min_variance = variance;
-          best_index = i;
+        if (total_variance < min_var) {
+          min_var = total_variance;
+          best_index = k;
         }
       }
 
-      variance_matrix(j, k) = min_variance;
-      break_matrix(j, k) = best_index;
+      variance(i, j) = min_var;
+      indexes(i, j) = best_index;
     }
   }
 
-  return break_matrix;
+  return indexes;
 }
 
+// Main function to calculate Jenks breaks
 // [[Rcpp::export]]
 arma::vec GetJenksBreaks(const arma::vec& x, int n) {
   arma::vec sorted_x = arma::sort(x);  // Sort the data
   int nx = sorted_x.n_elem;
 
-  // Get the breakpoints matrix
+  // If n <= 2, simply return min and max of x
+  if (n <= 2) {
+    arma::vec simple_breaks(2);
+    simple_breaks[0] = sorted_x[0];         // Minimum value of x
+    simple_breaks[1] = sorted_x[nx - 1];    // Maximum value of x
+    return simple_breaks;
+  }
+
+  // Compute variance matrix
   arma::mat breaks_matrix = calculate_variances(sorted_x, n);
 
-  // Determine breakpoints from the break matrix
+  // Initialize breakpoints vector
   arma::vec breaks(n + 1);
-  breaks[n] = sorted_x[nx - 1];
+  breaks[n] = sorted_x[nx - 1];  // Set the maximum value
 
+  // Backtrack to find breakpoints
   for (int k = n - 1; k > 0; --k) {
     breaks[k] = sorted_x[breaks_matrix(nx - 1, k)];
     nx = breaks_matrix(nx - 1, k);
   }
+
+  // Set the minimum value
   breaks[0] = sorted_x[0];
 
   return breaks;
@@ -179,7 +185,7 @@ Rcpp::IntegerVector naturalDisc(const arma::vec& x,
   // Assign each data point to a class based on the computed breakpoints
   for (size_t i = 0; i < x.n_elem; ++i) {
     for (int j = 0; j < n; ++j) {
-      if (x[i] <= breaks[j + 1]) {
+      if (x[i] < breaks[j + 1]) {
         result[i] = j + 1;
         break;
       }
@@ -212,7 +218,7 @@ Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec discpoint) {
   // Classify x based on discpoint (left-closed, right-open intervals)
   for (size_t i = 0; i < x.n_elem; ++i) {
     for (size_t j = 0; j < discpoint.n_elem - 1; ++j) {
-      if (x[i] >= discpoint[j] && x[i] < discpoint[j + 1]) {
+      if (x[i] < discpoint[j + 1]) {
         result[i] = j + 1;
         break;
       }
