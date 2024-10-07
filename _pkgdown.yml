@@ -44,6 +44,10 @@ reference:
   contents:
   - fuzzyoverlay
 
+- title: utility function for optimal spatial data discretization
+  contents:
+  - loess_optnum
+
 - title: utility functions for dummy variables generation
   contents:
   - dummy_vec
