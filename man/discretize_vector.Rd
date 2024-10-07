@@ -4,7 +4,14 @@
 \alias{discretize_vector}
 \title{discretization}
 \usage{
-discretize_vector(x, n, method = "sd", breakpoint = NULL)
+discretize_vector(
+  x,
+  n,
+  method = "sd",
+  breakpoint = NULL,
+  sampleprob = 0.15,
+  seed = 123456789
+)
 }
 \arguments{
 \item{x}{A continuous numeric vector.}
@@ -15,6 +22,11 @@ discretize_vector(x, n, method = "sd", breakpoint = NULL)
 
 \item{breakpoint}{(optional) Break points for manually splitting data. When
 \code{method} is \code{manual}, \code{breakpoint} is required.}
+
+\item{sampleprob}{(optional) When the data size exceeds \code{3000}, perform sampling
+for discretization, applicable only to natural breaks. Default is \code{0.15}.}
+
+\item{seed}{(optional) Random seed number, default is \code{123456789}.}
 }
 \value{
 A discretized integer vector
