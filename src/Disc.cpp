@@ -127,20 +127,21 @@ arma::mat calculate_variances(const arma::vec& data, int nclass) {
   return break_matrix;
 }
 
-arma::vec GetJenksBreaks(const arma::vec& x, int nclass) {
+// [[Rcpp::export]]
+arma::vec GetJenksBreaks(const arma::vec& x, int n) {
   arma::vec sorted_x = arma::sort(x);  // Sort the data
-  int n = sorted_x.n_elem;
+  int nx = sorted_x.n_elem;
 
   // Get the breakpoints matrix
-  arma::mat breaks_matrix = calculate_variances(sorted_x, nclass);
+  arma::mat breaks_matrix = calculate_variances(sorted_x, n);
 
   // Determine breakpoints from the break matrix
-  arma::vec breaks(nclass + 1);
-  breaks[nclass] = sorted_x[n - 1];
+  arma::vec breaks(n + 1);
+  breaks[n] = sorted_x[nx - 1];
 
-  for (int k = nclass - 1; k > 0; --k) {
-    breaks[k] = sorted_x[breaks_matrix(n - 1, k)];
-    n = breaks_matrix(n - 1, k);
+  for (int k = n - 1; k > 0; --k) {
+    breaks[k] = sorted_x[breaks_matrix(nx - 1, k)];
+    nx = breaks_matrix(nx - 1, k);
   }
   breaks[0] = sorted_x[0];
 
@@ -187,3 +188,4 @@ Rcpp::IntegerVector naturalDisc(const arma::vec& x,
 
   return result;
 }
+

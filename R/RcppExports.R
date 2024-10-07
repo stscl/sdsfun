@@ -17,6 +17,10 @@ quantileDisc <- function(x, n) {
     .Call(`_sdsfun_quantileDisc`, x, n)
 }
 
+GetJenksBreaks <- function(x, n) {
+    .Call(`_sdsfun_GetJenksBreaks`, x, n)
+}
+
 naturalDisc <- function(x, n, sampleprob) {
     .Call(`_sdsfun_naturalDisc`, x, n, sampleprob)
 }

@@ -59,6 +59,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// GetJenksBreaks
+arma::vec GetJenksBreaks(const arma::vec& x, int n);
+RcppExport SEXP _sdsfun_GetJenksBreaks(SEXP xSEXP, SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    rcpp_result_gen = Rcpp::wrap(GetJenksBreaks(x, n));
+    return rcpp_result_gen;
+END_RCPP
+}
 // naturalDisc
 Rcpp::IntegerVector naturalDisc(const arma::vec& x, int n, double sampleprob);
 RcppExport SEXP _sdsfun_naturalDisc(SEXP xSEXP, SEXP nSEXP, SEXP sampleprobSEXP) {
@@ -160,6 +172,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_equalDisc", (DL_FUNC) &_sdsfun_equalDisc, 2},
     {"_sdsfun_geometricDisc", (DL_FUNC) &_sdsfun_geometricDisc, 2},
     {"_sdsfun_quantileDisc", (DL_FUNC) &_sdsfun_quantileDisc, 2},
+    {"_sdsfun_GetJenksBreaks", (DL_FUNC) &_sdsfun_GetJenksBreaks, 2},
     {"_sdsfun_naturalDisc", (DL_FUNC) &_sdsfun_naturalDisc, 3},
     {"_sdsfun_DummyVar", (DL_FUNC) &_sdsfun_DummyVar, 1},
     {"_sdsfun_DummyMat", (DL_FUNC) &_sdsfun_DummyMat, 1},
