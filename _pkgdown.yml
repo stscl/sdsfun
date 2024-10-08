@@ -31,30 +31,20 @@ reference:
   - spdep_skater
   - spdep_lmtest
 
-- title: utility functions for spatial relationship test
+- title: utility functions for spatial data science
   contents:
   - moran_test
   - ssh_test
-
-- title: utility function for spatial weight matrices
-  contents:
   - inverse_distance_swm
-
-- title: utility function for spatial fuzzy overlay
-  contents:
   - fuzzyoverlay
-
-- title: utility function for optimal spatial data discretization
-  contents:
   - loess_optnum
+  - spvar
 
-- title: utility functions for dummy variables generation
+- title: utility functions for data science
   contents:
   - dummy_vec
   - dummy_tbl
-
-- title: other utility functions
-  contents:
   - normalize_vector
   - standardize_vector
   - discretize_vector
+
