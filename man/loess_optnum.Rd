@@ -33,6 +33,8 @@ Note that \code{sdsfun} sorts \code{discnumvec} from smallest to largest and kee
 one-to-one correspondence with \code{discnumvec}.
 }
 \examples{
-loess_optnum(stats::runif(10),3:12)
+qv = c(0.26045642,0.64120405,0.43938704,0.95165535,0.46347836,
+       0.25385338,0.78778726,0.95938330,0.83247885,0.09285196)
+loess_optnum(qv,3:12)
 
 }
