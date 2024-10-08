@@ -12,6 +12,8 @@
 
 * Apply the `loess_optnum` function for optimal discretization number selection (#10).
 
+* Implement spatial variance in `spvar` using both `R` and `C++` (#11).
+
 * Rename `dummy_vector` to `dummy_vec` for naming consistency.
 
 * Add the `sf_coordinates` function to extract coordinates from `sf` objects.
