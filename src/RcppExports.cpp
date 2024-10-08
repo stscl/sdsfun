@@ -192,6 +192,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// RcppSpatialVariance
+double RcppSpatialVariance(Rcpp::NumericVector x, Rcpp::NumericMatrix wt);
+RcppExport SEXP _sdsfun_RcppSpatialVariance(SEXP xSEXP, SEXP wtSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type wt(wtSEXP);
+    rcpp_result_gen = Rcpp::wrap(RcppSpatialVariance(x, wt));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_sdDisc", (DL_FUNC) &_sdsfun_sdDisc, 2},
@@ -209,6 +221,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_RcppJenksBreaks", (DL_FUNC) &_sdsfun_RcppJenksBreaks, 3},
     {"_sdsfun_PrintGlobalMoranI", (DL_FUNC) &_sdsfun_PrintGlobalMoranI, 1},
     {"_sdsfun_RcppUnique", (DL_FUNC) &_sdsfun_RcppUnique, 1},
+    {"_sdsfun_RcppSpatialVariance", (DL_FUNC) &_sdsfun_RcppSpatialVariance, 2},
     {NULL, NULL, 0}
 };
 
