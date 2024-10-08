@@ -39,13 +39,14 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="sdsfun-040">sdsfun 0.4.0<a class="anchor" aria-label="anchor" href="#sdsfun-040"></a></h2>
-<ul><li><p>Improve handling of <code>n</code>-level categorical variables by generating <code>n-1</code> dummy variables (<a href="https://github.com/stscl/sdsfun/issues/2" class="external-link">#2</a>).</p></li>
+<ul><li><p>Improve the handling of <code>n</code>-level categorical variables by generating <code>n-1</code> dummy variables (<a href="https://github.com/stscl/sdsfun/issues/2" class="external-link">#2</a>).</p></li>
 <li><p>Add the <code>spdep_lmtest</code> function for spatial linear model selection (<a href="https://github.com/stscl/sdsfun/issues/3" class="external-link">#3</a>).</p></li>
 <li><p>Migrate the <code>moran_test</code> function from the <code>geocomplexity</code> package to <code>sdsfun</code> (<a href="https://github.com/stscl/sdsfun/issues/4" class="external-link">#4</a>).</p></li>
-<li><p>Implement the geographical detector’s factor detector in <code>ssh_test</code> using <code>Rcpp</code> for enhanced performance (<a href="https://github.com/stscl/sdsfun/issues/5" class="external-link">#5</a>).</p></li>
+<li><p>Implement the geographical detector’s factor detector in <code>ssh_test</code> using <code>Rcpp</code> to enhance performance (<a href="https://github.com/stscl/sdsfun/issues/5" class="external-link">#5</a>).</p></li>
 <li><p>Introduce the <code>discretize_vector</code> function to support variable discretization (<a href="https://github.com/stscl/sdsfun/issues/6" class="external-link">#6</a>).</p></li>
-<li><p>Apply the <code>loess_optnum</code> function for optimal discretization number selection (<a href="https://github.com/stscl/sdsfun/issues/10" class="external-link">#10</a>).</p></li>
-<li><p>Rename <code>dummy_vector</code> to <code>dummy_vec</code> for naming consistency.</p></li>
+<li><p>Apply the <code>loess_optnum</code> function to select the optimal number of discretization intervals (<a href="https://github.com/stscl/sdsfun/issues/10" class="external-link">#10</a>).</p></li>
+<li><p>Implement spatial variance calculation in the <code>spvar</code> function, with support for both <code>R</code> and <code>C++</code> implementations (<a href="https://github.com/stscl/sdsfun/issues/11" class="external-link">#11</a>).</p></li>
+<li><p>Rename <code>dummy_vector</code> to <code>dummy_vec</code> for consistency in naming conventions.</p></li>
 <li><p>Add the <code>sf_coordinates</code> function to extract coordinates from <code>sf</code> objects.</p></li>
 </ul></div>
     <div class="section level2">
