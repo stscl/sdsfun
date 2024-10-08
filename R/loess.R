@@ -22,7 +22,9 @@
 #' @export
 #'
 #' @examples
-#' loess_optnum(stats::runif(10),3:12)
+#' qv = c(0.26045642,0.64120405,0.43938704,0.95165535,0.46347836,
+#'        0.25385338,0.78778726,0.95938330,0.83247885,0.09285196)
+#' loess_optnum(qv,3:12)
 #'
 loess_optnum = \(qvec, discnumvec, increase_rate = 0.05){
   qvec = qvec[which(!is.na(qvec))] # debug: remove NA value in qvec and discnumver.
@@ -31,21 +33,17 @@ loess_optnum = \(qvec, discnumvec, increase_rate = 0.05){
   qvec = qvec[discnumrank]
   discnumvec = discnumvec[discnumrank]
   loessf = stats::loess(qvec ~ discnumvec)
-  loessrate = (loessf$fitted - dplyr::lag(loessf$fitted)) / dplyr::lag(loessf$fitted)
-  # increase_rate = ifelse(max(loessrate,na.rm = TRUE) < increase_rate,
-  #                        increase_rate * 0.2, increase_rate)
-  lrtbf = tibble::tibble(discnum = discnumvec,
-                         qstatistic = qvec,
-                         lr = loessrate,
-                         lr_before = dplyr::lag(lr)) %>%
-    dplyr::filter(lr <= increase_rate & lr_before > increase_rate)
+  lr = (loessf$fitted - dplyr::lag(loessf$fitted)) / dplyr::lag(loessf$fitted)
+  lr[which(is.na(lr))] = 0
+  lr_before = dplyr::lag(lr,default = 0)
+  lr_indice = which(lr <= increase_rate & lr_before > increase_rate)[1]
 
   # debug: when no increase_rate is satisfied, the highest Q-statistic is selected
-  if (is.na(lrtbf[1,1,drop = TRUE])){
+  if (is.na(lr_indice)){
     res = c('discnum' = discnumvec[which.max(qvec)],
             'increase_rate' = 0)
   } else {
-    res = c('discnum' = lrtbf[1,1,drop = TRUE],
+    res = c('discnum' = discnumvec[lr_indice],
             'increase_rate' = increase_rate)
   }
   return(res)
