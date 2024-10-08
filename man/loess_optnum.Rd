@@ -26,8 +26,7 @@ Function for determining optimal spatial data discretization for individual vari
 based on locally estimated scatterplot smoothing (LOESS) model.
 }
 \note{
-When \code{increase_rate} is not satisfied by the calculation, \code{increase_rate*0.5} is used first.
-At this time, if \code{increase_rate*0.5} is not satisfied again, the discrete number corresponding
+When \code{increase_rate} is not satisfied by the calculation, the discrete number corresponding
 to the highest \verb{q statistic} is selected as a return.
 
 Note that \code{sdsfun} sorts \code{discnumvec} from smallest to largest and keeps \code{qvec} in
