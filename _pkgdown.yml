@@ -44,6 +44,7 @@ reference:
   contents:
   - dummy_vec
   - dummy_tbl
+  - formula_varname
   - normalize_vector
   - standardize_vector
   - discretize_vector
