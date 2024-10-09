@@ -77,6 +77,23 @@ discretize_vector = \(x, n, method = 'natural',
   return(res)
 }
 
+#' get variable names in a formula and data
+#'
+#' @param formula A formula.
+#' @param data A `data.frame`, `tibble` or `sf` object of observation data.
+#'
+#' @return A list.
+#' \describe{
+#' \item{\code{yname}}{Independent variable name}
+#' \item{\code{xname}}{Dependent variable names}
+#' }
+#' @export
+#'
+#' @examples
+#' boston_506 = sf::read_sf(system.file("shapes/boston_tracts.shp", package = "spData"))
+#' formula_varname(median ~ CRIM + ZN + INDUS + CHAS, boston_506)
+#' formula_varname(median ~ ., boston_506)
+#'
 formula_varname = \(formula,data){
   formula = stats::as.formula(formula)
   formula.vars = all.vars(formula)
@@ -87,7 +104,7 @@ formula_varname = \(formula,data){
     data = dplyr::select(data,dplyr::all_of(formula.vars))
   }
   yname = formula.vars[1]
-  xname = colnames(data)[-which(colnames(data) == yname)]
+  xname = names(data)[-which(names(data) == yname)]
   res = list("yname" = yname, "xname" = xname)
   return(res)
 }
