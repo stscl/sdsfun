@@ -1,3 +1,7 @@
+# sdsfun 0.4.1
+
+* Implement the `formula_varname` function to return the corresponding variable names from both `formula` and `data`.
+
 # sdsfun 0.4.0
 
 * Improve the handling of `n`-level categorical variables by generating `n-1` dummy variables (#2).
