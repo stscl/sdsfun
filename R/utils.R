@@ -76,3 +76,18 @@ discretize_vector = \(x, n, method = 'natural',
   }
   return(res)
 }
+
+formula_varname = \(formula,data){
+  formula = stats::as.formula(formula)
+  formula.vars = all.vars(formula)
+  if (inherits(data,'sf')){
+    data = sf::st_drop_geometry(data)
+  }
+  if (formula.vars[2] != "."){
+    data = dplyr::select(data,dplyr::all_of(formula.vars))
+  }
+  yname = formula.vars[1]
+  xname = colnames(data)[-which(colnames(data) == yname)]
+  res = list("yname" = yname, "xname" = xname)
+  return(res)
+}
