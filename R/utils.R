@@ -60,6 +60,10 @@ discretize_vector = \(x, n, method = 'natural',
                       breakpoint = NULL,
                       sampleprob = 0.15,
                       seed = 123456789){
+  if (any(inherits(x,'factor'),inherits(x,'character'))){
+    return(as.integer(as.factor(x)))
+  }
+
   if (method %in% c("sd","equal","geometric","quantile")){
     res = eval(parse(text = paste0(method,"Disc(x,n)")))
   } else if (method == "manual") {
