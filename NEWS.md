@@ -1,5 +1,7 @@
 # sdsfun 0.4.1
 
+* When the input `x` is a `factor` or a `character`, `discretize_vector` causes R to crash (#12).
+
 * Implement the `formula_varname` function to return the corresponding variable names from both `formula` and `data`.
 
 # sdsfun 0.4.0
