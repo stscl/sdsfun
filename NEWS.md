@@ -1,3 +1,5 @@
+# sdsfun 0.4.2
+
 # sdsfun 0.4.1
 
 * When the input `x` is a `factor` or a `character`, `discretize_vector` causes R to crash (#12).
