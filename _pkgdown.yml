@@ -8,7 +8,7 @@ navbar:
 
 home:
   title: |
-    sdsfun | Functions for Spatial Data Science
+    sdsfun | Spatial Data Science Complementary Features
 authors:
   Wenbo Lv:
     href: https://spatlyu.github.io/
@@ -44,8 +44,10 @@ reference:
   contents:
   - dummy_vec
   - dummy_tbl
-  - formula_varname
+  - discretize_vector
   - normalize_vector
   - standardize_vector
-  - discretize_vector
+  - formula_varname
+  - check_tbl_na
+
 
