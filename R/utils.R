@@ -112,21 +112,3 @@ formula_varname = \(formula,data){
   res = list("yname" = yname, "xname" = xname)
   return(res)
 }
-
-#' filter all NA values from a tibble.
-#'
-#' @param tbl A `tibble`
-#'
-#' @return A `tibble`
-#' @export
-#'
-#' @examples
-#' demotbl = tibble::tibble(x = c(1,2,3,NA,1),
-#'                          y = c(NA,NA,1:3),
-#'                          z = 1:5)
-#' demotbl
-#' filter_tbl_na(filter_tbl_na)
-#'
-filter_tbl_na = \(tbl){
-  return(dplyr::filter(dplyr::if_all(tbl,dplyr::everything(),\(.x) !is.na(.x))))
-}
