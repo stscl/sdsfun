@@ -125,7 +125,7 @@ formula_varname = \(formula,data){
 #'                          y = c(NA,NA,1:3),
 #'                          z = 1:5)
 #' demotbl
-#' check_tbl_na(filter_tbl_na)
+#' check_tbl_na(demotbl)
 #'
 check_tbl_na = \(tbl){
   return(any(is.na(tbl)))
