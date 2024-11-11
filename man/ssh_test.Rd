@@ -9,8 +9,8 @@ ssh_test(y, hs)
 \arguments{
 \item{y}{Variable Y, continuous numeric vector.}
 
-\item{hs}{Spatial partitioning or classification of each explanatory variable.
-\code{factor}, \code{character}, \code{integer} or \code{data.frame}, \code{tibble}.}
+\item{hs}{Spatial stratification or classification of each explanatory variable.
+\code{factor}, \code{character}, \code{integer} or \code{data.frame}, \code{tibble} and \code{sf} object.}
 }
 \value{
 A \code{tibble}

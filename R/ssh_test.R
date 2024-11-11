@@ -5,8 +5,8 @@
 #' This is a `C++` implementation of the `factor_detector` function in `gdverse` package.
 #'
 #' @param y Variable Y, continuous numeric vector.
-#' @param hs Spatial partitioning or classification of each explanatory variable.
-#' `factor`, `character`, `integer` or `data.frame`, `tibble`.
+#' @param hs Spatial stratification or classification of each explanatory variable.
+#' `factor`, `character`, `integer` or `data.frame`, `tibble` and `sf` object.
 #'
 #' @return A `tibble`
 #' @export
