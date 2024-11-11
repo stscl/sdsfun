@@ -49,3 +49,4 @@ reference:
   - standardize_vector
   - formula_varname
   - check_tbl_na
+  - tbl_all2int
