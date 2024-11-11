@@ -113,6 +113,38 @@ formula_varname = \(formula,data){
   return(res)
 }
 
+#' convert discrete variables in a tibble to integers
+#'
+#' @param tbl A `tibble`,`data.frame` or `sf` object.
+#'
+#' @return A converted `tibble`,`data.frame` or `sf` object.
+#' @export
+#'
+#' @examples
+#' demotbl = tibble::tibble(x = c(1,2,3,3,1),
+#'                          y = letters[1:5],
+#'                          z = c(1L,1L,2L,2L,3L),
+#'                          m = factor(letters[1:5],levels = letters[5:1]))
+#' tbl_all2int(demotbl)
+#'
+tbl_all2int = \(tbl){
+  res = dplyr::mutate(tbl,
+                      dplyr::across(dplyr::everything(),
+                                     \(.x) {
+                                       if (inherits(.x, "numeric")) {
+                                         .res = as.integer(.x)
+                                       } else if (inherits(.x, "factor")){
+                                         .res = as.integer(.x)
+                                       } else if (inherits(.x, "character")){
+                                         .res = as.integer(as.factor(.x))
+                                       } else {
+                                         .res = .x
+                                       }
+                                       return(.res)
+                                     }))
+  return(res)
+}
+
 #' check for NA values in a tibble
 #'
 #' @param tbl A `tibble`
