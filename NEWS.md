@@ -1,5 +1,7 @@
 # sdsfun 0.4.2
 
+* Add `check_tbl_na` and `tbl_all2int` functions to better support the `gdverse` and `sesp` packages.
+
 # sdsfun 0.4.1
 
 * Fix the bug that causes R to crash when the input `x` is a `factor` or `character` in the `discretize_vector` function (#12).
