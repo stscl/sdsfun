@@ -25,7 +25,8 @@ Imports:
     sf,
     spdep,
     stats,
-    tibble
+    tibble,
+    utils
 Suggests: 
     ggplot2,
     Rcpp,
