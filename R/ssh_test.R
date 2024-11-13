@@ -31,3 +31,20 @@ ssh_test = \(y,hs){
     return(tibble::as_tibble(GDFactorQ(y,hs)))
   }
 }
+
+
+#' only geodetector q-value
+#'
+#' @param y Dependent variable
+#' @param hs Independent variable
+#'
+#' @return A numeric value
+#' @export
+#'
+#' @examples
+#' geodetector_q(y = 1:7, hs = c('x',rep('y',3),rep('z',3)))
+#'
+geodetector_q = \(y,hs){
+  hs = as.integer(as.factor(hs))
+  return(CalcFactorQ(y,hs))
+}
