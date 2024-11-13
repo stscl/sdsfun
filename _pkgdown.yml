@@ -38,6 +38,7 @@ reference:
   - inverse_distance_swm
   - fuzzyoverlay
   - loess_optnum
+  - geodetector_q
   - spvar
 
 - title: utility functions for data science
