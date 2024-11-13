@@ -1,5 +1,7 @@
 # sdsfun 0.4.3
 
+* Add `geodetector_q` for the fast estimation of the geodetector q-value.
+
 # sdsfun 0.4.2
 
 * Add `check_tbl_na` and `tbl_all2int` functions to better support the `gdverse` and `sesp` packages.
