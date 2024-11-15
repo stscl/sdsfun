@@ -16,9 +16,6 @@ A character.
 Generates a utm projection epsg coding character corresponding to an \code{sfj} object
 under the WGS84 spatial reference.
 }
-\details{
-See \url{https://zhuanlan.zhihu.com/p/670055831} for more details.
-}
 \examples{
 library(sf)
 gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))

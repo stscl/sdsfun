@@ -146,8 +146,6 @@ sf_distance_matrix = \(sfj){
 #' @description
 #' Generates a utm projection epsg coding character corresponding to an `sfj` object
 #' under the WGS84 spatial reference.
-#' @details
-#' See <https://zhuanlan.zhihu.com/p/670055831> for more details.
 #'
 #' @param sfj An `sf` object or can be converted to `sf` by `sf::st_as_sf()`.
 #'
