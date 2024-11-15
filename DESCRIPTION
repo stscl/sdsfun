@@ -1,6 +1,6 @@
 Package: sdsfun
 Title: Spatial Data Science Complementary Features
-Version: 0.4.3
+Version: 0.5.0
 Authors@R: 
     person(given = "Wenbo", family = "Lv",
            email = "lyu.geosocial@gmail.com", 
