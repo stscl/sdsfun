@@ -11,9 +11,9 @@
 #' @export
 #'
 #' @examples
-#' boston_506 = sf::read_sf(system.file("shapes/boston_tracts.shp", package = "spData"))
-#' formula_varname(median ~ CRIM + ZN + INDUS + CHAS, boston_506)
-#' formula_varname(median ~ ., boston_506)
+#' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' formula_varname(PS_Score ~ EL_Score + OH_Score, gzma)
+#' formula_varname(PS_Score ~ ., gzma)
 #'
 formula_varname = \(formula,data){
   formula = stats::as.formula(formula)
