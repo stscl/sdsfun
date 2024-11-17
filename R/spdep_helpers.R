@@ -206,8 +206,8 @@ spdep_skater = \(sfj,
 #' @export
 #'
 #' @examples
-#' boston_506 = sf::read_sf(system.file("shapes/boston_tracts.shp", package = "spData"))
-#' spdep_lmtest(log(median) ~ CRIM + ZN + INDUS + CHAS, boston_506)
+#' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' spdep_lmtest(PS_Score ~ ., gzma)
 #'
 spdep_lmtest = \(formula,data,listw = NULL){
   .check_spwt(data)
