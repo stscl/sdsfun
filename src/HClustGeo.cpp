@@ -46,7 +46,7 @@ arma::mat RcppHClustGeo(const arma::mat& D0,
   arma::vec wt;
   if (wt_.isNotNull()) {
     wt = as<arma::vec>(wt_);
-    if (wt.n_elem != n) {
+    if (wt.n_elem != D0.n_rows) {
       stop("Weight vector length must match the number of objects.");
     }
   } else {
