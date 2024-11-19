@@ -64,11 +64,13 @@ discretize_vector = \(x, n, method = 'natural',
 #' plot(gzma["group"])
 #'
 hclustgeo_disc = \(sfj, n, alpha = 0.5, scale = TRUE, wt = NULL, ...){
-  if (inherits(sfj,"sf")){
+  if (alpha == 0) {
+    D1 = matrix(0,nrow = nrow(sfj),ncol = nrow(sfj))
+  } else if (inherits(sfj,"sf")){
     D1 = sdsfun::sf_distance_matrix(sfj)
     sfj = sf::st_drop_geometry(sfj)
   } else {
-    D1 = matrix(0,nrow = nrow(sfj),ncol = nrow(sfj))
+    stop("sfj should be an sf object if alpha is not 0 !")
   }
   D0 = as.matrix(stats::dist(as.matrix(sfj),...))
   deltadist = stats::as.dist(RcppHClustGeoMat(D0,D1,alpha,scale,wt))
