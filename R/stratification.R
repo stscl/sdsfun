@@ -60,19 +60,18 @@ discretize_vector = \(x, n, method = 'natural',
 #'
 #' @examples
 #' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
-#' hclustgeo_disc(gzma,5)
-#' gzma$group = gzma_c
+#' gzma$group = hclustgeo_disc(gzma,5)
 #' plot(gzma["group"])
 #'
 hclustgeo_disc = \(sfj, n, alpha = 0.5, scale = TRUE, wt = NULL, ...){
   if (inherits(sfj,"sf")){
-    D1 = stats::as.dist(sdsfun::sf_distance_matrix(sfj))
+    D1 = sdsfun::sf_distance_matrix(sfj)
     sfj = sf::st_drop_geometry(sfj)
   } else {
-    D1 = NULL
+    D1 = matrix(0,nrow = nrow(sfj),ncol = nrow(sfj))
   }
   D0 = as.matrix(stats::dist(as.matrix(sfj),...))
-  deltamat = RcppHClustGeoMat(D0,D1,alpha,scale,wt)
-  resh = stats::hclust(deltamat,method="ward.D",members=wt)
+  deltadist = stats::as.dist(RcppHClustGeoMat(D0,D1,alpha,scale,wt))
+  resh = stats::hclust(deltadist,method="ward.D",members=wt)
   return(stats::cutree(resh,k = n))
 }
