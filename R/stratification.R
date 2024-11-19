@@ -77,12 +77,11 @@ hclustgeo_disc = \(data, n, alpha = 0.5, D1 = NULL,
     data = sf::st_drop_geometry(data)
   }
   data = as.matrix(data)
-  # if (alpha == 0 | is.null(D1)) {
-  #   D1 = matrix(0,nrow = nrow(data),ncol = nrow(data))
-  # }
+  if (alpha == 0 | is.null(D1)) {
+    D1 = matrix(0,nrow = nrow(data),ncol = nrow(data))
+  }
   D0 = as.matrix(stats::dist(data,...))
   deltadist = stats::as.dist(RcppHClustGeoMat(D0,D1,alpha,scale,wt))
-  return(deltadist)
   resh = stats::hclust(deltadist,method="ward.D",members=wt)
   return(stats::cutree(resh,k = n))
 }

@@ -55,7 +55,17 @@ arma::mat RcppHClustGeoMat(const arma::mat& D0,
 
   // Compute the maximum elements of D0 and D1
   double max_D0 = arma::max(arma::max(D0));
-  double max_D1 = !D1.is_empty() ? arma::max(arma::max(D1)) : 0;
+  double max_D1 = arma::max(arma::max(D1));
+
+  // Normalize dissimilarity matrices if scaling is enabled
+  // arma::mat D0_scaled = D0;
+  // arma::mat D1_scaled = D1;
+  // if (scale) {
+  //   D0_scaled /= arma::max(arma::max(D0));
+  //   if (!D1.is_empty()) {
+  //     D1_scaled /= arma::max(arma::max(D1));
+  //   }
+  // }
 
   // Normalize dissimilarity matrices if scaling is enabled and max element is non-zero
   arma::mat D0_scaled = D0;
