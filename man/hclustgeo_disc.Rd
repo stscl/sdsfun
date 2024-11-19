@@ -27,6 +27,9 @@ is returned where each column corresponds to the elements of n, respectively.
 \description{
 hierarchical clustering with spatial soft constraints
 }
+\note{
+This is a \verb{C++} enhanced implementation of the \code{hclustgeo} function in \code{ClustGeo} package.
+}
 \examples{
 gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 gzma$group = hclustgeo_disc(gzma,5, alpha = 0.75)

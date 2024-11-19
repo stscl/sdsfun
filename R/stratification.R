@@ -45,6 +45,8 @@ discretize_vector = \(x, n, method = 'natural',
 }
 
 #' hierarchical clustering with spatial soft constraints
+#' @note
+#' This is a `C++` enhanced implementation of the `hclustgeo` function in `ClustGeo` package.
 #'
 #' @param sfj An `sf` object.
 #' @param n The number of hierarchical clustering classes, which can be a numeric value or vector.
