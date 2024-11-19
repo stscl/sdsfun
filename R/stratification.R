@@ -43,3 +43,5 @@ discretize_vector = \(x, n, method = 'natural',
   }
   return(res)
 }
+
+hclustgeo_disc = \(sfj)
