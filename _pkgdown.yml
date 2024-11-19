@@ -36,6 +36,7 @@ reference:
   - moran_test
   - ssh_test
   - inverse_distance_swm
+  - hclustgeo_disc
   - fuzzyoverlay
   - loess_optnum
   - geodetector_q
