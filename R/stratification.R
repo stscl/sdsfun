@@ -60,7 +60,7 @@ discretize_vector = \(x, n, method = 'natural',
 #'
 #' @examples
 #' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
-#' gzma$group = hclustgeo_disc(gzma,5)
+#' gzma$group = hclustgeo_disc(gzma,5, alpha = 0.75)
 #' plot(gzma["group"])
 #'
 hclustgeo_disc = \(sfj, n, alpha = 0.5, scale = TRUE, wt = NULL, ...){
