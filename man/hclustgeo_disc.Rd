@@ -11,8 +11,8 @@ hclustgeo_disc(sfj, n, alpha = 0.5, scale = TRUE, wt = NULL, ...)
 
 \item{n}{The number of hierarchical clustering classes, which can be a numeric value or vector.}
 
-\item{alpha}{(optional) A real value between 0 and 1. This mixing parameter gives the relative
-importance of "feature"  space and constraint" space.  Default is \code{0.5}.}
+\item{alpha}{(optional) A positive value between \code{0} and \code{1}. This mixing parameter gives the relative
+importance of "feature"  space and "constraint" space.  Default is \code{0.5}.}
 
 \item{scale}{(optional) Whether to scaled the dissimilarities matrix, default is \code{TRUE}.}
 
@@ -21,8 +21,8 @@ importance of "feature"  space and constraint" space.  Default is \code{0.5}.}
 \item{...}{(optional) Other arguments passed to \code{stats::dist()}.}
 }
 \value{
-A vector with group memberships if n are scalar, otherwise a matrix with group memberships
-is returned where each column corresponds to the elements of n, respectively.
+A \code{vector} with grouped memberships if \code{n} are \code{scalar}, otherwise a \code{matrix} with grouped
+memberships is returned where each column corresponds to the elements of \code{n}, respectively.
 }
 \description{
 hierarchical clustering with spatial soft constraints
