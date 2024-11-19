@@ -60,6 +60,9 @@ discretize_vector = \(x, n, method = 'natural',
 #'
 #' @examples
 #' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' hclustgeo_disc(gzma,5)
+#' gzma$group = gzma_c
+#' plot(gzma["group"])
 #'
 hclustgeo_disc = \(sfj, n, alpha = 0.5, scale = TRUE, wt = NULL, ...){
   if (inherits(sfj,"sf")){
@@ -68,7 +71,7 @@ hclustgeo_disc = \(sfj, n, alpha = 0.5, scale = TRUE, wt = NULL, ...){
   } else {
     D1 = NULL
   }
-  D0 = stats::dist(as.matrix(sfj),...)
+  D0 = as.matrix(stats::dist(as.matrix(sfj),...))
   deltamat = RcppHClustGeoMat(D0,D1,alpha,scale,wt)
   resh = stats::hclust(deltamat,method="ward.D",members=wt)
   return(stats::cutree(resh,k = n))
