@@ -20,34 +20,34 @@ arma::mat RcppWardInit(const arma::mat& D, const arma::vec& wt) {
 }
 
 // [[Rcpp::export]]
-arma::mat RcppHClustGeo(const arma::mat& D0,
-                        const arma::mat& D1,
-                        double alpha,
-                        bool scale = true,
-                        Nullable<NumericVector> wt_ = R_NilValue) {
+arma::mat RcppHClustGeoMat(const arma::mat& D0,
+                           const arma::mat& D1,
+                           double alpha,
+                           bool scale = true,
+                           Nullable<Rcpp::NumericVector> wt_ = R_NilValue) {
   // Check inputs
   if (D0.n_rows != D0.n_cols || (!D1.is_empty() && D1.n_rows != D1.n_cols)) {
-    stop("Both D0 and D1 must be square matrices.");
+    Rcpp::stop("Both D0 and D1 must be square matrices.");
   }
 
   if (!D1.is_empty() && D0.n_rows != D1.n_rows) {
-    stop("D0 and D1 must have the same dimensions.");
+    Rcpp::stop("D0 and D1 must have the same dimensions.");
   }
 
   if (alpha < 0 || alpha > 1) {
-    stop("Alpha must be in the range [0, 1].");
+    Rcpp::stop("Alpha must be in the range [0, 1].");
   }
 
   int n = D0.n_rows;
   if (n < 2) {
-    stop("Must have at least 2 objects to cluster.");
+    Rcpp::stop("Must have at least 2 objects to cluster.");
   }
 
   arma::vec wt;
   if (wt_.isNotNull()) {
     wt = as<arma::vec>(wt_);
     if (wt.n_elem != D0.n_rows) {
-      stop("Weight vector length must match the number of objects.");
+      Rcpp::stop("Weight vector length must match the number of objects.");
     }
   } else {
     wt = arma::vec(n, arma::fill::ones); // Default weights are equal

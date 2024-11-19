@@ -49,8 +49,8 @@ MI_vec <- function(x, W, alternative = "greater", symmetrize = FALSE) {
     .Call(`_sdsfun_MI_vec`, x, W, alternative, symmetrize)
 }
 
-RcppHClustGeo <- function(D0, D1, alpha, scale = TRUE, wt_ = NULL) {
-    .Call(`_sdsfun_RcppHClustGeo`, D0, D1, alpha, scale, wt_)
+RcppHClustGeoMat <- function(D0, D1, alpha, scale = TRUE, wt_ = NULL) {
+    .Call(`_sdsfun_RcppHClustGeoMat`, D0, D1, alpha, scale, wt_)
 }
 
 RcppJenksBreaks <- function(x, n_classes, is_sorted = FALSE) {
