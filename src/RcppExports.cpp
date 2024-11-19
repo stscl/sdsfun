@@ -157,6 +157,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// RcppHClustGeo
+arma::mat RcppHClustGeo(const arma::mat& D0, const arma::mat& D1, double alpha, bool scale, Nullable<NumericVector> wt_);
+RcppExport SEXP _sdsfun_RcppHClustGeo(SEXP D0SEXP, SEXP D1SEXP, SEXP alphaSEXP, SEXP scaleSEXP, SEXP wt_SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::mat& >::type D0(D0SEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type D1(D1SEXP);
+    Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< bool >::type scale(scaleSEXP);
+    Rcpp::traits::input_parameter< Nullable<NumericVector> >::type wt_(wt_SEXP);
+    rcpp_result_gen = Rcpp::wrap(RcppHClustGeo(D0, D1, alpha, scale, wt_));
+    return rcpp_result_gen;
+END_RCPP
+}
 // RcppJenksBreaks
 Rcpp::NumericVector RcppJenksBreaks(const Rcpp::NumericVector& x, int n_classes, bool is_sorted);
 RcppExport SEXP _sdsfun_RcppJenksBreaks(SEXP xSEXP, SEXP n_classesSEXP, SEXP is_sortedSEXP) {
@@ -218,6 +233,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_CalcFactorQ", (DL_FUNC) &_sdsfun_CalcFactorQ, 2},
     {"_sdsfun_GDFactorQ", (DL_FUNC) &_sdsfun_GDFactorQ, 2},
     {"_sdsfun_MI_vec", (DL_FUNC) &_sdsfun_MI_vec, 4},
+    {"_sdsfun_RcppHClustGeo", (DL_FUNC) &_sdsfun_RcppHClustGeo, 5},
     {"_sdsfun_RcppJenksBreaks", (DL_FUNC) &_sdsfun_RcppJenksBreaks, 3},
     {"_sdsfun_PrintGlobalMoranI", (DL_FUNC) &_sdsfun_PrintGlobalMoranI, 1},
     {"_sdsfun_RcppUnique", (DL_FUNC) &_sdsfun_RcppUnique, 1},
