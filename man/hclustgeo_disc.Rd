@@ -11,8 +11,8 @@ hclustgeo_disc(sfj, n, alpha = 0.5, scale = TRUE, wt = NULL, ...)
 
 \item{n}{The number of hierarchical clustering classes, which can be a numeric value or vector.}
 
-\item{alpha}{(optional) A positive value between \code{0} and \code{1}. This mixing parameter gives the relative
-importance of "feature"  space and "constraint" space.  Default is \code{0.5}.}
+\item{alpha}{(optional) A positive value between \code{0} and \code{1}. This mixing parameter gives the
+relative importance of "feature" space and "constraint" space. Default is \code{0.5}.}
 
 \item{scale}{(optional) Whether to scaled the dissimilarities matrix, default is \code{TRUE}.}
 
