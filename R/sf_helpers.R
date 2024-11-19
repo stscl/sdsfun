@@ -8,8 +8,7 @@
 #' @export
 #'
 #' @examples
-#' library(sf)
-#' gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 #' sf_geometry_name(gzma)
 #'
 sf_geometry_name = \(sfj){
@@ -27,8 +26,7 @@ sf_geometry_name = \(sfj){
 #' @export
 #'
 #' @examples
-#' library(sf)
-#' gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 #' sf_geometry_type(gzma)
 #'
 sf_geometry_type = \(sfj){
@@ -52,8 +50,7 @@ sf_geometry_type = \(sfj){
 #' @export
 #'
 #' @examples
-#' library(sf)
-#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+#' pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 #' pts_v = sf_voronoi_diagram(pts)
 #'
 #' library(ggplot2)
@@ -96,8 +93,7 @@ sf_voronoi_diagram = \(sfj){
 #' @export
 #'
 #' @examples
-#' library(sf)
-#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+#' pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 #' sf_coordinates(pts)
 #'
 sf_coordinates = \(sfj){
@@ -126,8 +122,7 @@ sf_coordinates = \(sfj){
 #' @export
 #'
 #' @examples
-#' library(sf)
-#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+#' pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 #' pts_distm = sf_distance_matrix(pts)
 #' pts_distm[1:5,1:5]
 #'
@@ -153,8 +148,7 @@ sf_distance_matrix = \(sfj){
 #' @export
 #'
 #' @examples
-#' library(sf)
-#' gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 #' sf_utm_proj_wgs84(gzma)
 #'
 sf_utm_proj_wgs84 = \(sfj){

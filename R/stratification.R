@@ -44,4 +44,32 @@ discretize_vector = \(x, n, method = 'natural',
   return(res)
 }
 
-hclustgeo_disc = \(sfj)
+#' hierarchical clustering with spatial soft constraints
+#'
+#' @param sfj An `sf` object.
+#' @param n The number of hierarchical clustering classes, which can be a numeric value or vector.
+#' @param alpha (optional) A real value between 0 and 1. This mixing parameter gives the relative
+#' importance of "feature"  space and constraint" space.  Default is `0.5`.
+#' @param scale (optional) Whether to scaled the dissimilarities matrix, default is `TRUE`.
+#' @param wt (optional) Vector with the weights of the observations. By default, `wt` is `NULL`.
+#' @param ... (optional) Other arguments passed to `stats::dist()`.
+#'
+#' @return A vector with group memberships if n are scalar, otherwise a matrix with group memberships
+#' is returned where each column corresponds to the elements of n, respectively.
+#' @export
+#'
+#' @examples
+#' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#'
+hclustgeo_disc = \(sfj, n, alpha = 0.5, scale = TRUE, wt = NULL, ...){
+  if (inherits(sfj,"sf")){
+    D1 = stats::as.dist(sdsfun::sf_distance_matrix(sfj))
+    sfj = sf::st_drop_geometry(sfj)
+  } else {
+    D1 = NULL
+  }
+  D0 = stats::dist(as.matrix(sfj),...)
+  deltamat = RcppHClustGeoMat(D0,D1,alpha,scale,wt)
+  resh = stats::hclust(deltamat,method="ward.D",members=wt)
+  return(stats::cutree(resh,k = n))
+}

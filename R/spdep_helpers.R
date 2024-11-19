@@ -14,9 +14,7 @@
 #' @export
 #'
 #' @examples
-#' library(sf)
-#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
-#'
+#' pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 #' nb1 = spdep_nb(pts, k = 6)
 #' nb2 = spdep_nb(pts, queen = TRUE)
 #' nb3 = spdep_nb(pts, queen = FALSE, order = 2)
@@ -57,9 +55,7 @@ spdep_nb = \(sfj,
 #' @export
 #'
 #' @examples
-#' library(sf)
-#' gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
-#'
+#' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 #' wt1 = spdep_contiguity_swm(gzma, k = 6, style = 'B')
 #' wt2 = spdep_contiguity_swm(gzma, queen = TRUE, style = 'B')
 #' wt3 = spdep_contiguity_swm(gzma, queen = FALSE, order = 2, style = 'B')
@@ -129,9 +125,7 @@ spdep_contiguity_swm = \(sfj,
 #' @export
 #'
 #' @examples
-#' library(sf)
-#' pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
-#'
+#' pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 #' wt1 = spdep_distance_swm(pts, style = 'B')
 #' wt2 = spdep_distance_swm(pts, kernel = 'gaussian')
 #' wt3 = spdep_distance_swm(pts, k = 3, kernel = 'gaussian')
@@ -168,8 +162,7 @@ spdep_distance_swm = \(sfj,
 #' @export
 #'
 #' @examples
-#' library(sf)
-#' gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 #' gzma_c = spdep_skater(gzma,8)
 #' gzma$group = gzma_c
 #' plot(gzma["group"])
