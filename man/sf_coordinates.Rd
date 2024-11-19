@@ -16,8 +16,7 @@ A matrix.
 Extract locations of sf objects.
 }
 \examples{
-library(sf)
-pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 sf_coordinates(pts)
 
 }

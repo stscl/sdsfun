@@ -16,8 +16,7 @@ A matrix.
 Generates distance matrix for sf object
 }
 \examples{
-library(sf)
-pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 pts_distm = sf_distance_matrix(pts)
 pts_distm[1:5,1:5]
 

@@ -17,8 +17,7 @@ Generates a utm projection epsg coding character corresponding to an \code{sfj} 
 under the WGS84 spatial reference.
 }
 \examples{
-library(sf)
-gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 sf_utm_proj_wgs84(gzma)
 
 }

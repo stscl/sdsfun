@@ -16,8 +16,7 @@ A character.
 Get the geometry column name of an sf object
 }
 \examples{
-library(sf)
-gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 sf_geometry_name(gzma)
 
 }

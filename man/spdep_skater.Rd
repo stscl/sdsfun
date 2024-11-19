@@ -26,8 +26,7 @@ A numeric vector of clusters.
 SKATER forms clusters by spatially partitioning data that has similar values for features of interest.
 }
 \examples{
-library(sf)
-gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 gzma_c = spdep_skater(gzma,8)
 gzma$group = gzma_c
 plot(gzma["group"])

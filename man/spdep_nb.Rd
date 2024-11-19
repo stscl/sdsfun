@@ -29,9 +29,7 @@ construct neighbours list
 When \code{k} is set to a positive value, using K-Nearest Neighbor
 }
 \examples{
-library(sf)
-pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
-
+pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 nb1 = spdep_nb(pts, k = 6)
 nb2 = spdep_nb(pts, queen = TRUE)
 nb3 = spdep_nb(pts, queen = FALSE, order = 2)

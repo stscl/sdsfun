@@ -67,9 +67,7 @@ When \code{kernel} is setting, using distance weight based on kernel function, O
 the inverse distance weight will be used.
 }
 \examples{
-library(sf)
-pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
-
+pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 wt1 = spdep_distance_swm(pts, style = 'B')
 wt2 = spdep_distance_swm(pts, kernel = 'gaussian')
 wt3 = spdep_distance_swm(pts, k = 3, kernel = 'gaussian')

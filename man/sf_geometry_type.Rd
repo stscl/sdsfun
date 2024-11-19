@@ -16,8 +16,7 @@ A lowercase character vector
 Get the geometry type of an sf object
 }
 \examples{
-library(sf)
-gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 sf_geometry_type(gzma)
 
 }

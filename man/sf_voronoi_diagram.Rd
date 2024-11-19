@@ -20,8 +20,7 @@ Only sf objects of (multi-)point type are supported to generate voronoi diagram
 and the returned result includes only the geometry column.
 }
 \examples{
-library(sf)
-pts = read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
+pts = sf::read_sf(system.file('extdata/pts.gpkg',package = 'sdsfun'))
 pts_v = sf_voronoi_diagram(pts)
 
 library(ggplot2)

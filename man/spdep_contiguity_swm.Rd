@@ -44,9 +44,7 @@ Constructs spatial weight matrices based on contiguity via \code{spdep} package.
 When \code{k} is set to a positive value, using K-Nearest Neighbor Weights.
 }
 \examples{
-library(sf)
-gzma = read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
-
+gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 wt1 = spdep_contiguity_swm(gzma, k = 6, style = 'B')
 wt2 = spdep_contiguity_swm(gzma, queen = TRUE, style = 'B')
 wt3 = spdep_contiguity_swm(gzma, queen = FALSE, order = 2, style = 'B')
