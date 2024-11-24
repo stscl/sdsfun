@@ -166,3 +166,46 @@ sf_utm_proj_wgs84 = \(sfj){
     return(paste0("EPSG:326",utm_zone))
   }
 }
+
+#' @title generates cgcs2000 Gauss-Kruger projection epsg coding character
+#' @description
+#' Generates a Gauss-Kruger projection epsg coding character corresponding to an `sfj` object
+#' under the CGCS2000 spatial reference.
+#'
+#' @param sfj An `sf` object or can be converted to `sf` by `sf::st_as_sf()`.
+#' @param degree (optional) `3`-degree or `6`-degree zonal projection, default is `6L`.
+#'
+#' @return A character.
+#' @export
+#'
+#' @examples
+#' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun')) |>
+#'   sf::st_transform(4490)
+#' sf_gk_proj_cgcs2000(gzma,3)
+#' sf_gk_proj_cgcs2000(gzma,6)
+#'
+sf_gk_proj_cgcs2000 = \(sfj,degree = 6L){
+  if (!inherits(sfj,'sf')){
+    sfj = sf::st_as_sf(sfj)
+  }
+  crs_info = sf::st_crs(sfj)
+  iscgcs2000 = dplyr::if_else(crs_info$epsg == 4490,TRUE,FALSE,FALSE)
+  if (!iscgcs2000){
+    stop("The spatial reference of the input `sfj` object needs to be the CGCS2000 geographic coordinate system.")
+  }
+
+  sf_ext = as.double(sf::st_bbox(sfj))
+  center_lon = mean(sf_ext[c(1,3)])
+  if (degree == 6L) {
+    gk_zone = floor((center_lon + 6) / 6)
+    GKCenterLong = gk_zone * 6 - 3
+    epsgcode = seq(4502,4512,by = 1)[which(seq(75,135,by = 6) == GKCenterLong)]
+  } else if (degree == 3L) {
+    gk_zone = floor((center_lon + 1.5) / 3)
+    GKCenterLong = gk_zone * 3
+    epsgcode = seq(4534,4554,by = 1)[which(seq(75,135,by = 3) == GKCenterLong)]
+  } else {
+    stop("The degree only be `3` or `6`!")
+  }
+  return(paste0("EPSG:",epsgcode))
+}
