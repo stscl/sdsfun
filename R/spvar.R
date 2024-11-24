@@ -29,6 +29,7 @@ spvar = \(x,wt,method = "cpp"){
   return(gammav)
 }
 
+
 #' only spade power of spatial determinant
 #'
 #' @param y Dependent variable
@@ -49,4 +50,3 @@ spade_psd = \(y,hs,wt){
   hs = as.integer(as.factor(hs))
   return(CalcSPADEPSD(y,hs,wt))
 }
-
