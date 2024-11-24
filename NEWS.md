@@ -2,6 +2,10 @@
 
 * Add `hclustgeo_disc` for hierarchical clustering with spatial soft constraints (#13).
 
+* Add `spade_psd` for the fast estimation of the SPADE model psd-value.
+
+* Add `sf_gk_proj_cgcs2000()` function.
+
 # sdsfun 0.4.3
 
 * Add `geodetector_q` for the fast estimation of the geodetector q-value.
