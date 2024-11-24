@@ -10,7 +10,7 @@ double CalcSPADEPSD(Rcpp::NumericVector y,
   int N = y.size();
 
   // Calculate the global variance using spatial variance
-  double global_variance = RcppSpatialVariance(y, wt);
+  double denom = RcppSpatialVariance(y, wt) * y.size();
 
   // Get unique levels of h
   Rcpp::IntegerVector unique_levels = RcppUnique(h);
@@ -43,7 +43,7 @@ double CalcSPADEPSD(Rcpp::NumericVector y,
   }
 
   // Calculate the SPADPSD value
-  double spade_psd = 1 - (numer / global_variance);
+  double spade_psd = 1 - (numer / denom);
 
   return spade_psd;
 }
