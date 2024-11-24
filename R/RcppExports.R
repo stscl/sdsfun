@@ -65,6 +65,10 @@ RcppUnique <- function(x) {
     .Call(`_sdsfun_RcppUnique`, x)
 }
 
+CalcSPADEPSD <- function(y, h, wt) {
+    .Call(`_sdsfun_CalcSPADEPSD`, y, h, wt)
+}
+
 RcppSpatialVariance <- function(x, wt) {
     .Call(`_sdsfun_RcppSpatialVariance`, x, wt)
 }

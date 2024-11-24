@@ -28,3 +28,25 @@ spvar = \(x,wt,method = "cpp"){
   }
   return(gammav)
 }
+
+
+#' only spade power of spatial determinant
+#'
+#' @param y Dependent variable
+#' @param hs Independent variable
+#' @param wt Spatial weight matrix
+#'
+#' @return A numeric value
+#' @export
+#'
+#' @examples
+#' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
+#' wt1 = inverse_distance_swm(gzma)
+#' spade_psd(y = gzma$PS_Score,
+#'           hs = discretize_vector(gzma$PS_Score,5),
+#'           wt = wt1)
+#'
+spade_psd = \(y,hs,wt){
+  hs = as.integer(as.factor(hs))
+  return(CalcSPADEPSD(y,hs,wt))
+}
