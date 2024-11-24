@@ -36,10 +36,11 @@ reference:
   - ssh_test
   - inverse_distance_swm
   - hclustgeo_disc
-  - fuzzyoverlay
-  - loess_optnum
   - geodetector_q
   - spvar
+  - spade_psd
+  - fuzzyoverlay
+  - loess_optnum
   - sf_utm_proj_wgs84
   - sf_gk_proj_cgcs2000
 
