@@ -21,7 +21,6 @@ reference:
   - sf_voronoi_diagram
   - sf_coordinates
   - sf_distance_matrix
-  - sf_utm_proj_wgs84
 
 - title: utility functions for spdep package
   contents:
@@ -41,6 +40,8 @@ reference:
   - loess_optnum
   - geodetector_q
   - spvar
+  - sf_utm_proj_wgs84
+  - sf_gk_proj_cgcs2000
 
 - title: utility functions for data science
   contents:
