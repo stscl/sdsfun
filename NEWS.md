@@ -1,3 +1,5 @@
+# sdsfun 0.6.0
+
 # sdsfun 0.5.0
 
 * Add `hclustgeo_disc` for hierarchical clustering with spatial soft constraints (#13).
