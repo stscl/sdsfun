@@ -97,8 +97,8 @@ check_tbl_na = \(tbl){
 #'
 #' @examples
 #' set.seed(42)
-#' lon = 1:9
-#' lat = 1:9
+#' lon = rep(1:3,each = 3)
+#' lat = rep(1:3,times = 3)
 #' zattr = rnorm(9, mean = 10, sd = 1)
 #' demodf = data.frame(x = lon, y = lat, z = zattr)
 #' demodf
