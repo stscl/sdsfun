@@ -73,3 +73,7 @@ RcppSpatialVariance <- function(x, wt) {
     .Call(`_sdsfun_RcppSpatialVariance`, x, wt)
 }
 
+Tbl2Mat <- function(coords, z_values) {
+    .Call(`_sdsfun_Tbl2Mat`, coords, z_values)
+}
+

@@ -1,5 +1,8 @@
 # sdsfun 0.6.0
 
+* Adds support for converting long-form tables into matrices corresponding to two-dimensional 
+spatial positions (#20).
+
 * The aggregation method for hierarchical clustering in `hclustgeo_disc()` is set 
 to `ward.D2` by default (#18).
 
