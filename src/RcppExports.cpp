@@ -232,6 +232,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// Tbl2Mat
+Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords, const Rcpp::NumericVector& z_values);
+RcppExport SEXP _sdsfun_Tbl2Mat(SEXP coordsSEXP, SEXP z_valuesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type coords(coordsSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type z_values(z_valuesSEXP);
+    rcpp_result_gen = Rcpp::wrap(Tbl2Mat(coords, z_values));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_sdDisc", (DL_FUNC) &_sdsfun_sdDisc, 2},
@@ -252,6 +264,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_RcppUnique", (DL_FUNC) &_sdsfun_RcppUnique, 1},
     {"_sdsfun_CalcSPADEPSD", (DL_FUNC) &_sdsfun_CalcSPADEPSD, 3},
     {"_sdsfun_RcppSpatialVariance", (DL_FUNC) &_sdsfun_RcppSpatialVariance, 2},
+    {"_sdsfun_Tbl2Mat", (DL_FUNC) &_sdsfun_Tbl2Mat, 2},
     {NULL, NULL, 0}
 };
 
