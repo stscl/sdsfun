@@ -79,3 +79,23 @@ tbl_all2int = \(tbl){
 check_tbl_na = \(tbl){
   return(any(is.na(tbl)))
 }
+
+#' convert xyz tbl to matrix
+#'
+#' @param tbl A `tibble`,`data.frame` or `sf` object.
+#' @param x (optional) The x coordinates column number, default is `1`.
+#' @param y (optional) The y coordinates column number, default is `2`.
+#' @param z (optional) The z (attribute) coordinates column number, default is `3`.
+#'
+#' @return A `list`.
+#' @export
+#'
+#' @examples
+tbl_xyz2mat = \(tbl,x = 1, y = 2, z = 3){
+  if (inherits(tbl,'sf')){
+    tbl = sf::st_drop_geometry(tbl)
+  }
+  tbl = tbl[,c(x,y,z)]
+  return(Tbl2Mat(as.matrix(tbl[,c(x,y)]),
+                 tbl[,z,drop = TRUE]))
+}
