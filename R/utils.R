@@ -83,15 +83,27 @@ check_tbl_na = \(tbl){
 #' convert xyz tbl to matrix
 #'
 #' @param tbl A `tibble`,`data.frame` or `sf` object.
-#' @param x (optional) The x coordinates column number, default is `1`.
-#' @param y (optional) The y coordinates column number, default is `2`.
+#' @param x (optional) The x-axis coordinates column number, default is `1`.
+#' @param y (optional) The y-axis coordinates column number, default is `2`.
 #' @param z (optional) The z (attribute) coordinates column number, default is `3`.
 #'
 #' @return A `list`.
+#' \describe{
+#'  \item{z_attrs_matrix}{A matrix with attribute information.}
+#'  \item{x_coords_matrix}{A matrix with the x-axis coordinates.}
+#'  \item{y_coords_matrix}{A matrix with the y-axis coordinates.}
+#' }
 #' @export
 #'
 #' @examples
-#'
+#' set.seed(42)
+#' n_points = 9
+#' lon = runif(n_points, min = 1, max = 10)
+#' lat = runif(n_points, min = 1, max = 10)
+#' zattr = rnorm(n_points, min = 1, max = 10)
+#' demodf = data.frame(x = lon, y = lat, z = zattr)
+#' demodf
+#' tbl_xyz2mat(demodf)
 #'
 tbl_xyz2mat = \(tbl,x = 1, y = 2, z = 3){
   if (inherits(tbl,'sf')){
