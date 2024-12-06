@@ -15,7 +15,7 @@ Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords, const Rcpp::NumericVector&
     y_coords[i] = coords(i, 1);
   }
 
-  // Find the unique x and y coordinates
+  // Find the unique x and y coordinates and sort them
   std::vector<double> unique_x = x_coords;
   std::vector<double> unique_y = y_coords;
   std::sort(unique_x.begin(), unique_x.end());
@@ -41,13 +41,17 @@ Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords, const Rcpp::NumericVector&
   Rcpp::NumericMatrix coords_matrix_x(rows, cols);
   Rcpp::NumericMatrix coords_matrix_y(rows, cols);
 
+  // Fill the coordinate matrices with NaN initially
+  std::fill(coords_matrix_x.begin(), coords_matrix_x.end(), std::numeric_limits<double>::quiet_NaN());
+  std::fill(coords_matrix_y.begin(), coords_matrix_y.end(), std::numeric_limits<double>::quiet_NaN());
+
   // Fill the matrices
   for (int i = 0; i < coords.nrow(); ++i) {
     int x_idx = x_map[x_coords[i]];
     int y_idx = y_map[y_coords[i]];
-    z_matrix(y_idx, x_idx) = z_values[i];
-    coords_matrix_x(y_idx, x_idx) = x_coords[i];
-    coords_matrix_y(y_idx, x_idx) = y_coords[i];
+    z_matrix(rows - 1 - y_idx, x_idx) = z_values[i];  // Adjust y index to start from bottom
+    coords_matrix_x(rows - 1 - y_idx, x_idx) = x_coords[i];
+    coords_matrix_y(rows - 1 - y_idx, x_idx) = y_coords[i];
   }
 
   // Return the matrices as an Rcpp List
