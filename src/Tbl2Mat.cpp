@@ -6,8 +6,7 @@
 #include <Rcpp.h>
 
 // [[Rcpp::export]]
-Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords,
-                   const Rcpp::NumericVector& z_values) {
+Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords, const Rcpp::NumericVector& z_values) {
   // Extract x and y coordinates from the matrix
   std::vector<double> x_coords(coords.nrow());
   std::vector<double> y_coords(coords.nrow());
@@ -39,19 +38,22 @@ Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords,
 
   // Initialize the matrices
   Rcpp::NumericMatrix z_matrix(rows, cols);
-  Rcpp::NumericMatrix coords_matrix(rows, cols);
+  Rcpp::NumericMatrix coords_matrix_x(rows, cols);
+  Rcpp::NumericMatrix coords_matrix_y(rows, cols);
 
   // Fill the matrices
   for (int i = 0; i < coords.nrow(); ++i) {
     int x_idx = x_map[x_coords[i]];
     int y_idx = y_map[y_coords[i]];
     z_matrix(y_idx, x_idx) = z_values[i];
-    coords_matrix(y_idx, x_idx) = i + 1; // Store the index of the coordinate pair
+    coords_matrix_x(y_idx, x_idx) = x_coords[i];
+    coords_matrix_y(y_idx, x_idx) = y_coords[i];
   }
 
   // Return the matrices as an Rcpp List
   return Rcpp::List::create(
-    Rcpp::Named("z_matrix") = z_matrix,
-    Rcpp::Named("coords_matrix") = coords_matrix
+    Rcpp::Named("z_attrs_matrix") = z_matrix,
+    Rcpp::Named("x_coords_matrix") = coords_matrix_x,
+    Rcpp::Named("y_coords_matrix") = coords_matrix_y
   );
 }
