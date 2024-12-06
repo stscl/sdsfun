@@ -31,7 +31,7 @@ set.seed(42)
 n_points = 9
 lon = runif(n_points, min = 1, max = 10)
 lat = runif(n_points, min = 1, max = 10)
-zattr = rnorm(n_points, min = 1, max = 10)
+zattr = rnorm(n_points, mean = 10, sd = 1)
 demodf = data.frame(x = lon, y = lat, z = zattr)
 demodf
 tbl_xyz2mat(demodf)
