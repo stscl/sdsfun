@@ -43,6 +43,7 @@ reference:
   - loess_optnum
   - sf_utm_proj_wgs84
   - sf_gk_proj_cgcs2000
+  - tbl_xyz2mat
 
 - title: utility functions for data science
   contents:
