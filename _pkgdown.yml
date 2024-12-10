@@ -52,6 +52,7 @@ reference:
   - discretize_vector
   - normalize_vector
   - standardize_vector
+  - rm_lineartrend
   - generate_subsets
   - formula_varname
   - check_tbl_na
