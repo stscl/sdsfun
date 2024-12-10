@@ -4,7 +4,7 @@
 \alias{spvar}
 \title{spatial variance}
 \usage{
-spvar(x, wt, method = "cpp")
+spvar(x, wt, method = c("cpp", "r"))
 }
 \arguments{
 \item{x}{A numerical vector .}
