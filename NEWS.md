@@ -1,5 +1,7 @@
 # sdsfun 0.6.0
 
+* Add support for removing variable linear trend based on covariate (#23).
+
 * Adds support for converting long-form tables into matrices corresponding to two-dimensional 
 spatial positions (#20).
 
