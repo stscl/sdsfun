@@ -16,7 +16,8 @@
 #' wt1 = inverse_distance_swm(gzma)
 #' spvar(gzma$PS_Score,wt1)
 #'
-spvar = \(x,wt,method = "cpp"){
+spvar = \(x,wt,method = c("cpp","r")){
+  method = match.arg(method)
   if (method == "cpp"){
     gammav = RcppSpatialVariance(x,wt)
   } else {

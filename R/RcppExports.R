@@ -57,6 +57,14 @@ RcppJenksBreaks <- function(x, n_classes, is_sorted = FALSE) {
     .Call(`_sdsfun_RcppJenksBreaks`, x, n_classes, is_sorted)
 }
 
+LinearRegression <- function(y, X) {
+    .Call(`_sdsfun_LinearRegression`, y, X)
+}
+
+LinearTrendRM <- function(y, X) {
+    .Call(`_sdsfun_LinearTrendRM`, y, X)
+}
+
 PrintGlobalMoranI <- function(df) {
     .Call(`_sdsfun_PrintGlobalMoranI`, df)
 }
