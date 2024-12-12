@@ -108,7 +108,6 @@ tbl_xyz2mat = \(tbl,x = 1, y = 2, z = 3){
   if (inherits(tbl,'sf')){
     tbl = sf::st_drop_geometry(tbl)
   }
-  tbl = tbl[,c(x,y,z)]
   return(Tbl2Mat(as.matrix(tbl[,c(x,y)]),
                  tbl[,z,drop = TRUE]))
 }
