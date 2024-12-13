@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_map>
-#include <tuple>
 #include <limits>
 #include <Rcpp.h>
 
@@ -52,6 +51,15 @@ Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords, const Rcpp::NumericVector&
     z_matrix(rows - 1 - y_idx, x_idx) = z_values[i];  // Adjust y index to start from bottom
     coords_matrix_x(rows - 1 - y_idx, x_idx) = x_coords[i];
     coords_matrix_y(rows - 1 - y_idx, x_idx) = y_coords[i];
+  }
+
+  // Set z_matrix values to NaN where coords_matrix_x or coords_matrix_y are NaN
+  for (int i = 0; i < rows; ++i) {
+    for (int j = 0; j < cols; ++j) {
+      if (std::isnan(coords_matrix_x(i, j)) || std::isnan(coords_matrix_y(i, j))) {
+        z_matrix(i, j) = std::numeric_limits<double>::quiet_NaN();
+      }
+    }
   }
 
   // Return the matrices as an Rcpp List
