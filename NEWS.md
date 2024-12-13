@@ -1,5 +1,7 @@
 # sdsfun 0.7.0
 
+* Handling NA Values Specifically for `rm_lineartrend()` (#29).
+
 # sdsfun 0.6.0
 
 * Add support for removing variable linear trend based on covariate (#23).
