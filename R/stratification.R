@@ -44,6 +44,25 @@ discretize_vector = \(x, n, method = 'natural',
   return(res)
 }
 
+.getRHclust = \(data, alpha = 0.5, D1 = NULL,
+                hclustm = "ward.D2", scale = TRUE,
+                wt = NULL, ...){
+  if (inherits(data,"sf")) {
+    if (alpha != 0 & is.null(D1)) {
+      D1 = sdsfun::sf_distance_matrix(data)
+    }
+    data = sf::st_drop_geometry(data)
+  }
+  data = as.matrix(data)
+  if (alpha == 0 | is.null(D1)) {
+    D1 = matrix(0,nrow = nrow(data),ncol = nrow(data))
+  }
+  D0 = as.matrix(stats::dist(data,...))
+  deltadist = stats::as.dist(RcppHClustGeoMat(D0,D1,alpha,scale,wt))
+  resh = stats::hclust(deltadist,method=hclustm,members=wt)
+  return(resh)
+}
+
 #' hierarchical clustering with spatial soft constraints
 #' @note
 #' This is a `C++` enhanced implementation of the `hclustgeo` function in `ClustGeo` package.
@@ -73,18 +92,6 @@ discretize_vector = \(x, n, method = 'natural',
 hclustgeo_disc = \(data, n, alpha = 0.5, D1 = NULL,
                    hclustm = "ward.D2", scale = TRUE,
                    wt = NULL, ...){
-  if (inherits(data,"sf")) {
-    if (alpha != 0 & is.null(D1)) {
-      D1 = sdsfun::sf_distance_matrix(data)
-    }
-    data = sf::st_drop_geometry(data)
-  }
-  data = as.matrix(data)
-  if (alpha == 0 | is.null(D1)) {
-    D1 = matrix(0,nrow = nrow(data),ncol = nrow(data))
-  }
-  D0 = as.matrix(stats::dist(data,...))
-  deltadist = stats::as.dist(RcppHClustGeoMat(D0,D1,alpha,scale,wt))
-  resh = stats::hclust(deltadist,method=hclustm,members=wt)
+  resh = .getRHclust(data,alpha,D1,hclustm,scale,wt,...)
   return(stats::cutree(resh,k = n))
 }
