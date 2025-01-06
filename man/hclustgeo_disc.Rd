@@ -12,7 +12,6 @@ hclustgeo_disc(
   hclustm = "ward.D2",
   scale = TRUE,
   wt = NULL,
-  cut = TRUE,
   ...
 )
 }
@@ -35,14 +34,11 @@ please see \code{stats::hclust()}.}
 
 \item{wt}{(optional) Vector with the weights of the observations. By default, \code{wt} is \code{NULL}.}
 
-\item{cut}{(optional) Whether to cut the \code{hclust} tree, default is \code{TRUE}.}
-
 \item{...}{(optional) Other arguments passed to \code{stats::dist()}.}
 }
 \value{
-When \code{cut} is \code{TRUE}, returns a grouped membership: a \code{vector} if \code{n} is a scalar,
-a \code{matrix} (columns correspond to elements of \code{n}) if not; otherwise, returns a \code{vector}
-of the permuted original observations.
+The grouped membership: a \code{vector} if \code{n} is a scalar, a \code{matrix} (columns correspond to elements
+of \code{n}) if not.
 }
 \description{
 hierarchical clustering with spatial soft constraints
