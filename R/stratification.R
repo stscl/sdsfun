@@ -59,12 +59,10 @@ discretize_vector = \(x, n, method = 'natural',
 #' please see `stats::hclust()`.
 #' @param scale (optional) Whether to scaled the dissimilarities matrix, default is `TRUE`.
 #' @param wt (optional) Vector with the weights of the observations. By default, `wt` is `NULL`.
-#' @param cut (optional) Whether to cut the `hclust` tree, default is `TRUE`.
 #' @param ... (optional) Other arguments passed to `stats::dist()`.
 #'
-#' @return When `cut` is `TRUE`, returns a grouped membership: a `vector` if `n` is a scalar,
-#' a `matrix` (columns correspond to elements of `n`) if not; otherwise, returns a `vector`
-#' of the permuted original observations.
+#' @return The grouped membership: a `vector` if `n` is a scalar, a `matrix` (columns correspond to elements
+#' of `n`) if not.
 #' @export
 #'
 #' @examples
@@ -74,7 +72,7 @@ discretize_vector = \(x, n, method = 'natural',
 #'
 hclustgeo_disc = \(data, n, alpha = 0.5, D1 = NULL,
                    hclustm = "ward.D2", scale = TRUE,
-                   wt = NULL, cut = TRUE, ...){
+                   wt = NULL, ...){
   if (inherits(data,"sf")) {
     if (alpha != 0 & is.null(D1)) {
       D1 = sdsfun::sf_distance_matrix(data)
@@ -89,9 +87,5 @@ hclustgeo_disc = \(data, n, alpha = 0.5, D1 = NULL,
   deltadist = stats::as.dist(RcppHClustGeoMat(D0,D1,alpha,scale,wt))
   resh = stats::hclust(deltadist,method = hclustm,members = wt)
 
-  if (cut) {
-    return(stats::cutree(resh,k = n))
-  } else {
-    return(resh$order)
-  }
+  return(stats::cutree(resh,k = n))
 }
