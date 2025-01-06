@@ -52,7 +52,6 @@
 <span>  hclustm <span class="op">=</span> <span class="st">"ward.D2"</span>,</span>
 <span>  scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  wt <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  cut <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -93,19 +92,14 @@ please see <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-l
 <dd><p>(optional) Vector with the weights of the observations. By default, <code>wt</code> is <code>NULL</code>.</p></dd>
 
 
-<dt id="arg-cut">cut<a class="anchor" aria-label="anchor" href="#arg-cut"></a></dt>
-<dd><p>(optional) Whether to cut the <code>hclust</code> tree, default is <code>TRUE</code>.</p></dd>
-
-
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>(optional) Other arguments passed to <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>When <code>cut</code> is <code>TRUE</code>, returns a grouped membership: a <code>vector</code> if <code>n</code> is a scalar,
-a <code>matrix</code> (columns correspond to elements of <code>n</code>) if not; otherwise, returns a <code>vector</code>
-of the permuted original observations.</p>
+    <p>The grouped membership: a <code>vector</code> if <code>n</code> is a scalar, a <code>matrix</code> (columns correspond to elements
+of <code>n</code>) if not.</p>
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
