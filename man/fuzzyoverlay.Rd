@@ -25,6 +25,7 @@ Independent variables in the \code{data} provided to \code{fuzzyoverlay()} must 
 variables, and dependent variable are continuous variable.
 }
 \examples{
+set.seed(42)
 sim = tibble::tibble(y = stats::runif(7,0,10),
                      x1 = c(1,rep(2,3),rep(3,3)),
                      x2 = c(rep(1,2),rep(2,2),rep(3,3)))

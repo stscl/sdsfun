@@ -11,6 +11,7 @@
 #' @return A numeric vector.
 #' @export
 #' @examples
+#' set.seed(42)
 #' sim = tibble::tibble(y = stats::runif(7,0,10),
 #'                      x1 = c(1,rep(2,3),rep(3,3)),
 #'                      x2 = c(rep(1,2),rep(2,2),rep(3,3)))
@@ -26,14 +27,9 @@ fuzzyoverlay = \(formula, data, method = "and"){
 
   fuzzyf = ifelse(method == "and","which.min","which.max")
 
-  formula = stats::as.formula(formula)
-  formula.vars = all.vars(formula)
-  y = data[, formula.vars[1], drop = TRUE]
-  if (formula.vars[2] == "."){
-    xs = dplyr::select(data,-dplyr::any_of(formula.vars[1]))
-  } else {
-    xs = dplyr::select(data,dplyr::all_of(formula.vars[-1]))
-  }
+  formulavars = formula_varname(formula, data)
+  y = data[, formulavars[[1]], drop = TRUE]
+  xs = data[, formulavars[[2]]]
   xs = xs %>%
     dplyr::mutate(dplyr::across(dplyr::where(is.factor),
                                 as.character)) %>%
