@@ -1,6 +1,6 @@
-#' @title test global spatial autocorrelation
+#' @title global spatial autocorrelation test
 #' @description
-#' Spatial autocorrelation test based on global moran index.
+#' Spatial autocorrelation test based on moran's I index.
 #' @note
 #' This is a `C++` implementation of the `MI.vec` function in `spfilteR` package,
 #' and embellishes the console output.
@@ -18,8 +18,7 @@
 #' @param symmetrize (optional) Whether or not to symmetrize the asymmetrical spatial weight matrix
 #' \emph{\strong{wt}} by: 1/2 * (\emph{\strong{wt}} + \emph{\strong{wt}}'). Default is `FALSE`.
 #'
-#' @return A list with `moran_test` class and result stored on the `result` tibble.
-#' Which contains the following information for each variable:
+#' @return A list utilizing a `result` tibble to store the following information for each variable:
 #' \describe{
 #' \item{\code{MoranI}}{observed value of the Moran coefficient}
 #' \item{\code{EI}}{expected value of Moran's I}
