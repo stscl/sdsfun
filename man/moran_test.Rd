@@ -2,7 +2,7 @@
 % Please edit documentation in R/moran_test.R
 \name{moran_test}
 \alias{moran_test}
-\title{test global spatial autocorrelation}
+\title{global spatial autocorrelation test}
 \usage{
 moran_test(sfj, wt = NULL, alternative = "greater", symmetrize = FALSE)
 }
@@ -19,8 +19,7 @@ provided, \code{sdsfun} will use a first-order queen adjacency binary matrix.}
 \emph{\strong{wt}} by: 1/2 * (\emph{\strong{wt}} + \emph{\strong{wt}}'). Default is \code{FALSE}.}
 }
 \value{
-A list with \code{moran_test} class and result stored on the \code{result} tibble.
-Which contains the following information for each variable:
+A list utilizing a \code{result} tibble to store the following information for each variable:
 \describe{
 \item{\code{MoranI}}{observed value of the Moran coefficient}
 \item{\code{EI}}{expected value of Moran's I}
@@ -30,7 +29,7 @@ Which contains the following information for each variable:
 }
 }
 \description{
-Spatial autocorrelation test based on global moran index.
+Spatial autocorrelation test based on moran's I index.
 }
 \note{
 This is a \verb{C++} implementation of the \code{MI.vec} function in \code{spfilteR} package,
