@@ -50,6 +50,7 @@
 <span>  method <span class="op">=</span> <span class="st">"natural"</span>,</span>
 <span>  breakpoint <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  sampleprob <span class="op">=</span> <span class="fl">0.15</span>,</span>
+<span>  thr <span class="op">=</span> <span class="fl">0.4</span>,</span>
 <span>  seed <span class="op">=</span> <span class="fl">123456789</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -78,6 +79,11 @@
 <dt id="arg-sampleprob">sampleprob<a class="anchor" aria-label="anchor" href="#arg-sampleprob"></a></dt>
 <dd><p>(optional) When the data size exceeds <code>3000</code>, perform sampling
 for discretization, applicable only to natural breaks. Default is <code>0.15</code>.</p></dd>
+
+
+<dt id="arg-thr">thr<a class="anchor" aria-label="anchor" href="#arg-thr"></a></dt>
+<dd><p>(optional) Threshold for controlling iteration, applicable only to
+headtails breaks. Default is <code>0.15</code>.</p></dd>
 
 
 <dt id="arg-seed">seed<a class="anchor" aria-label="anchor" href="#arg-seed"></a></dt>
