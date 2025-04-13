@@ -1,5 +1,7 @@
 # sdsfun 0.8.0
 
+* Implement head/tails breaking method in `discretize_vector` function (#42).
+
 # sdsfun 0.7.0
 
 * Handling NA Values Specifically for `rm_lineartrend()` (#29).

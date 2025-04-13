@@ -10,6 +10,7 @@ discretize_vector(
   method = "natural",
   breakpoint = NULL,
   sampleprob = 0.15,
+  thr = 0.4,
   seed = 123456789
 )
 }
@@ -25,6 +26,9 @@ discretize_vector(
 
 \item{sampleprob}{(optional) When the data size exceeds \code{3000}, perform sampling
 for discretization, applicable only to natural breaks. Default is \code{0.15}.}
+
+\item{thr}{(optional) Threshold for controlling iteration, applicable only to
+headtails breaks. Default is \code{0.15}.}
 
 \item{seed}{(optional) Random seed number, default is \code{123456789}.}
 }

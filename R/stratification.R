@@ -7,6 +7,8 @@
 #' `method` is `manual`, `breakpoint` is required.
 #' @param sampleprob (optional) When the data size exceeds `3000`, perform sampling
 #' for discretization, applicable only to natural breaks. Default is `0.15`.
+#' @param thr (optional) Threshold for controlling iteration, applicable only to
+#' headtails breaks. Default is `0.15`.
 #' @param seed (optional) Random seed number, default is `123456789`.
 #'
 #' @return A discretized integer vector
@@ -19,10 +21,8 @@
 #'          7508, 5203)
 #' discretize_vector(xvar, n = 5, method = 'natural')
 #'
-discretize_vector = \(x, n, method = 'natural',
-                      breakpoint = NULL,
-                      sampleprob = 0.15,
-                      seed = 123456789){
+discretize_vector = \(x, n, method = 'natural', breakpoint = NULL,
+                      sampleprob = 0.15, thr = 0.4, seed = 123456789){
   if (any(inherits(x,'factor'),inherits(x,'character'))){
     return(as.integer(as.factor(x)))
   }
@@ -38,8 +38,10 @@ discretize_vector = \(x, n, method = 'natural',
   } else if (method == "natural") {
     base::set.seed(seed)
     res = naturalDisc(x,n,sampleprob)
+  } else if (method == "headtails"){
+    res = htDisc(x,thr)
   } else {
-    stop("Only support those methods: sd,equal,quantile,geometric,natural and manual.")
+    stop("Only support those methods: sd,equal,quantile,geometric,natural,headtails and manual.")
   }
   return(res)
 }
