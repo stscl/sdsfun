@@ -1,5 +1,6 @@
 #include <limits>
 #include <random>
+#include <algorithm>
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
@@ -211,6 +212,63 @@ Rcpp::IntegerVector naturalDisc(const arma::vec& x,
     }
     if (x[i] >= breaks[breaks.n_elem - 1]) {
       result[i] = n;
+    }
+  }
+
+  return result;
+}
+
+// [[Rcpp::export]]
+Rcpp::IntegerVector htDisc(const arma::vec& x, double thr = 0.4) {
+  // Remove NA and non-finite values for break calculation
+  arma::vec x_clean = x.elem(arma::find_finite(x));
+  arma::vec head = x_clean;
+
+  std::vector<double> breaks;
+  breaks.push_back(x_clean.min());
+
+  for (int i = 0; i < 100; ++i) {
+    double mu = arma::mean(head);
+    breaks.push_back(mu);
+
+    int ntot = head.n_elem;
+    head = head.elem(arma::find(head > mu));
+    double prop = static_cast<double>(head.n_elem) / ntot;
+
+    if (prop > thr || head.n_elem <= 1) {
+      break;
+    }
+  }
+
+  // Add maximum value to complete the break interval
+  breaks.push_back(x_clean.max());
+
+  // Remove duplicates and sort
+  std::sort(breaks.begin(), breaks.end());
+  breaks.erase(std::unique(breaks.begin(), breaks.end()), breaks.end());
+
+  arma::vec brks = arma::conv_to<arma::vec>::from(breaks);
+  int n_breaks = brks.n_elem;
+
+  // Output vector
+  Rcpp::IntegerVector result(x.n_elem);
+
+  for (size_t i = 0; i < x.n_elem; ++i) {
+    double val = x[i];
+    if (!arma::is_finite(val)) {
+      result[i] = Rcpp::NA_INTEGER;
+    } else {
+      int label = 1;
+      for (int j = 0; j < n_breaks - 1; ++j) {
+        if (val < brks[j + 1]) {
+          label = j + 1;
+          break;
+        }
+      }
+      if (val >= brks[n_breaks - 1]) {
+        label = n_breaks - 1;
+      }
+      result[i] = label;
     }
   }
 
