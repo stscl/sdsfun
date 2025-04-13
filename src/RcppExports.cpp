@@ -97,6 +97,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// htDisc
+Rcpp::IntegerVector htDisc(const arma::vec& x, double thr);
+RcppExport SEXP _sdsfun_htDisc(SEXP xSEXP, SEXP thrSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type thr(thrSEXP);
+    rcpp_result_gen = Rcpp::wrap(htDisc(x, thr));
+    return rcpp_result_gen;
+END_RCPP
+}
 // DummyVar
 Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x);
 RcppExport SEXP _sdsfun_DummyVar(SEXP xSEXP) {
@@ -277,6 +289,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_sdsfun_manualDisc", (DL_FUNC) &_sdsfun_manualDisc, 2},
     {"_sdsfun_ArmaJenksBreaks", (DL_FUNC) &_sdsfun_ArmaJenksBreaks, 3},
     {"_sdsfun_naturalDisc", (DL_FUNC) &_sdsfun_naturalDisc, 3},
+    {"_sdsfun_htDisc", (DL_FUNC) &_sdsfun_htDisc, 2},
     {"_sdsfun_DummyVar", (DL_FUNC) &_sdsfun_DummyVar, 1},
     {"_sdsfun_DummyMat", (DL_FUNC) &_sdsfun_DummyMat, 1},
     {"_sdsfun_CalcFactorQ", (DL_FUNC) &_sdsfun_CalcFactorQ, 2},
