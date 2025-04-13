@@ -158,7 +158,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // RcppHClustGeoMat
-arma::mat RcppHClustGeoMat(const arma::mat& D0, const arma::mat& D1, double alpha, bool scale, Nullable<Rcpp::NumericVector> wt_);
+arma::mat RcppHClustGeoMat(const arma::mat& D0, const arma::mat& D1, double alpha, bool scale, Rcpp::Nullable<Rcpp::NumericVector> wt_);
 RcppExport SEXP _sdsfun_RcppHClustGeoMat(SEXP D0SEXP, SEXP D1SEXP, SEXP alphaSEXP, SEXP scaleSEXP, SEXP wt_SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -167,7 +167,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const arma::mat& >::type D1(D1SEXP);
     Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
     Rcpp::traits::input_parameter< bool >::type scale(scaleSEXP);
-    Rcpp::traits::input_parameter< Nullable<Rcpp::NumericVector> >::type wt_(wt_SEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::NumericVector> >::type wt_(wt_SEXP);
     rcpp_result_gen = Rcpp::wrap(RcppHClustGeoMat(D0, D1, alpha, scale, wt_));
     return rcpp_result_gen;
 END_RCPP

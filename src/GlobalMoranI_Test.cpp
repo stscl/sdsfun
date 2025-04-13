@@ -40,7 +40,7 @@ Rcpp::DataFrame MI_vec(arma::mat x, arma::mat W,
     arma::vec xi = x.col(i);
 
     // observed
-    I[i] = (n / S0) * as_scalar(xi.t() * MWM * xi) / as_scalar(xi.t() * M * xi);
+    I[i] = (n / S0) * arma::as_scalar(xi.t() * MWM * xi) / arma::as_scalar(xi.t() * M * xi);
     // expected
     EI[i] = -1 / df;
     // variance (normality assumption)

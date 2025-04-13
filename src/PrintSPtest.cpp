@@ -1,8 +1,10 @@
-#include <Rcpp.h>
 #include <iomanip>
 #include <sstream>
 #include <string>
 #include "SDSUtils.h"
+// #include <Rcpp.h>
+#include <RcppArmadillo.h>
+// [[Rcpp::depends(RcppArmadillo)]]
 
 using namespace Rcpp;
 
