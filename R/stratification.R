@@ -38,10 +38,10 @@ discretize_vector = \(x, n, method = 'natural', breakpoint = NULL,
   } else if (method == "natural") {
     base::set.seed(seed)
     res = naturalDisc(x,n,sampleprob)
-  } else if (method == "ht"){
+  } else if (method == "headtails"){
     res = htDisc(x,thr)
   } else {
-    stop("Only support those methods: sd,equal,quantile,geometric,natural,ht and manual.")
+    stop("Only support those methods: sd,equal,quantile,geometric,natural,headtails and manual.")
   }
   return(res)
 }
