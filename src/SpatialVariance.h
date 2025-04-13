@@ -1,7 +1,8 @@
 #ifndef SpatialVariance_H
 #define SpatialVariance_H
 
-#include <Rcpp.h>
+#include <cmath>
+#include <RcppArmadillo.h>
 
 double RcppSpatialVariance(Rcpp::NumericVector x, Rcpp::NumericMatrix wt);
 

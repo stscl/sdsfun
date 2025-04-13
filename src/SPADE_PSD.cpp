@@ -1,7 +1,9 @@
-#include <Rcpp.h>
 #include "SDSUtils.h"
 #include "SpatialVariance.h"
-using namespace Rcpp;
+
+// #include <Rcpp.h>
+#include <RcppArmadillo.h>
+// [[Rcpp::depends(RcppArmadillo)]]
 
 // [[Rcpp::export]]
 double CalcSPADEPSD(Rcpp::NumericVector y,

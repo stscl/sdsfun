@@ -1,5 +1,6 @@
-#include <Rcpp.h>
-using namespace Rcpp;
+// #include <Rcpp.h>
+#include <RcppArmadillo.h>
+// [[Rcpp::depends(RcppArmadillo)]]
 
 // Function to calculate the star based on p-value
 std::string SignificanceStar(double p) {

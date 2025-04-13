@@ -1,6 +1,7 @@
-#include <Rcpp.h>
 #include "SDSUtils.h"
-using namespace Rcpp;
+// #include <Rcpp.h>
+#include <RcppArmadillo.h>
+// [[Rcpp::depends(RcppArmadillo)]]
 
 // [[Rcpp::export]]
 Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x) {
@@ -40,7 +41,7 @@ Rcpp::IntegerMatrix DummyMat(Rcpp::IntegerMatrix mat) {
 
   // Loop to count the total dummy columns
   for (int col_idx = 0; col_idx < p; ++col_idx) {
-    Rcpp::IntegerVector x = mat(_, col_idx);
+    Rcpp::IntegerVector x = mat(Rcpp::_, col_idx);
     Rcpp::IntegerVector levels = RcppUnique(x);
     dummy_col_count[col_idx] = levels.size() - 1;  // n-1 dummy variables
     total_dummy_cols += levels.size() - 1;
@@ -52,7 +53,7 @@ Rcpp::IntegerMatrix DummyMat(Rcpp::IntegerMatrix mat) {
 
   // Loop through each column of the input matrix to create dummy variables
   for (int col_idx = 0; col_idx < p; ++col_idx) {
-    Rcpp::IntegerVector x = mat(_, col_idx);
+    Rcpp::IntegerVector x = mat(Rcpp::_, col_idx);
     Rcpp::IntegerVector levels = RcppUnique(x);  // Get unique levels
 
     // Create dummy variables for each level, except the last one

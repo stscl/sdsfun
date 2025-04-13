@@ -1,5 +1,6 @@
-#include <Rcpp.h>
-using namespace Rcpp;
+#include <cmath>
+#include <RcppArmadillo.h>
+// [[Rcpp::depends(RcppArmadillo)]]
 
 double RcppMatSum(Rcpp::NumericMatrix mat) {
   int nrow = mat.nrow();
@@ -20,7 +21,7 @@ double RcppSpatialVariance(Rcpp::NumericVector x, Rcpp::NumericMatrix wt) {
   for(int i = 0; i < n; ++i) {
     for(int j = 0; j < n; ++j) {
       double w = wt(i, j);
-      out += w * pow((x[i]-x[j]),2) / 2;
+      out += w * std::pow((x[i]-x[j]),2) / 2;
     }
   }
   out = out / RcppMatSum(wt);

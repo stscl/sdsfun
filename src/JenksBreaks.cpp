@@ -1,9 +1,10 @@
-#include <Rcpp.h>
 #include <vector>
 #include <limits>
 #include <algorithm>
 
-using namespace Rcpp;
+// #include <Rcpp.h>
+#include <RcppArmadillo.h>
+// [[Rcpp::depends(RcppArmadillo)]]
 
 // [[Rcpp::export]]
 Rcpp::NumericVector RcppJenksBreaks(const Rcpp::NumericVector& x,
@@ -20,8 +21,8 @@ Rcpp::NumericVector RcppJenksBreaks(const Rcpp::NumericVector& x,
   int data_length = inp_data.size();
 
   // Initialize matrices for lower class limits and variance combinations
-  IntegerMatrix lower_class_limits(data_length + 1, n_classes + 1);
-  NumericMatrix variance_combinations(data_length + 1, n_classes + 1);
+  Rcpp::IntegerMatrix lower_class_limits(data_length + 1, n_classes + 1);
+  Rcpp::NumericMatrix variance_combinations(data_length + 1, n_classes + 1);
 
   for (int i = 1; i <= n_classes; ++i) {
     lower_class_limits(1, i) = 1;
@@ -57,7 +58,7 @@ Rcpp::NumericVector RcppJenksBreaks(const Rcpp::NumericVector& x,
   }
 
   // Extracting the class breaks
-  NumericVector kclass(n_classes - 1);
+  Rcpp::NumericVector kclass(n_classes - 1);
   int k = data_length - 1;
 
   for (int countNum = n_classes - 1; countNum > 0; countNum--) {

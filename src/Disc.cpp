@@ -1,7 +1,6 @@
-#include <RcppArmadillo.h>
 #include <limits>
 #include <random>
-
+#include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
 // [[Rcpp::export]]

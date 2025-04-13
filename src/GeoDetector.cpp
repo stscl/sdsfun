@@ -1,13 +1,15 @@
-#include <Rcpp.h>
+#include <cmath>
 #include "SDSUtils.h"
-using namespace Rcpp;
+// #include <Rcpp.h>
+#include <RcppArmadillo.h>
+// [[Rcpp::depends(RcppArmadillo)]]
 
 // [[Rcpp::export]]
 double CalcFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
   int N = y.size();
 
   // Global mean of y
-  double y_mean = mean(y);
+  double y_mean = Rcpp::mean(y);
 
   // Sum of squared differences for the denominator (global variance)
   double denom = 0;
@@ -22,7 +24,7 @@ double CalcFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
   double numer = 0;
   for (int level : unique_levels) {
     // Get indices corresponding to the current level
-    NumericVector y_h;
+    Rcpp::NumericVector y_h;
     for (int i = 0; i < N; ++i) {
       if (h[i] == level) {
         y_h.push_back(y[i]);
@@ -30,7 +32,7 @@ double CalcFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
     }
 
     // Mean of y for the current level
-    double y_h_mean = mean(y_h);
+    double y_h_mean = Rcpp::mean(y_h);
 
     // Sum of squared differences for the current level
     for (int i = 0; i < y_h.size(); ++i) {
@@ -72,13 +74,15 @@ Rcpp::List GDFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
       }
     }
 
-    hmean[j] = mean(y_h);
+    hmean[j] = Rcpp::mean(y_h);
     Nh[j] = y_h.size();
   }
 
   // Calculate v1 and v2
-  double v1 = sum(pow(hmean, 2.0));
-  double v2 = pow(sum(sqrt(Nh) * hmean), 2.0) / N;
+  double v1 = Rcpp::sum(Rcpp::pow(hmean, 2.0));
+  double v2 = std::pow(Rcpp::sum(Rcpp::sqrt(Nh) * hmean), 2.0) / N;
+
+  // double v2 = Rcpp::pow(Rcpp::sum(Rcpp::sqrt(Nh) * hmean), 2.0) / N;
 
   // Calculate variance and lambda
   double var_y = var(y) * (N - 1) / N;
@@ -89,9 +93,9 @@ Rcpp::List GDFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
   // Picking up pf() function from Matrix package
   Rcpp::Function RStatsPf = pkg["pf"];
   // Use R's stats::pf function to compute p-value
-  double pv = as<double>(RStatsPf(Fv, L - 1, N - L,
-                                  Rcpp::Named("ncp") = lambda,
-                                  Rcpp::Named("lower.tail") = false));
+  double pv = Rcpp::as<double>(RStatsPf(Fv, L - 1, N - L,
+                                        Rcpp::Named("ncp") = lambda,
+                                        Rcpp::Named("lower.tail") = false));
 
   // Return both Fv and p-value
   return Rcpp::List::create(Rcpp::Named("Qvalue") = qv,

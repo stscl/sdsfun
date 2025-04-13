@@ -1,6 +1,4 @@
 #include <RcppArmadillo.h>
-using namespace Rcpp;
-
 // [[Rcpp::depends(RcppArmadillo)]]
 
 // Ward initialization function
@@ -24,7 +22,7 @@ arma::mat RcppHClustGeoMat(const arma::mat& D0,
                            const arma::mat& D1,
                            double alpha,
                            bool scale = true,
-                           Nullable<Rcpp::NumericVector> wt_ = R_NilValue) {
+                           Rcpp::Nullable<Rcpp::NumericVector> wt_ = R_NilValue) {
   // Check inputs
   if (D0.n_rows != D0.n_cols || (!D1.is_empty() && D1.n_rows != D1.n_cols)) {
     Rcpp::stop("Both D0 and D1 must be square matrices.");
@@ -45,7 +43,7 @@ arma::mat RcppHClustGeoMat(const arma::mat& D0,
 
   arma::vec wt;
   if (wt_.isNotNull()) {
-    wt = as<arma::vec>(wt_);
+    wt = Rcpp::as<arma::vec>(wt_);
     if (wt.n_elem != D0.n_rows) {
       Rcpp::stop("Weight vector length must match the number of objects.");
     }

@@ -2,7 +2,10 @@
 #include <algorithm>
 #include <unordered_map>
 #include <limits>
-#include <Rcpp.h>
+
+// #include <Rcpp.h>
+#include <RcppArmadillo.h>
+// [[Rcpp::depends(RcppArmadillo)]]
 
 // [[Rcpp::export]]
 Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords, const Rcpp::NumericVector& z_values) {
