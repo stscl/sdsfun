@@ -256,7 +256,7 @@ Rcpp::IntegerVector htDisc(const arma::vec& x, double thr = 0.4) {
   for (size_t i = 0; i < x.n_elem; ++i) {
     double val = x[i];
     if (!arma::is_finite(val)) {
-      result[i] = Rcpp::NA_INTEGER;
+      result[i] = NA_INTEGER;
     } else {
       int label = 1;
       for (int j = 0; j < n_breaks - 1; ++j) {

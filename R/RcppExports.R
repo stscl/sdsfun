@@ -29,6 +29,10 @@ naturalDisc <- function(x, n, sampleprob) {
     .Call(`_sdsfun_naturalDisc`, x, n, sampleprob)
 }
 
+htDisc <- function(x, thr = 0.4) {
+    .Call(`_sdsfun_htDisc`, x, thr)
+}
+
 DummyVar <- function(x) {
     .Call(`_sdsfun_DummyVar`, x)
 }
