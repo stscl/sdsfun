@@ -25,7 +25,7 @@ Rcpp::NumericVector RcppPearsonCor(const Rcpp::NumericVector& vec1,
   std::vector<double> conf = CppCorConfidence(r, n, 0, level);
 
   // Convert the result back to Rcpp::NumericVector
-  std::vector<double> res_std = {r, p, conf[1], conf[0]};
+  std::vector<double> res_std = {r, p, conf[0], conf[1]};
   Rcpp::NumericVector res = Rcpp::wrap(res_std);
   res.names() = Rcpp::CharacterVector::create(
     "correlation",
