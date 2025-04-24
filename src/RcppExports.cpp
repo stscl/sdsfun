@@ -11,6 +11,19 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// RcppPearsonCor
+Rcpp::NumericVector RcppPearsonCor(const Rcpp::NumericVector& vec1, const Rcpp::NumericVector& vec2, double level);
+RcppExport SEXP _sdsfun_RcppPearsonCor(SEXP vec1SEXP, SEXP vec2SEXP, SEXP levelSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type vec1(vec1SEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type vec2(vec2SEXP);
+    Rcpp::traits::input_parameter< double >::type level(levelSEXP);
+    rcpp_result_gen = Rcpp::wrap(RcppPearsonCor(vec1, vec2, level));
+    return rcpp_result_gen;
+END_RCPP
+}
 // sdDisc
 Rcpp::IntegerVector sdDisc(const arma::vec& x, double n);
 RcppExport SEXP _sdsfun_sdDisc(SEXP xSEXP, SEXP nSEXP) {
@@ -339,6 +352,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_sdsfun_RcppPearsonCor", (DL_FUNC) &_sdsfun_RcppPearsonCor, 3},
     {"_sdsfun_sdDisc", (DL_FUNC) &_sdsfun_sdDisc, 2},
     {"_sdsfun_equalDisc", (DL_FUNC) &_sdsfun_equalDisc, 2},
     {"_sdsfun_geometricDisc", (DL_FUNC) &_sdsfun_geometricDisc, 2},
