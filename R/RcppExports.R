@@ -41,6 +41,22 @@ DummyMat <- function(mat) {
     .Call(`_sdsfun_DummyMat`, mat)
 }
 
+RcppEntropy_Disc <- function(vec, base = 10, NA_rm = FALSE) {
+    .Call(`_sdsfun_RcppEntropy_Disc`, vec, base, NA_rm)
+}
+
+RcppJoinEntropy_Disc <- function(mat, columns, base = 10, NA_rm = FALSE) {
+    .Call(`_sdsfun_RcppJoinEntropy_Disc`, mat, columns, base, NA_rm)
+}
+
+RcppMutualInformation_Disc <- function(mat, columns1, columns2, base = 10, NA_rm = FALSE) {
+    .Call(`_sdsfun_RcppMutualInformation_Disc`, mat, columns1, columns2, base, NA_rm)
+}
+
+RcppConditionalEntropy_Disc <- function(mat, target_columns, conditional_columns, base = 10, NA_rm = FALSE) {
+    .Call(`_sdsfun_RcppConditionalEntropy_Disc`, mat, target_columns, conditional_columns, base, NA_rm)
+}
+
 CalcFactorQ <- function(y, h) {
     .Call(`_sdsfun_CalcFactorQ`, y, h)
 }

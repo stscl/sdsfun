@@ -9,7 +9,6 @@
 #include <unordered_map>
 #include <unordered_set>
 
-
 double CppEntropy_Disc(const std::vector<double>& vec,
                        double base = 10, bool NA_rm = false);
 
