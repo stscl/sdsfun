@@ -2,7 +2,7 @@
 % Please edit documentation in R/ssh_test.R
 \name{ssh_test}
 \alias{ssh_test}
-\title{test explanatory power of spatial stratified heterogeneity}
+\title{spatial stratified heterogeneity test}
 \usage{
 ssh_test(y, hs)
 }
@@ -16,10 +16,7 @@ ssh_test(y, hs)
 A \code{tibble}
 }
 \description{
-Spatial stratified heterogeneity test based on geographical detector q value.
-}
-\note{
-This is a \verb{C++} implementation of the \code{factor_detector} function in \code{gdverse} package.
+spatial stratified heterogeneity test
 }
 \examples{
 ssh_test(y = 1:7, hs = c('x',rep('y',3),rep('z',3)))

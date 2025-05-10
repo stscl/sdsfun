@@ -1,8 +1,4 @@
-#' @title test explanatory power of spatial stratified heterogeneity
-#' @description
-#' Spatial stratified heterogeneity test based on geographical detector q value.
-#' @note
-#' This is a `C++` implementation of the `factor_detector` function in `gdverse` package.
+#' @title spatial stratified heterogeneity test
 #'
 #' @param y Variable Y, continuous numeric vector.
 #' @param hs Spatial stratification or classification of each explanatory variable.
