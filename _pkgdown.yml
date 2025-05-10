@@ -47,6 +47,7 @@ reference:
 
 - title: utility functions for data science
   contents:
+  - cor_test
   - dummy_vec
   - dummy_tbl
   - discretize_vector
