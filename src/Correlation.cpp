@@ -195,11 +195,28 @@ double PartialCorTrivar(const std::vector<double>& y,
   return res;
 }
 
-// Function to calculate the significance of a (partial) correlation coefficient
-// r: (partial) correlation coefficient
-// n: number of observations
-// k: number of control variables (0 for simple correlation, >0 for partial)
-// Returns the two-sided p-value
+/**
+ * Calculates the significance (two-sided p-value) of a (partial) correlation coefficient.
+ *
+ * This function computes the t-statistic for a given (partial) correlation coefficient `r`
+ * and returns the corresponding two-tailed p-value under the null hypothesis that the true
+ * correlation is zero.
+ *
+ * The t-statistic is calculated using:
+ *     t = r * sqrt((n - k - 2) / (1 - r^2))
+ * where:
+ *     - r is the correlation coefficient
+ *     - n is the sample size
+ *     - k is the number of control variables (0 for simple correlation)
+ *
+ * The degrees of freedom used is (n - k - 2). The resulting two-sided p-value is computed
+ * using the cumulative distribution function of the t-distribution.
+ *
+ * @param r The (partial) correlation coefficient.
+ * @param n The number of observations.
+ * @param k The number of control variables (default = 0).
+ * @return The two-sided p-value.
+ */
 double CppCorSignificance(double r, int n, int k = 0) {
   double df = n - k - 2;
   double t = r * std::sqrt(df / (1 - r * r));
@@ -212,12 +229,28 @@ double CppCorSignificance(double r, int n, int k = 0) {
   return pvalue;
 }
 
-// Function to calculate the confidence interval for a (partial) correlation coefficient
-// r: (partial) correlation coefficient
-// n: number of observations
-// k: number of control variables (0 for simple correlation, >0 for partial)
-// level: the significance level (α) for the confidence interval.
-// Returns the upper and lower bound of the confidence interval for r
+/**
+ * Calculates the confidence interval for a (partial) correlation coefficient.
+ *
+ * This function uses Fisher's z-transformation to compute the confidence interval
+ * for a correlation or partial correlation coefficient `r`. The transformation
+ * stabilizes the variance of `r` for more accurate interval estimation.
+ *
+ * The steps include:
+ *   1. Transforming r using Fisher's z.
+ *   2. Computing the standard error of z.
+ *   3. Determining the critical z-value for the specified confidence level.
+ *   4. Calculating the confidence interval in the z-domain.
+ *   5. Back-transforming to get the interval in the correlation domain.
+ *
+ * The degrees of freedom are adjusted for partial correlation with `k` control variables.
+ *
+ * @param r The (partial) correlation coefficient.
+ * @param n The number of observations.
+ * @param k The number of control variables (default = 0; use 0 for simple correlation).
+ * @param level The significance level α for the confidence interval (default = 0.05).
+ * @return A vector containing the upper and lower bounds of the confidence interval.
+ */
 std::vector<double> CppCorConfidence(double r, int n, int k = 0,
                                      double level = 0.05) {
   // Calculate the Fisher's z-transformation
