@@ -5,6 +5,10 @@ RcppPearsonCor <- function(vec1, vec2, level = 0.05) {
     .Call(`_sdsfun_RcppPearsonCor`, vec1, vec2, level)
 }
 
+RcppPartialCor <- function(vec1, vec2, conds, level = 0.05) {
+    .Call(`_sdsfun_RcppPartialCor`, vec1, vec2, conds, level)
+}
+
 sdDisc <- function(x, n) {
     .Call(`_sdsfun_sdDisc`, x, n)
 }
