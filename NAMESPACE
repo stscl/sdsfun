@@ -3,6 +3,7 @@
 S3method(print,moran_test)
 export("%>%")
 export(check_tbl_na)
+export(cor_test)
 export(discretize_vector)
 export(dummy_tbl)
 export(dummy_vec)
