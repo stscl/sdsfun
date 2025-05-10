@@ -1,14 +1,4 @@
 #' @title global spatial autocorrelation test
-#' @description
-#' Spatial autocorrelation test based on moran's I index.
-#' @note
-#' This is a `C++` implementation of the `MI.vec` function in `spfilteR` package,
-#' and embellishes the console output.
-#'
-#' The return result of this function is actually a `list`, please access the result
-#' tibble using `$result`.
-#'
-#' The non-numeric columns of the attribute columns in `sfj` are ignored.
 #'
 #' @param sfj An `sf` object or can be converted to `sf` by `sf::st_as_sf()`.
 #' @param wt (optional) Spatial weight matrix. Must be a `matrix` class. If `wt` is not

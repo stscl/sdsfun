@@ -29,16 +29,7 @@ A list utilizing a \code{result} tibble to store the following information for e
 }
 }
 \description{
-Spatial autocorrelation test based on moran's I index.
-}
-\note{
-This is a \verb{C++} implementation of the \code{MI.vec} function in \code{spfilteR} package,
-and embellishes the console output.
-
-The return result of this function is actually a \code{list}, please access the result
-tibble using \verb{$result}.
-
-The non-numeric columns of the attribute columns in \code{sfj} are ignored.
+global spatial autocorrelation test
 }
 \examples{
 gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
