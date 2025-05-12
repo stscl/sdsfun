@@ -1,3 +1,5 @@
+# sdsfun 0.9.0
+
 # sdsfun 0.8.0
 
 * Add `cor_test` for unified (partial) correlation testing (#49).
