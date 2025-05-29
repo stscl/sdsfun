@@ -28,7 +28,7 @@ discretize_vector(
 for discretization, applicable only to natural breaks. Default is \code{0.15}.}
 
 \item{thr}{(optional) Threshold for controlling iteration, applicable only to
-headtails breaks. Default is \code{0.15}.}
+headtails breaks. Default is \code{0.4}.}
 
 \item{seed}{(optional) Random seed number, default is \code{123456789}.}
 }

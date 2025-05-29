@@ -8,7 +8,7 @@
 #' @param sampleprob (optional) When the data size exceeds `3000`, perform sampling
 #' for discretization, applicable only to natural breaks. Default is `0.15`.
 #' @param thr (optional) Threshold for controlling iteration, applicable only to
-#' headtails breaks. Default is `0.15`.
+#' headtails breaks. Default is `0.4`.
 #' @param seed (optional) Random seed number, default is `123456789`.
 #'
 #' @return A discretized integer vector
