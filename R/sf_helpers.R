@@ -107,9 +107,9 @@ sf_coordinates = \(sfj){
 
   coords = sfj %>%
     sf::st_coordinates() %>%
-    {.[,c('X','Y')]}
+    {.[,c('X','Y'),drop = FALSE]}
 
-  return(as.matrix(coords))
+  return(coords)
 }
 
 #' @title generates distance matrix
