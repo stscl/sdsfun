@@ -13,7 +13,7 @@ Encoding: UTF-8
 URL: https://stscl.github.io/sdsfun/, https://github.com/stscl/sdsfun
 BugReports: https://github.com/stscl/sdsfun/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Depends: 
     R (>= 4.1.0)
 LinkingTo: 
