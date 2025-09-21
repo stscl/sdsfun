@@ -14,6 +14,7 @@ double PearsonCor(const std::vector<double>& y,
                   const std::vector<double>& y_hat,
                   bool NA_rm = false);
 
+
 /*
  * Function to compute Partial Correlation using Armadillo
  *
@@ -29,6 +30,8 @@ double PearsonCor(const std::vector<double>& y,
  *   NA_rm      - A boolean flag to indicate whether to remove missing values (default is false).
  *   linear     - A boolean flag to specify whether to use linear regression (true) or correlation matrix (false)
  *                for computing the partial correlation (default is false).
+ *   pinv_tol   - Tolerance used for the pseudo-inverse (arma::pinv). Smaller values increase precision but may be less stable
+ *                (default is 1e-10).
  *
  * Returns:
  *   A double representing the partial correlation coefficient between 'y' and 'y_hat' after controlling for
@@ -38,7 +41,8 @@ double PartialCor(const std::vector<double>& y,
                   const std::vector<double>& y_hat,
                   const std::vector<std::vector<double>>& controls,
                   bool NA_rm = false,
-                  bool linear = false);
+                  bool linear = false,
+                  double pinv_tol = 1e-10);
 
 double PartialCorTrivar(const std::vector<double>& y,
                         const std::vector<double>& y_hat,

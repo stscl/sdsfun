@@ -65,6 +65,8 @@ double PearsonCor(const std::vector<double>& y,
  *   NA_rm      - A boolean flag to indicate whether to remove missing values (default is false).
  *   linear     - A boolean flag to specify whether to use linear regression (true) or correlation matrix (false)
  *                for computing the partial correlation (default is false).
+ *   pinv_tol   - Tolerance used for the pseudo-inverse (arma::pinv). Smaller values increase precision but may be less stable
+ *                (default is 1e-10).
  *
  * Returns:
  *   A double representing the partial correlation coefficient between 'y' and 'y_hat' after controlling for
@@ -74,7 +76,8 @@ double PartialCor(const std::vector<double>& y,
                   const std::vector<double>& y_hat,
                   const std::vector<std::vector<double>>& controls,
                   bool NA_rm = false,
-                  bool linear = false) {
+                  bool linear = false,
+                  double pinv_tol = 1e-10) {
   // Check input sizes
   if (y.size() != y_hat.size()) {
     throw std::invalid_argument("Input vectors y and y_hat must have the same size.");
@@ -167,7 +170,7 @@ double PartialCor(const std::vector<double>& y,
     // arma::mat precm = arma::pinv(corrm);
     arma::mat precm;
     try {
-      precm = arma::pinv(corrm, 1e-10);
+      precm = arma::pinv(corrm, pinv_tol);
     } catch (...) {
       return std::numeric_limits<double>::quiet_NaN();
     }
