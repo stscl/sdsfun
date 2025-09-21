@@ -1,4 +1,6 @@
-# sdsfun 0.9.0
+# sdsfun 0.8.1
+
+* Fix a deprecation warning emitted by Armadillo (#55).
 
 # sdsfun 0.8.0
 
