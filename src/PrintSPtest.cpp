@@ -16,7 +16,7 @@ std::string ConcatNumStar(double num, double p) {
 }
 
 // Function to print the global spatial autocorrelation test results
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::DataFrame PrintGlobalMoranI(Rcpp::DataFrame df) {
   Rcpp::CharacterVector variable = df["Variable"];
   Rcpp::NumericVector moran_i = df["MoranI"];

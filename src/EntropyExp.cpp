@@ -5,14 +5,14 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 double RcppEntropy_Disc(const Rcpp::NumericVector& vec,
                         double base = 10, bool NA_rm = false){
   std::vector<double> v1 = Rcpp::as<std::vector<double>>(vec);
   return CppEntropy_Disc(v1,base,NA_rm);
 };
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 double RcppJoinEntropy_Disc(const Rcpp::NumericMatrix& mat,
                             const Rcpp::IntegerVector& columns,
                             double base = 10,
@@ -39,7 +39,7 @@ double RcppJoinEntropy_Disc(const Rcpp::NumericMatrix& mat,
   return CppJoinEntropy_Disc(cppMat,col_std,base,NA_rm);
 };
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 double RcppMutualInformation_Disc(const Rcpp::NumericMatrix& mat,
                                   const Rcpp::IntegerVector& columns1,
                                   const Rcpp::IntegerVector& columns2,
@@ -75,7 +75,7 @@ double RcppMutualInformation_Disc(const Rcpp::NumericMatrix& mat,
   return CppMutualInformation_Disc(cppMat,col1,col2,base,NA_rm);
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 double RcppConditionalEntropy_Disc(const Rcpp::NumericMatrix& mat,
                                    const Rcpp::IntegerVector& target_columns,
                                    const Rcpp::IntegerVector& conditional_columns,

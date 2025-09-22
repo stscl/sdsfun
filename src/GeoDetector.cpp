@@ -4,7 +4,7 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 double CalcFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
   int N = y.size();
 
@@ -46,7 +46,7 @@ double CalcFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
   return q;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::List GDFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h) {
   int N = y.size();
 
