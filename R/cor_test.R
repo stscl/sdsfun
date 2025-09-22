@@ -11,12 +11,13 @@
 #' @examples
 #' gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 #' cor_test(gzma$PS_Score,gzma$EL_Score)
+#' cor_test(gzma$PS_Score,gzma$EL_Score,gzma$OH_Score)
 #'
 cor_test = \(x,y,z = NULL,level = 0.05){
   if (is.null(z)) {
     res = RcppPearsonCor(x,y,level)
   } else {
-    if (is.atomic(z)) z = matrix(z,ncol = 1)
+    if (is.atomic(z) && is.null(dim(z))) z = matrix(z,ncol = 1)
     if (!inherits(z,"matrix")) z = as.matrix(z)
     res = RcppPartialCor(x,y,z,level)
   }
