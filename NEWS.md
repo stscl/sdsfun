@@ -1,3 +1,5 @@
+# sdsfun 0.9.0
+
 # sdsfun 0.8.1
 
 * Loading `sdsfun` no longer initializes the RNG state (#59).
