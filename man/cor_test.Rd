@@ -24,5 +24,6 @@ A numeric vector
 \examples{
 gzma = sf::read_sf(system.file('extdata/gzma.gpkg',package = 'sdsfun'))
 cor_test(gzma$PS_Score,gzma$EL_Score)
+cor_test(gzma$PS_Score,gzma$EL_Score,gzma$OH_Score)
 
 }
