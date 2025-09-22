@@ -6,7 +6,7 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::NumericVector RcppJenksBreaks(const Rcpp::NumericVector& x,
                                     int n_classes, bool is_sorted = false) {
   Rcpp::NumericVector inp_data;  // No copy initially

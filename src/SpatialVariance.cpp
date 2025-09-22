@@ -14,7 +14,7 @@ double RcppMatSum(Rcpp::NumericMatrix mat) {
   return out;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 double RcppSpatialVariance(Rcpp::NumericVector x, Rcpp::NumericMatrix wt) {
   int n = x.size();
   double out = 0;

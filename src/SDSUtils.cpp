@@ -12,7 +12,7 @@ std::string SignificanceStar(double p) {
 }
 
 // Function to return unique elements while preserving the original order
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::IntegerVector RcppUnique(Rcpp::IntegerVector x) {
   std::vector<int> seen;
   std::vector<int> result;

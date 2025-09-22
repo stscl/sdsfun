@@ -12,7 +12,7 @@ double pfunc(double z, std::string alternative) {
   }
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::DataFrame MI_vec(arma::mat x, arma::mat W,
                        std::string alternative = "greater",
                        bool symmetrize = false) {

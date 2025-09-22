@@ -3,7 +3,7 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x) {
   // Get the number of unique levels
   Rcpp::IntegerVector levels = RcppUnique(x);
@@ -28,7 +28,7 @@ Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x) {
   return dummy;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::IntegerMatrix DummyMat(Rcpp::IntegerMatrix mat) {
   int n = mat.nrow();   // Number of rows
   int p = mat.ncol();   // Number of columns

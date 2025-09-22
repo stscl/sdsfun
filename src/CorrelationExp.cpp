@@ -5,7 +5,7 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::NumericVector RcppPearsonCor(const Rcpp::NumericVector& vec1,
                                    const Rcpp::NumericVector& vec2,
                                    double level = 0.05) {
@@ -37,7 +37,7 @@ Rcpp::NumericVector RcppPearsonCor(const Rcpp::NumericVector& vec1,
   return res;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::NumericVector RcppPartialCor(const Rcpp::NumericVector& vec1,
                                    const Rcpp::NumericVector& vec2,
                                    const Rcpp::NumericMatrix& conds,

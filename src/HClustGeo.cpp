@@ -17,7 +17,7 @@ arma::mat RcppWardInit(const arma::mat& D, const arma::vec& wt) {
   }
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 arma::mat RcppHClustGeoMat(const arma::mat& D0,
                            const arma::mat& D1,
                            double alpha,

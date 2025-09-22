@@ -5,7 +5,7 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 double CalcSPADEPSD(Rcpp::NumericVector y,
                     Rcpp::IntegerVector h,
                     Rcpp::NumericMatrix wt) {

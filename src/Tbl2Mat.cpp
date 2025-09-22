@@ -7,7 +7,7 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords, const Rcpp::NumericVector& z_values) {
   // Extract x and y coordinates from the matrix
   std::vector<double> x_coords(coords.nrow());
@@ -73,7 +73,7 @@ Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords, const Rcpp::NumericVector&
   );
 }
 
-// // [[Rcpp::export]]
+// // [[Rcpp::export(rng = false)]]
 // Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords, const Rcpp::NumericVector& z_values) {
 //   // Extract x and y coordinates from the matrix
 //   std::vector<double> x_coords(coords.nrow());

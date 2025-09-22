@@ -1,7 +1,7 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::NumericVector LinearRegression(const Rcpp::NumericVector& y, const Rcpp::NumericMatrix& X) {
   // Convert Rcpp inputs to Armadillo objects
   arma::vec y_arma = Rcpp::as<arma::vec>(y);
@@ -17,7 +17,7 @@ Rcpp::NumericVector LinearRegression(const Rcpp::NumericVector& y, const Rcpp::N
   return Rcpp::wrap(coefficients);
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::NumericVector LinearTrendRM(const Rcpp::NumericVector& y, const Rcpp::NumericMatrix& X) {
   // Convert Rcpp inputs to Armadillo objects
   arma::vec y_arma = Rcpp::as<arma::vec>(y);

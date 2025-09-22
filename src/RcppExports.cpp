@@ -16,7 +16,6 @@ Rcpp::NumericVector RcppPearsonCor(const Rcpp::NumericVector& vec1, const Rcpp::
 RcppExport SEXP _sdsfun_RcppPearsonCor(SEXP vec1SEXP, SEXP vec2SEXP, SEXP levelSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type vec1(vec1SEXP);
     Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type vec2(vec2SEXP);
     Rcpp::traits::input_parameter< double >::type level(levelSEXP);
@@ -29,7 +28,6 @@ Rcpp::NumericVector RcppPartialCor(const Rcpp::NumericVector& vec1, const Rcpp::
 RcppExport SEXP _sdsfun_RcppPartialCor(SEXP vec1SEXP, SEXP vec2SEXP, SEXP condsSEXP, SEXP levelSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type vec1(vec1SEXP);
     Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type vec2(vec2SEXP);
     Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type conds(condsSEXP);
@@ -43,7 +41,6 @@ Rcpp::IntegerVector sdDisc(const arma::vec& x, double n);
 RcppExport SEXP _sdsfun_sdDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type n(nSEXP);
     rcpp_result_gen = Rcpp::wrap(sdDisc(x, n));
@@ -55,7 +52,6 @@ Rcpp::IntegerVector equalDisc(const arma::vec& x, double n);
 RcppExport SEXP _sdsfun_equalDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type n(nSEXP);
     rcpp_result_gen = Rcpp::wrap(equalDisc(x, n));
@@ -67,7 +63,6 @@ Rcpp::IntegerVector geometricDisc(const arma::vec& x, double n);
 RcppExport SEXP _sdsfun_geometricDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type n(nSEXP);
     rcpp_result_gen = Rcpp::wrap(geometricDisc(x, n));
@@ -79,7 +74,6 @@ Rcpp::IntegerVector quantileDisc(const arma::vec& x, double n);
 RcppExport SEXP _sdsfun_quantileDisc(SEXP xSEXP, SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type n(nSEXP);
     rcpp_result_gen = Rcpp::wrap(quantileDisc(x, n));
@@ -91,7 +85,6 @@ Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec breakpoint);
 RcppExport SEXP _sdsfun_manualDisc(SEXP xSEXP, SEXP breakpointSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type breakpoint(breakpointSEXP);
     rcpp_result_gen = Rcpp::wrap(manualDisc(x, breakpoint));
@@ -103,7 +96,6 @@ arma::vec ArmaJenksBreaks(const arma::vec& inp_data, int n_classes, bool is_sort
 RcppExport SEXP _sdsfun_ArmaJenksBreaks(SEXP inp_dataSEXP, SEXP n_classesSEXP, SEXP is_sortedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type inp_data(inp_dataSEXP);
     Rcpp::traits::input_parameter< int >::type n_classes(n_classesSEXP);
     Rcpp::traits::input_parameter< bool >::type is_sorted(is_sortedSEXP);
@@ -116,7 +108,6 @@ Rcpp::IntegerVector naturalDisc(const arma::vec& x, int n, double sampleprob);
 RcppExport SEXP _sdsfun_naturalDisc(SEXP xSEXP, SEXP nSEXP, SEXP sampleprobSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< int >::type n(nSEXP);
     Rcpp::traits::input_parameter< double >::type sampleprob(sampleprobSEXP);
@@ -129,7 +120,6 @@ Rcpp::IntegerVector htDisc(const arma::vec& x, double thr);
 RcppExport SEXP _sdsfun_htDisc(SEXP xSEXP, SEXP thrSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type thr(thrSEXP);
     rcpp_result_gen = Rcpp::wrap(htDisc(x, thr));
@@ -141,7 +131,6 @@ Rcpp::IntegerMatrix DummyVar(Rcpp::IntegerVector x);
 RcppExport SEXP _sdsfun_DummyVar(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type x(xSEXP);
     rcpp_result_gen = Rcpp::wrap(DummyVar(x));
     return rcpp_result_gen;
@@ -152,7 +141,6 @@ Rcpp::IntegerMatrix DummyMat(Rcpp::IntegerMatrix mat);
 RcppExport SEXP _sdsfun_DummyMat(SEXP matSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::IntegerMatrix >::type mat(matSEXP);
     rcpp_result_gen = Rcpp::wrap(DummyMat(mat));
     return rcpp_result_gen;
@@ -163,7 +151,6 @@ double RcppEntropy_Disc(const Rcpp::NumericVector& vec, double base, bool NA_rm)
 RcppExport SEXP _sdsfun_RcppEntropy_Disc(SEXP vecSEXP, SEXP baseSEXP, SEXP NA_rmSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type vec(vecSEXP);
     Rcpp::traits::input_parameter< double >::type base(baseSEXP);
     Rcpp::traits::input_parameter< bool >::type NA_rm(NA_rmSEXP);
@@ -176,7 +163,6 @@ double RcppJoinEntropy_Disc(const Rcpp::NumericMatrix& mat, const Rcpp::IntegerV
 RcppExport SEXP _sdsfun_RcppJoinEntropy_Disc(SEXP matSEXP, SEXP columnsSEXP, SEXP baseSEXP, SEXP NA_rmSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type mat(matSEXP);
     Rcpp::traits::input_parameter< const Rcpp::IntegerVector& >::type columns(columnsSEXP);
     Rcpp::traits::input_parameter< double >::type base(baseSEXP);
@@ -190,7 +176,6 @@ double RcppMutualInformation_Disc(const Rcpp::NumericMatrix& mat, const Rcpp::In
 RcppExport SEXP _sdsfun_RcppMutualInformation_Disc(SEXP matSEXP, SEXP columns1SEXP, SEXP columns2SEXP, SEXP baseSEXP, SEXP NA_rmSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type mat(matSEXP);
     Rcpp::traits::input_parameter< const Rcpp::IntegerVector& >::type columns1(columns1SEXP);
     Rcpp::traits::input_parameter< const Rcpp::IntegerVector& >::type columns2(columns2SEXP);
@@ -205,7 +190,6 @@ double RcppConditionalEntropy_Disc(const Rcpp::NumericMatrix& mat, const Rcpp::I
 RcppExport SEXP _sdsfun_RcppConditionalEntropy_Disc(SEXP matSEXP, SEXP target_columnsSEXP, SEXP conditional_columnsSEXP, SEXP baseSEXP, SEXP NA_rmSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type mat(matSEXP);
     Rcpp::traits::input_parameter< const Rcpp::IntegerVector& >::type target_columns(target_columnsSEXP);
     Rcpp::traits::input_parameter< const Rcpp::IntegerVector& >::type conditional_columns(conditional_columnsSEXP);
@@ -220,7 +204,6 @@ double CalcFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h);
 RcppExport SEXP _sdsfun_CalcFactorQ(SEXP ySEXP, SEXP hSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::NumericVector >::type y(ySEXP);
     Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type h(hSEXP);
     rcpp_result_gen = Rcpp::wrap(CalcFactorQ(y, h));
@@ -232,7 +215,6 @@ Rcpp::List GDFactorQ(Rcpp::NumericVector y, Rcpp::IntegerVector h);
 RcppExport SEXP _sdsfun_GDFactorQ(SEXP ySEXP, SEXP hSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::NumericVector >::type y(ySEXP);
     Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type h(hSEXP);
     rcpp_result_gen = Rcpp::wrap(GDFactorQ(y, h));
@@ -244,7 +226,6 @@ Rcpp::DataFrame MI_vec(arma::mat x, arma::mat W, std::string alternative, bool s
 RcppExport SEXP _sdsfun_MI_vec(SEXP xSEXP, SEXP WSEXP, SEXP alternativeSEXP, SEXP symmetrizeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::mat >::type x(xSEXP);
     Rcpp::traits::input_parameter< arma::mat >::type W(WSEXP);
     Rcpp::traits::input_parameter< std::string >::type alternative(alternativeSEXP);
@@ -258,7 +239,6 @@ arma::mat RcppHClustGeoMat(const arma::mat& D0, const arma::mat& D1, double alph
 RcppExport SEXP _sdsfun_RcppHClustGeoMat(SEXP D0SEXP, SEXP D1SEXP, SEXP alphaSEXP, SEXP scaleSEXP, SEXP wt_SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type D0(D0SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type D1(D1SEXP);
     Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
@@ -273,7 +253,6 @@ Rcpp::NumericVector RcppJenksBreaks(const Rcpp::NumericVector& x, int n_classes,
 RcppExport SEXP _sdsfun_RcppJenksBreaks(SEXP xSEXP, SEXP n_classesSEXP, SEXP is_sortedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type x(xSEXP);
     Rcpp::traits::input_parameter< int >::type n_classes(n_classesSEXP);
     Rcpp::traits::input_parameter< bool >::type is_sorted(is_sortedSEXP);
@@ -286,7 +265,6 @@ Rcpp::NumericVector LinearRegression(const Rcpp::NumericVector& y, const Rcpp::N
 RcppExport SEXP _sdsfun_LinearRegression(SEXP ySEXP, SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type y(ySEXP);
     Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type X(XSEXP);
     rcpp_result_gen = Rcpp::wrap(LinearRegression(y, X));
@@ -298,7 +276,6 @@ Rcpp::NumericVector LinearTrendRM(const Rcpp::NumericVector& y, const Rcpp::Nume
 RcppExport SEXP _sdsfun_LinearTrendRM(SEXP ySEXP, SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type y(ySEXP);
     Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type X(XSEXP);
     rcpp_result_gen = Rcpp::wrap(LinearTrendRM(y, X));
@@ -310,7 +287,6 @@ Rcpp::DataFrame PrintGlobalMoranI(Rcpp::DataFrame df);
 RcppExport SEXP _sdsfun_PrintGlobalMoranI(SEXP dfSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::DataFrame >::type df(dfSEXP);
     rcpp_result_gen = Rcpp::wrap(PrintGlobalMoranI(df));
     return rcpp_result_gen;
@@ -321,7 +297,6 @@ Rcpp::IntegerVector RcppUnique(Rcpp::IntegerVector x);
 RcppExport SEXP _sdsfun_RcppUnique(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type x(xSEXP);
     rcpp_result_gen = Rcpp::wrap(RcppUnique(x));
     return rcpp_result_gen;
@@ -332,7 +307,6 @@ double CalcSPADEPSD(Rcpp::NumericVector y, Rcpp::IntegerVector h, Rcpp::NumericM
 RcppExport SEXP _sdsfun_CalcSPADEPSD(SEXP ySEXP, SEXP hSEXP, SEXP wtSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::NumericVector >::type y(ySEXP);
     Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type h(hSEXP);
     Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type wt(wtSEXP);
@@ -345,7 +319,6 @@ double RcppSpatialVariance(Rcpp::NumericVector x, Rcpp::NumericMatrix wt);
 RcppExport SEXP _sdsfun_RcppSpatialVariance(SEXP xSEXP, SEXP wtSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::NumericVector >::type x(xSEXP);
     Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type wt(wtSEXP);
     rcpp_result_gen = Rcpp::wrap(RcppSpatialVariance(x, wt));
@@ -357,7 +330,6 @@ Rcpp::List Tbl2Mat(const Rcpp::NumericMatrix& coords, const Rcpp::NumericVector&
 RcppExport SEXP _sdsfun_Tbl2Mat(SEXP coordsSEXP, SEXP z_valuesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type coords(coordsSEXP);
     Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type z_values(z_valuesSEXP);
     rcpp_result_gen = Rcpp::wrap(Tbl2Mat(coords, z_values));

@@ -4,7 +4,7 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::IntegerVector sdDisc(const arma::vec& x, double n) {
   double mean_x = arma::mean(x);
   double std_x = arma::stddev(x);
@@ -20,7 +20,7 @@ Rcpp::IntegerVector sdDisc(const arma::vec& x, double n) {
   return result;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::IntegerVector equalDisc(const arma::vec& x, double n) {
   double min_x = arma::min(x);
   double max_x = arma::max(x);
@@ -36,7 +36,7 @@ Rcpp::IntegerVector equalDisc(const arma::vec& x, double n) {
   return result;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::IntegerVector geometricDisc(const arma::vec& x, double n) {
   double min_x = arma::min(x);
   double max_x = arma::max(x);
@@ -52,7 +52,7 @@ Rcpp::IntegerVector geometricDisc(const arma::vec& x, double n) {
   return result;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::IntegerVector quantileDisc(const arma::vec& x, double n) {
   arma::vec sorted_x = arma::sort(x);
   arma::vec quantiles(n + 1);
@@ -75,7 +75,7 @@ Rcpp::IntegerVector quantileDisc(const arma::vec& x, double n) {
   return result;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec breakpoint) {
   double min_x = x.min();
   double max_x = x.max();
@@ -113,7 +113,7 @@ Rcpp::IntegerVector manualDisc(const arma::vec& x, arma::vec breakpoint) {
   return result;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 arma::vec ArmaJenksBreaks(const arma::vec& inp_data, int n_classes,
                           bool is_sorted = false) {
 
@@ -173,7 +173,7 @@ arma::vec ArmaJenksBreaks(const arma::vec& inp_data, int n_classes,
   return kclass;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::IntegerVector naturalDisc(const arma::vec& x,
                                 int n, double sampleprob) {
   arma::vec data = x;  // Copy of input data
@@ -218,7 +218,7 @@ Rcpp::IntegerVector naturalDisc(const arma::vec& x,
   return result;
 }
 
-// [[Rcpp::export]]
+// [[Rcpp::export(rng = false)]]
 Rcpp::IntegerVector htDisc(const arma::vec& x, double thr = 0.4) {
   // Remove NA and non-finite values for break calculation
   arma::vec x_clean = x.elem(arma::find_finite(x));
