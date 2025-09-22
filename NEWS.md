@@ -1,5 +1,7 @@
 # sdsfun 0.8.1
 
+* Fix misclassification of matrix inputs as vectors in `cor_test()` (#58).
+
 * Fix a deprecation warning emitted by Armadillo (#55).
 
 # sdsfun 0.8.0
