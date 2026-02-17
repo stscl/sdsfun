@@ -1,0 +1,10 @@
+citHeader("To cite package sdsfun in publications, please use:")
+
+bibentry(
+  bibtype  = "Manual",
+  title    = "{sdsfun: Spatial Data Science Complementary Features}",
+  author   = "Wenbo Lyu",
+  year     = "2026",
+  note     = "R package version 0.9.0",
+  doi      = "10.32614/CRAN.package.sdsfun"
+)

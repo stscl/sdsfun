@@ -2,12 +2,12 @@ Package: sdsfun
 Title: Spatial Data Science Complementary Features
 Version: 0.9.0
 Authors@R: 
-    person(given = "Wenbo", family = "Lv",
+    person(given = "Wenbo", family = "Lyu",
            email = "lyu.geosocial@gmail.com", 
            role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0009-0002-6003-3800"))
 Description: Wrapping and supplementing commonly used functions in the R ecosystem related to spatial data science, 
-             while serving as a basis for other packages maintained by Wenbo Lv.
+             while serving as a basis for other packages maintained by Wenbo Lyu.
 License: GPL-3
 Encoding: UTF-8
 URL: https://stscl.github.io/sdsfun/, https://github.com/stscl/sdsfun
