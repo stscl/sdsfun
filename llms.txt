@@ -1,0 +1,112 @@
+# sdsfun
+
+**Spatial Data Science Complementary Features**
+
+## Installation
+
+- Install from [CRAN](https://CRAN.R-project.org/package=sdsfun) with:
+
+``` r
+install.packages("sdsfun")
+```
+
+- Install development binary version from
+  [R-universe](https://stscl.r-universe.dev/sdsfun) with:
+
+``` r
+install.packages('sdsfun',
+                 repos = c("https://stscl.r-universe.dev",
+                           "https://cloud.r-project.org"),
+                 dep = TRUE)
+```
+
+- Install development source version from
+  [GitHub](https://github.com/stscl/sdsfun) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("stscl/sdsfun", dep = TRUE)
+```
+
+# Package index
+
+## utility functions for sf object
+
+- [`sf_geometry_name()`](https://stscl.github.io/sdsfun/reference/sf_geometry_name.md)
+  : sf object geometry column name
+- [`sf_geometry_type()`](https://stscl.github.io/sdsfun/reference/sf_geometry_type.md)
+  : sf object geometry type
+- [`sf_voronoi_diagram()`](https://stscl.github.io/sdsfun/reference/sf_voronoi_diagram.md)
+  : generates voronoi diagram
+- [`sf_coordinates()`](https://stscl.github.io/sdsfun/reference/sf_coordinates.md)
+  : extract locations
+- [`sf_distance_matrix()`](https://stscl.github.io/sdsfun/reference/sf_distance_matrix.md)
+  : generates distance matrix
+
+## utility functions for spdep package
+
+- [`spdep_nb()`](https://stscl.github.io/sdsfun/reference/spdep_nb.md) :
+  construct neighbours list
+- [`spdep_contiguity_swm()`](https://stscl.github.io/sdsfun/reference/spdep_contiguity_swm.md)
+  : constructs spatial weight matrices based on contiguity
+- [`spdep_distance_swm()`](https://stscl.github.io/sdsfun/reference/spdep_distance_swm.md)
+  : constructs spatial weight matrices based on distance
+- [`spdep_skater()`](https://stscl.github.io/sdsfun/reference/spdep_skater.md)
+  : spatial c(k)luster analysis by tree edge removal
+- [`spdep_lmtest()`](https://stscl.github.io/sdsfun/reference/spdep_lmtest.md)
+  : spatial linear models selection
+
+## utility functions for spatial data science
+
+- [`moran_test()`](https://stscl.github.io/sdsfun/reference/moran_test.md)
+  : global spatial autocorrelation test
+- [`ssh_test()`](https://stscl.github.io/sdsfun/reference/ssh_test.md) :
+  spatial stratified heterogeneity test
+- [`inverse_distance_swm()`](https://stscl.github.io/sdsfun/reference/inverse_distance_swm.md)
+  : construct inverse distance weight
+- [`hclustgeo_disc()`](https://stscl.github.io/sdsfun/reference/hclustgeo_disc.md)
+  : hierarchical clustering with spatial soft constraints
+- [`geodetector_q()`](https://stscl.github.io/sdsfun/reference/geodetector_q.md)
+  : only geodetector q-value
+- [`spvar()`](https://stscl.github.io/sdsfun/reference/spvar.md) :
+  spatial variance
+- [`spade_psd()`](https://stscl.github.io/sdsfun/reference/spade_psd.md)
+  : only spade power of spatial determinant
+- [`fuzzyoverlay()`](https://stscl.github.io/sdsfun/reference/fuzzyoverlay.md)
+  : spatial fuzzy overlay
+- [`loess_optnum()`](https://stscl.github.io/sdsfun/reference/loess_optnum.md)
+  : determine optimal spatial data discretization for individual
+  variables
+- [`sf_utm_proj_wgs84()`](https://stscl.github.io/sdsfun/reference/sf_utm_proj_wgs84.md)
+  : generates wgs84 utm projection epsg coding character
+- [`sf_gk_proj_cgcs2000()`](https://stscl.github.io/sdsfun/reference/sf_gk_proj_cgcs2000.md)
+  : generates cgcs2000 Gauss-Kruger projection epsg coding character
+- [`tbl_xyz2mat()`](https://stscl.github.io/sdsfun/reference/tbl_xyz2mat.md)
+  : convert xyz tbl to matrix
+
+## utility functions for data science
+
+- [`cor_test()`](https://stscl.github.io/sdsfun/reference/cor_test.md) :
+  (partial) correlation test
+- [`dummy_vec()`](https://stscl.github.io/sdsfun/reference/dummy_vec.md)
+  : transforming a categorical variable into dummy variables
+- [`dummy_tbl()`](https://stscl.github.io/sdsfun/reference/dummy_tbl.md)
+  : transforming a category tibble into the corresponding dummy variable
+  tibble
+- [`discretize_vector()`](https://stscl.github.io/sdsfun/reference/discretize_vector.md)
+  : discretization
+- [`normalize_vector()`](https://stscl.github.io/sdsfun/reference/normalize_vector.md)
+  : normalization
+- [`standardize_vector()`](https://stscl.github.io/sdsfun/reference/standardize_vector.md)
+  : standardization
+- [`rm_lineartrend()`](https://stscl.github.io/sdsfun/reference/rm_lineartrend.md)
+  : remove variable linear trend based on covariate
+- [`generate_subsets()`](https://stscl.github.io/sdsfun/reference/generate_subsets.md)
+  : generate subsets of a set
+- [`formula_varname()`](https://stscl.github.io/sdsfun/reference/formula_varname.md)
+  : get variable names in a formula and data
+- [`check_tbl_na()`](https://stscl.github.io/sdsfun/reference/check_tbl_na.md)
+  : check for NA values in a tibble
+- [`tbl_all2int()`](https://stscl.github.io/sdsfun/reference/tbl_all2int.md)
+  : convert discrete variables in a tibble to integers
+
