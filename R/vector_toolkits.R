@@ -54,7 +54,7 @@ normalize_vector = \(x,to_left = 0,to_right = 1){
 #'
 generate_subsets = \(set,empty = TRUE,self = TRUE) {
   n = length(set)
-  subsets = list(c())
+  subsets = list()
   for (i in seq(set)) {
     subsets = c(subsets, utils::combn(set, i, simplify = FALSE))
   }
