@@ -21,9 +21,9 @@ spvar = \(x,wt,method = c("cpp","r")){
   if (method == "cpp"){
     gammav = RcppSpatialVariance(x,wt)
   } else {
-    dn = data.frame(x,x) %>%
+    dn = data.frame(x,x) |>
       stats::dist() %>%
-      {.^2/4} %>%
+      {.^2/4} |>
       as.matrix()
     gammav = sum(dn * wt) / sum(wt)
   }

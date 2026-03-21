@@ -40,13 +40,13 @@ moran_test = \(sfj,
     stop("Invalid input: `alternative` must be either `greater`, `less`, or `two.sided`")
   }
 
-  dmat = sfj %>%
-    sf::st_drop_geometry() %>%
-    dplyr::select(dplyr::where(is.numeric)) %>%
+  dmat = sfj |>
+    sf::st_drop_geometry() |>
+    dplyr::select(dplyr::where(is.numeric)) |>
     as.matrix()
   mitres = MI_vec(dmat, wt, alternative, symmetrize)
-  mitres = tibble::as_tibble(mitres) %>%
-    dplyr::mutate(Variable = colnames(dmat)) %>%
+  mitres = tibble::as_tibble(mitres) |>
+    dplyr::mutate(Variable = colnames(dmat)) |>
     dplyr::select(dplyr::all_of("Variable"),
                   dplyr::everything())
   res = list(result = mitres)

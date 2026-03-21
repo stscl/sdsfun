@@ -30,9 +30,9 @@ fuzzyoverlay = \(formula, data, method = "and"){
   formulavars = formula_varname(formula, data)
   y = data[, formulavars[[1]], drop = TRUE]
   xs = data[, formulavars[[2]]]
-  xs = xs %>%
+  xs = xs |> 
     dplyr::mutate(dplyr::across(dplyr::where(is.factor),
-                                as.character)) %>%
+                                as.character)) |>
     purrr::map2_dfc(colnames(xs),
                     \(.x,.y) paste(.y,.x,sep = "_"))
   meanrisk = purrr::map(xs, \(.x) tapply(y,.x,mean))
@@ -41,8 +41,8 @@ fuzzyoverlay = \(formula, data, method = "and"){
   xsfn = dplyr::mutate(xs, dplyr::across(dplyr::everything(),
                                    \(.x) return(fuzzynum[.x])))
   fuzzyindice = apply(xsfn, 1, fuzzyf)
-  fuzzyzone = xs %>%
-    split(seq_len(nrow(xs))) %>%
+  fuzzyzone = xs |>
+    split(seq_len(nrow(xs))) |>
     purrr::map2_chr(fuzzyindice,
                    \(.tdf,.indice) .tdf[1,.indice,drop = TRUE])
   return(fuzzyzone)
