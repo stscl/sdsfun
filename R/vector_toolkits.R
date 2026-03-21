@@ -58,8 +58,7 @@ generate_subsets = \(set,empty = TRUE,self = TRUE) {
   for (i in seq(set)) {
     subsets = c(subsets, utils::combn(set, i, simplify = FALSE))
   }
-  if (!empty) {subsets = subsets[-1]}
-  if (!self & empty) {subsets = subsets[-2^n]}
-  if (!self & !empty) {subsets = subsets[-(2^n-1)]}
+  if (!self) subsets = subsets[-length(subsets)]
+  if (empty) subsets = c(list(NULL), subsets)
   return(subsets)
 }
