@@ -49,7 +49,7 @@
     suppressWarnings({sfj = sf::st_centroid(sfj)})
   }
 
-  coords = sfj %>%
+  coords = sfj |>
     sf::st_coordinates() %>%
     {.[,c('X','Y')]}
 
@@ -103,7 +103,7 @@
     suppressWarnings({sfj = sf::st_centroid(sfj)})
   }
 
-  coords = sfj %>%
+  coords = sfj |>
     sf::st_coordinates() %>%
     {.[,c('X','Y')]}
 
@@ -167,7 +167,7 @@
     suppressWarnings({sfj = sf::st_centroid(sfj)})
   }
 
-  coords = sfj %>%
+  coords = sfj |>
     sf::st_coordinates() %>%
     {.[,c('X','Y')]}
 
@@ -225,7 +225,7 @@ inverse_distance_swm = \(sfj,
     suppressWarnings({sfj = sf::st_centroid(sfj)})
   }
 
-  coords = sfj %>%
+  coords = sfj |>
     sf::st_coordinates() %>%
     {.[,c('X','Y')]}
 
