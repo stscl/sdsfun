@@ -42,7 +42,7 @@ fuzzyoverlay = \(formula, data, method = "and"){
                                    \(.x) return(fuzzynum[.x])))
   fuzzyindice = apply(xsfn, 1, fuzzyf)
   fuzzyzone = xs %>%
-    split(seq(nrow(xs))) %>%
+    split(seq_len(nrow(xs))) %>%
     purrr::map2_chr(fuzzyindice,
                    \(.tdf,.indice) .tdf[1,.indice,drop = TRUE])
   return(fuzzyzone)
