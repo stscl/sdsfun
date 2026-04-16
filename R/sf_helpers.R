@@ -30,9 +30,9 @@ sf_geometry_name = \(sfj){
 #' sf_geometry_type(gzma)
 #'
 sf_geometry_type = \(sfj){
-  sfj_type = sfj %>%
-    sf::st_geometry_type() %>%
-    as.character() %>%
+  sfj_type = sfj |>
+    sf::st_geometry_type() |>
+    as.character() |>
     unique()
   return(tolower(sfj_type))
 }
@@ -70,13 +70,13 @@ sf_voronoi_diagram = \(sfj){
   }
 
   suppressWarnings({
-   sfj_voronoi = sfj %>%
-     sf::st_geometry() %>%
-     sf::st_union() %>%
-     sf::st_voronoi() %>%
+   sfj_voronoi = sfj |>
+     sf::st_geometry() |>
+     sf::st_union() |>
+     sf::st_voronoi() |>
      sf::st_collection_extract() %>%
-     sf::st_sf(geometry = .) %>%
-     tibble::as_tibble() %>%
+     sf::st_sf(geometry = .) |>
+     tibble::as_tibble() |>
      sf::st_as_sf()
    })
 
@@ -105,7 +105,7 @@ sf_coordinates = \(sfj){
     suppressWarnings({sfj = sf::st_centroid(sfj)})
   }
 
-  coords = sfj %>%
+  coords = sfj |>
     sf::st_coordinates() %>%
     {.[,c('X','Y'),drop = FALSE]}
 
