@@ -1,3 +1,3 @@
-.onLoad = function(...) {
-  loadNamespace("Rcpp")
+.onLoad = \(...) {
+  requireNamespace("Rcpp", quietly = TRUE)
 }
