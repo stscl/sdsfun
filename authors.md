@@ -11,7 +11,7 @@ Source:
 [`inst/CITATION`](https://github.com/stscl/sdsfun/blob/main/inst/CITATION)
 
 Lyu W (2026). *sdsfun: Spatial Data Science Complementary Features*.
-[doi:10.32614/CRAN.package.sdsfun](https://doi.org/10.32614/CRAN.package.sdsfun),
+[doi:10.32614/CRAN.package.sdsfun](https://doi.org/10.32614/CRAN.package.sdsfun).
 R package version 0.9.0.
 
     @Manual{,
